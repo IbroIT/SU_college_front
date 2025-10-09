@@ -1,0 +1,18 @@
+/* DirectorMessage.css */
+.director-message {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Плавные анимации */
+.director-message * {
+  transition: all 0.3s ease;
+}
+
+/* Кастомные стили для списка */
+.director-message ul li {
+  transition: transform 0.2s ease;
+}
+
+.director-message ul li:hover {
+  transform: translateX(5px);
+}

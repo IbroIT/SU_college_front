@@ -1,0 +1,35 @@
+/* AdmissionCommittee.css */
+.admission-committee {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Анимации для плавающих элементов */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Кастомные стили для градиентов */
+.gradient-text {
+  background: linear-gradient(135deg, #1e40af, #3730a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Плавные переходы */
+.admission-committee * {
+  transition: all 0.3s ease;
+}
+
+/* Стили для карточек с тенями */
+.card-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
