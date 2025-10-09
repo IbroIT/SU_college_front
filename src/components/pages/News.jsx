@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import './NewsPage.css';
+import fallbackImage from '../../assets/images.png';
 
 const NewsPage = () => {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ const NewsPage = () => {
       id: 1,
       title: "news.featured.1.title",
       excerpt: "news.featured.1.excerpt",
-      image: "/images/news/featured-1.jpg",
+      image: "/images(1).png",
       date: "2024-01-15",
       category: "news.categories.events"
     },
@@ -142,7 +143,7 @@ const NewsPage = () => {
                   <div key={item.id} className="w-full flex-shrink-0">
                     <div className="relative h-96 md:h-[500px]">
                       <img 
-                        src={item.image} 
+                        src={fallbackImage}
                         alt={t(item.title)}
                         className="w-full h-full object-cover"
                       />
@@ -208,7 +209,7 @@ const NewsPage = () => {
               >
                 <div className="relative h-48">
                   <img 
-                    src={newsItem.image} 
+                    src={fallbackImage} 
                     alt={t(newsItem.title)}
                     className="w-full h-full object-cover"
                   />
