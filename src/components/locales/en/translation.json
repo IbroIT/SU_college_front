@@ -1,82 +1,2605 @@
-{  "nav": {
-    "advices": "Councils",
-    "status": "Status",
-    "home": "Home",
-    "about": "University",
-    "HSM": "Higher School of Medicine",
-    "founders": "Founders",
-    "structure": "Structure",
-    "cmk": "QMS",
-    "eresources": "E-Resources",
-    "acadop": "Academic Opportunities",
-    "socop": "Social Opportunities",
-    "committee": "Admission Committee",
-    "courses": "Programs of Study",
-    "procedure": "Admission Procedure",
-    "payments": "Payments",
-    "audience": "Lecture Rooms",
-    "startups": "Startups",
-    "achievements": "Achievements",
-    "admission": "For Applicants",
-    "research": "Research",
-    "campus_life": "Students",
+{
+   "nav": {
+    "about_college": "About the College",
+    "salymbekov_university": "Salymbekov University",
+    "director_letter": "Director's Letter",
+    "teachers": "Teachers",
     "news": "News",
-    "contacts": "Contacts",
-    "apply": "Apply",
-    "faq": "FAQ",
-    "about_university": "About the University",
-    "management": "Management",
-    "documents": "Documents",
-    "vacancies": "Vacancies",
-    "partners": "Partners",
+    "our_partners": "Our Partners",
+    "applicant": "For Applicants",
+    "admission_committee": "Admission Committee",
     "programs": "Programs",
-    "eduprograms": "Educational Programs",
-    "faculties": "Faculties",
-    "academic_stuff": "Academic Staff",
-    "departments": "Departments",
-    "calendar": "Academic Calendar",
-    "resources": "Resources",
-    "admission_process": "Admission Process",
-    "requirements": "Requirements",
-    "tuition": "Tuition Fees",
-    "scholarships": "Scholarships",
-    "apply_online": "Online Application",
-    "research_areas": "Research Areas",
-    "research_centers": "Research Centers",
-    "publications": "Publications",
-    "conferences": "Conferences",
-    "grants": "Grants",
-    "student_life": "Student Life",
-    "events": "Events",
-    "clubs": "Student Clubs",
-    "gallery": "Gallery",
-    "international": "For International Students",
-    "all_news": "All News",
-    "announcements": "Announcements",
-    "articles": "Articles",
-    "admission_office": "Admission Office",
-    "map": "Campus Map",
-    "feedback": "Feedback",
-    "mission": "History & Mission",
-    "regulations": "Regulations",
-    "about_HSM": "About HSM",
-    "faculty": "Faculty",
-    "accreditation": "Accreditation",
-    "learning_goals": "Learning Goals",
-    "for_applicants": "For Applicants",
-    "for_citizens_kg": "For Citizens of the Kyrgyz Republic",
-    "for_foreign_citizens": "For Foreign Citizens",
-    "infrastructure": "Infrastructure",
-    "hospitals": "Hospitals",
-    "laboratories": "Laboratories",
-    "academic_buildings": "Academic Buildings",
-    "dormitories": "Dormitories",
-    "management_body": "Governing Body",
-    "scientific_journals": "Scientific Journals",
+    "computer_science": "Computer Science",
+    "multimedia_programs": "Multimedia Programs",
+    "mobile_applications": "Mobile Applications",
+    "webdev": "Web Development",
+    "admission_rules": "Admission Rules and Plan",
+    "required_documents": "Required Documents",
+    "selection_schedule": "Selection Schedule",
+    "tuition_fees": "Tuition Fees",
     "student": "For Students",
-    "internships": "Internships",
-    "academic_mobility": "Academic Mobility",
-    "instructions": "Instructions & Regulations",
-    "appeal_form": "Appeal Form",
-    "media": "Media about us"
-  }}
+    "student_projects": "Student Projects",
+    "info_system": "Information System",
+    "student_communities": "Student Communities",
+    "student_council": "Student Council",
+    "debate_club": "Debate Club",
+    "creative_groups": "Creative Groups and Clubs",
+    "report_2024": "Report with Charts 2024",
+    "electronic_resources": "Electronic Resources",
+    "instructions": "Instructions and Regulations",
+    "educational_resources": "Educational Resources",
+    "schedules": "Schedules and Timetables",
+    "modules_exams": "Modules and Exams Schedule",
+    "college_schedule": "College Timetable",
+    "academic_calendar": "Academic Calendar",
+    "documents": "Documents",
+    "curriculum": "Curriculum",
+    "multimedia_computing": "Multimedia Computing",
+    "license": "License",
+    "international_accreditation": "International Institutional Accreditation",
+    "program_accreditation": "Program Accreditation",
+    "contacts": "Contacts",
+    "faq": "FAQ",
+    "vacancies": "Vacancies"
+  },
+  "about": {
+    "title": "International College of IT and Business",
+    "subtitle": "Strategic alliance of three leading universities for training world-class IT specialists",
+    "description1": "Salymbekov University, Lincoln University (Malaysia) and INTI University (Malaysia) have joined forces to create a unique educational platform combining the best international practices in IT education.",
+    "description2": "The International College of Information Technology and Business offers modern educational programs developed considering the requirements of the global IT market and implemented in Russian and English languages.",
+    "description3": "Graduates receive two diplomas - national and international standard, achieve English proficiency level corresponding to TOEFL/IELTS standards, and study under leading specialists from three partner countries.",
+    "partnership": {
+      "title": "Partner Universities"
+    },
+    "universities": {
+      "salymbekov": "Salymbekov University",
+      "lincoln": "Lincoln University",
+      "inti": "INTI University",
+      "kyrgyzstan": "Kyrgyzstan",
+      "usa": "United States",
+      "malaysia": "Malaysia"
+    },
+    "features": {
+      "title": "Key Advantages",
+      "subtitle": "Comprehensive approach to education combining technical knowledge and business competencies",
+      "doubleDegree": {
+        "title": "Double Degree",
+        "description": "National and international diplomas recognized worldwide"
+      },
+      "international": {
+        "title": "International Standards",
+        "description": "Educational programs meet global requirements"
+      },
+      "businessIt": {
+        "title": "IT and Business",
+        "description": "Integration of technical and managerial competencies"
+      },
+      "languages": {
+        "title": "Bilingual Education",
+        "description": "Programs in Russian and English languages"
+      }
+    },
+    "stats": {
+      "universities": "Partner Universities",
+      "diplomas": "Diplomas",
+      "english": "Language Certificates",
+      "employment": "Career Readiness"
+    },
+    "cta": {
+      "title": "Start Your Career in International IT Industry",
+      "description": "Get world-class education and become a sought-after specialist on the global market",
+      "button": "Apply for Admission"
+    }
+  },
+  "banner": {
+    "readMore": "Learn More",
+    "slides": [
+      {
+        "title": "Artificial Intelligence in Education: New Horizons",
+        "description": "Discover innovative approaches to learning using modern artificial intelligence technologies at our university.",
+        "date": "December 15, 2024",
+        "category": "Technology"
+      },
+      {
+        "title": "Web Development Hackathon 2024",
+        "description": "Participate in the largest IT competition of the year and demonstrate your programming skills.",
+        "date": "December 20-22, 2024",
+        "category": "Events"
+      },
+      {
+        "title": "New Research Laboratories",
+        "description": "Opening of modern laboratories equipped with advanced equipment for research in computer science.",
+        "date": "January 10, 2025",
+        "category": "Development"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Campus Gallery",
+    "subtitle": "Explore the modern infrastructure and atmosphere of our international IT college",
+    "photos": {
+      "campus": "University Campus",
+      "labs": "Modern Computer Labs",
+      "students": "Learning Process",
+      "classrooms": "Interactive Classrooms",
+      "events": "International Events",
+      "graduation": "Graduation Ceremonies"
+    },
+    "stats": {
+      "photos": "Photos",
+      "virtual": "Virtual Tour",
+      "quality": "Shooting Quality"
+    }
+  },
+  "newsLayout": {
+    "title": "News and Events",
+    "description": "Current news, events and achievements of IT University",
+    "latestNews": "Latest News",
+    "viewAll": "All News →",
+    "readMore": "Read More",
+    "read": "Read",
+    "new": "NEW",
+    "totalNews": "Total News: {{count}}",
+    "newNews": "new",
+    "imagePlaceholder": "Main Image",
+    "featuredNews": [
+      {
+        "title": "Artificial Intelligence in Education: New Horizons",
+        "description": "Implementing advanced AI technologies to create personalized educational environment and adaptive learning.",
+        "date": "December 15, 2024",
+        "category": "Technology",
+        "author": "Anna Petrova"
+      },
+      {
+        "title": "International Web Development Hackathon 2024",
+        "description": "Largest IT competition of the year with prizes from leading tech companies and employment opportunities.",
+        "date": "December 20-22, 2024",
+        "category": "Events",
+        "author": "Ivan Sidorov"
+      },
+      {
+        "title": "Opening of New Research Laboratories",
+        "description": "Modern laboratories with advanced equipment for research in computer science.",
+        "date": "January 10, 2025",
+        "category": "Development",
+        "author": "Maria Ivanova"
+      }
+    ],
+    "newsList": [
+      {
+        "title": "Partnership with Leading IT Companies",
+        "excerpt": "Strategic agreements signed with IT industry leaders for student internships.",
+        "date": "December 12, 2024",
+        "category": "Cooperation",
+        "readTime": "3 min"
+      },
+      {
+        "title": "Launch of New Cybersecurity Program",
+        "excerpt": "Opening master's program in cybersecurity with industry experts involvement.",
+        "date": "December 10, 2024",
+        "category": "Education",
+        "readTime": "4 min"
+      },
+      {
+        "title": "Students Won International Competition",
+        "excerpt": "Our students took first place in machine learning competition in Europe.",
+        "date": "December 8, 2024",
+        "category": "Achievements",
+        "readTime": "2 min"
+      },
+      {
+        "title": "Curriculum Updates",
+        "excerpt": "Implementing new courses on blockchain and Web3 technologies in study plans.",
+        "date": "December 5, 2024",
+        "category": "Education",
+        "readTime": "5 min"
+      },
+      {
+        "title": "Data Science Scientific Conference",
+        "excerpt": "Invitation to annual conference with international experts participation.",
+        "date": "December 1, 2024",
+        "category": "Events",
+        "readTime": "3 min"
+      }
+    ]
+  },
+  "footer": {
+    "collegeName": "International College of IT and Business",
+    "mission": "Salymbekov College aims for quality education",
+    "contactUs": "Contact Us",
+    "about": {
+      "title": "About Us",
+      "description": "Salymbekov College aims for quality education. We prepare world-class specialists in IT and business."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "question": "What programs do you offer?"
+        },
+        {
+          "question": "How to apply for admission?"
+        },
+        {
+          "question": "What are the tuition fees?"
+        }
+      ]
+    },
+    "copyright": "© 2025 Salymbekov College. All rights reserved."
+  },
+  "applicantBanner": {
+    "title": "Applicant-2025!",
+    "subtitle": "Document submission is open",
+    "description": "Welcome to the international IT college! Start your journey to a successful career in information technology.",
+    "quality": "Choosing us means choosing the best education quality! International standards, modern programs and two diplomas.",
+    "button": "Applicant Online",
+    "footer": "Start your admission right now"
+  },
+  "newsWithSlider": {
+    "title": "News and Events",
+    "description": "All the most important and fresh news of our IT university",
+    "allNews": "All News",
+    "readMore": "Read More",
+    "loadMore": "More News",
+    "new": "NEW",
+    "featured": "featured",
+    "imagePlaceholder": "News Image",
+    "news": [
+      {
+        "title": "Artificial Intelligence in Education: Revolutionary Approach",
+        "description": "Our university implements advanced artificial intelligence technologies to create personalized educational environment. New adaptive learning algorithms will help each student achieve maximum results in mastering programming and computer science.",
+        "excerpt": "Implementing AI for personalized student learning",
+        "date": "Dec 15, 2024",
+        "category": "Technology",
+        "author": "Anna Petrova",
+        "readTime": "5 min"
+      },
+      {
+        "title": "International Web Development Hackathon 2024",
+        "description": "Largest IT competition of the year will gather over 500 participants from around the world. Prizes from leading tech companies and employment opportunities for winners in web development, mobile applications and artificial intelligence categories.",
+        "excerpt": "500+ participants, prizes from IT industry leaders",
+        "date": "Dec 20-22, 2024",
+        "category": "Events",
+        "author": "Ivan Sidorov",
+        "readTime": "4 min"
+      },
+      {
+        "title": "Opening of New Research Laboratories",
+        "description": "50 million rubles investments enabled creation of modern laboratories equipped with advanced equipment for research in machine learning, cybersecurity and big data analysis.",
+        "excerpt": "50 million rubles investments in modern laboratories",
+        "date": "Jan 10, 2025",
+        "category": "Development",
+        "author": "Maria Ivanova",
+        "readTime": "6 min"
+      },
+      {
+        "title": "Partnership with Leading IT Companies",
+        "description": "Strategic agreements signed with IT industry leaders. Students will get access to internships and real projects during their studies.",
+        "excerpt": "Cooperation with IT market leaders",
+        "date": "Dec 12, 2024",
+        "category": "Cooperation",
+        "author": "Alexey Kozlov",
+        "readTime": "3 min"
+      },
+      {
+        "title": "New Cybersecurity Program",
+        "description": "Launching master's program in cybersecurity with involvement of experts from leading industry companies.",
+        "excerpt": "Cybersecurity master's program with experts",
+        "date": "Dec 8, 2024",
+        "category": "Education",
+        "author": "Sergey Novikov",
+        "readTime": "4 min"
+      },
+      {
+        "title": "Students Won European Competition",
+        "description": "Our student team took first place in international machine learning competition in Berlin.",
+        "excerpt": "First place in machine learning competition",
+        "date": "Dec 5, 2024",
+        "category": "Achievements",
+        "author": "Elena Smirnova",
+        "readTime": "2 min"
+      }
+    ]
+  },
+  "collegeDirector": {
+    "badge": "Director's Address",
+    "title": "Welcome to International College of IT and Business",
+    "subtitle": "Innovative education for future IT and business leaders",
+    "directorName": "Zhunushalieva Nurzat Manasovna",
+    "directorPosition": "Director of International College of IT and Business",
+    "welcomeShort": "Welcome to our new college!",
+    "welcome": "Welcome to our new college, International College of IT and Business!",
+    "transition": "Transition is never easy, whether it's school, college, university or any other practical stage of life.",
+    "understanding": "As a teacher and parent, I understand that these years are very exciting times when children enter new life channels, explore themselves, their talents and their profession.",
+    "principles": {
+      "practicality": {
+        "title": "Practicality",
+        "description": "I believe in practicality, not in cramming"
+      },
+      "people": {
+        "title": "People",
+        "description": "I believe in people, not in machines"
+      },
+      "learning": {
+        "title": "Learning",
+        "description": "I believe in learning, not in grades"
+      }
+    },
+    "program": {
+      "title": "Unique Program",
+      "description": "Our college trains IT specialists under unique program in cooperation with Lincoln University Malaysia. Special attention is paid to in-depth English language study.",
+      "doubleDiploma": "DOUBLE DIPLOMA: KYRGYZ AND INTERNATIONAL STANDARD"
+    },
+    "teamwork": {
+      "title": "We are a team",
+      "description": "It's a great honor for me to be part of this team. We are family. We need to work as one team. Either it's us, or nobody. It's all for one and one for all."
+    },
+    "communication": {
+      "title": "Open Communication",
+      "description": "If you have ideas, tips or problems, then please come and discuss. Communication is key to any successful relationships. Please don't hesitate to come up with new ideas and methods."
+    },
+    "priority": {
+      "title": "Our Priority",
+      "description": "First of all, we are a team. We should do everything as family. We want safe future for OUR children. OUR children are OUR priority. We will make impossible possible. We will see invisible together. Welcome to our college!"
+    },
+    "sincerely": "Sincerely",
+    "contact": {
+      "title": "Contact Me",
+      "description": "Always happy to answer your questions and discuss ideas"
+    },
+    "features": {
+      "title": "College Features",
+      "international": "International Partnership",
+      "itPrograms": "IT Specializations",
+      "businessPrograms": "Business Programs",
+      "doubleDiploma": "Double Diploma"
+    },
+    "stats": {
+      "diplomas": "Diplomas",
+      "english": "English Language",
+      "specialties": "IT Directions",
+      "partner": "Partner from Malaysia"
+    }
+  },
+  "teachers": {
+    "about": "About the Teacher",
+  "more": "More",
+  "partialError": "Some data could not be loaded:",
+  "stats": {
+    "experts": "Experts",
+    "experience": "Years of experience",
+    "students": "Students trained",
+    "rating": "Average rating"
+  },
+  "modal": {
+    "title": "Teacher Profile",
+    "about": "About the Teacher",
+    "achievements": "Achievements and Awards",
+    "education": "Education",
+    "method": "Teaching Methodology",
+    "additional": "Additional Information",
+    "close": "Close"
+  },
+  "loading": "Loading teachers...",
+  "error": {
+    "title": "Loading Error",
+    "text": "An error occurred: {{error}}",
+    "retry": "Try Again"
+  },
+  "empty": {
+    "title": "No Teachers Found",
+    "subtitle": "Information about teachers will be added soon"
+  },
+  "badge": "Teachers",
+  "title": "Our Teachers",
+  "subtitle": "Professionals with years of experience in the IT industry and modern teaching approaches",
+  "cta": {
+    "title": "Join Our Team",
+    "description": "Become part of a community of professionals and start your IT journey with the best teachers",
+    "button": "Enroll in a Course"
+  }
+}
+,
+  "news": {
+    "share": "Share",
+  "close": "Close",
+  "news": "News",
+  "loadError": "Failed to load news",
+  "tryAgain": "Try Again",
+  "linkCopied": "Link copied to clipboard",
+
+    "title": "News and Events",
+    "subtitle": "Stay updated with the latest events of our university",
+    "featuredTitle": "Main News",
+    "allNews": "All News",
+    "readMore": "Learn More",
+    "backToNews": "Back to News",
+    "author": "Press Service",
+    "categories": {
+      "events": "Events",
+      "academic": "Academic",
+      "achievements": "Achievements"
+    },
+    "featured": {
+      "1": {
+        "title": "Opening of New IT Building",
+        "excerpt": "We are pleased to announce the opening of a new modern building equipped with advanced technologies for training future IT specialists."
+      },
+      "2": {
+        "title": "Partnership with Lincoln University",
+        "excerpt": "Signing double diploma agreement with Lincoln University Malaysia opens new opportunities for our students."
+      },
+      "3": {
+        "title": "Students Won Hackathon",
+        "excerpt": "Our team took first place in international mobile application development hackathon."
+      }
+    },
+    "items": {
+      "1": {
+        "title": "New Study Programs",
+        "excerpt": "Introducing new specializations in artificial intelligence and cybersecurity."
+      },
+      "2": {
+        "title": "Open Day",
+        "excerpt": "Inviting applicants and parents to open day on January 25."
+      },
+      "3": {
+        "title": "Scholarships for Gifted",
+        "excerpt": "Announcing competition for scholarships for talented students."
+      },
+      "4": {
+        "title": "Master Class from Google",
+        "excerpt": "Google experts will conduct series of master classes on mobile development."
+      },
+      "5": {
+        "title": "IT Conference 2024",
+        "excerpt": "Preparing for annual international IT conference with leading specialists participation."
+      },
+      "6": {
+        "title": "Laboratory Updates",
+        "excerpt": "Completed modernization of computer laboratories with new equipment."
+      }
+    },
+    "full": {
+      "1": {
+        "content": "We are pleased to announce the opening of a new modern building equipped with advanced technologies for training future IT specialists. The new building includes:\n\n• 10 modern computer classes\n• Virtual reality laboratories\n• Coworking zones for project work\n• Conference hall for 200 people\n\nThe building infrastructure allows conducting education according to international standards. Students will get access to the most modern equipment and software."
+      },
+      "2": {
+        "content": "Signing double diploma agreement with Lincoln University Malaysia opens new opportunities for our students. Within the partnership:\n\n• Students can get two diplomas simultaneously\n• Student and teacher exchange\n• Joint research projects\n• Credit recognition between universities\n\nThis partnership strengthens our international connections and provides students with unique opportunities for global education."
+      },
+      "3": {
+        "content": "Our team took first place in international mobile application development hackathon. The winning project - smart city management application that includes:\n\n• Transport monitoring system\n• Smart energy consumption management\n• Platform for civil initiatives\n\nStudents showed outstanding skills in programming, design and engineering. This achievement confirms high quality of our education."
+      },
+      "4": {
+        "content": "Introducing new specializations in artificial intelligence and cybersecurity. New programs include:\n\n• Machine learning and data analysis\n• Information systems protection\n• Ethical hacking\n• Neural networks and deep learning\n\nPrograms are developed considering requirements of modern IT market and include practical classes with real cases."
+      },
+      "5": {
+        "content": "Inviting applicants and parents to open day on January 25. Program includes:\n\n• Meeting teachers\n• Campus tour\n• Student master classes\n• Admission consultations\n• Educational programs presentation\n\nThis is great opportunity to learn more about our college and ask all interested questions."
+      },
+      "6": {
+        "content": "Announcing competition for scholarships for talented students. Scholarships cover:\n\n• 100% tuition for 5 students\n• 50% tuition for 10 students\n• 25% tuition for 20 students\n\nTo participate, submit application by February 1 and pass competitive selection including testing and interview."
+      }
+    }
+  },
+  "admission": {
+    "title": "Admission Committee",
+    "subtitle": "Your path to successful IT education starts here",
+    "contactTitle": "Contact Information",
+    "welcomeTitle": "Dear Applicants!",
+    "callNow": "Call Now",
+    "chat": "Chat",
+    "location": "Our Location",
+    "interactiveMap": "Interactive Map",
+    "address": {
+      "title": "Address",
+      "content": "Maldybaeva st., 24b / Akhunbaeva, 125"
+    },
+    "phones": {
+      "title": "Phones",
+      "primary": "+996 778 99 88 89",
+      "secondary": "+996 706 99 88 89"
+    },
+    "email": {
+      "title": "Email",
+      "content": "info@salymbekov.com"
+    },
+    "welcomeMessage": {
+      "p1": "Salymbekov University is pleased to welcome you in the new academic year and happily opens its doors for you. The university is a modern innovative educational institution.",
+      "p2": "Founded in 2019, as continuation of educational activities of Askar Salymbekov Foundation, Salymbekov university has all resources for training qualified specialists.",
+      "p3": "The university pays great attention to extracurricular activities of students. Students actively participate in ENACTUS project, IT events and Business school trainings.",
+      "p4": "Welcome to Salymbekov University!"
+    },
+    "features": {
+      "innovative": {
+        "title": "Innovation",
+        "description": "Modern educational institution with advanced learning technologies"
+      },
+      "foundation": {
+        "title": "Foundation",
+        "description": "Founded in 2019 with rich educational traditions"
+      },
+      "activities": {
+        "title": "Activities",
+        "description": "ENACTUS, IT events and business trainings for comprehensive development"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Join our university and become part of IT future",
+      "applyNow": "Apply Now",
+      "tour": "Schedule Tour"
+    }
+  },
+  "hero": {
+    "universityName": "Salymbekov University",
+    "subtitle": "We are the first in Kyrgyzstan to launch a full double degree program!",
+    "applyButton": "Apply Now",
+    "stats": {
+      "experience": {
+        "value": 98,
+        "label": "Get Experience",
+        "suffix": "%"
+      },
+      "directions": {
+        "value": 3,
+        "label": "Directions",
+        "suffix": "+"
+      },
+      "year": {
+        "value": 2019,
+        "label": "Start Year",
+        "suffix": ""
+      }
+    },
+    "floatingItems": {
+      "it": "IT",
+      "security": "Security",
+      "innovation": "Innovation"
+    }
+  },
+  "specialties": {
+    "title": "Our Specialties",
+    "subtitle": "Choose direction that matches your interests and career goals",
+    "backToSpecialties": "Back to Specialties",
+    "cta": {
+      "title": "Can't choose direction?",
+      "description": "Schedule consultation and our specialists will help you choose suitable program",
+      "apply": "Apply Now",
+      "consult": "Get Consultation"
+    },
+    "computerScience": {
+      "title": "Computer Science",
+      "shortDescription": "Discover exciting world of computer science, studying programming, artificial intelligence, databases and much more.",
+      "about": "Computer Science program offers students in-depth study of theory and practice necessary for creating innovative software solutions. Our goal is to prepare specialists capable of solving complex tasks, developing software and working in interdisciplinary teams.",
+      "courses": {
+        "foundations": {
+          "title": "Programming Fundamentals",
+          "description": "Master basic programming concepts like syntax, logic and algorithms. Perfect for beginners."
+        },
+        "ai": {
+          "title": "Artificial Intelligence",
+          "description": "Immersion in AI and machine learning technologies. Learn how to create intelligent systems and applications."
+        },
+        "web": {
+          "title": "Web Application Development",
+          "description": "Learn to create dynamic websites and applications using popular programming languages and frameworks."
+        },
+        "mobile": {
+          "title": "Mobile Applications",
+          "description": "Master application development for iOS and Android using modern technologies and methodologies."
+        }
+      }
+    },
+    "multimedia": {
+      "title": "Multimedia Programs",
+      "shortDescription": "Discover world of multimedia technologies! Programs that combine art and technology, creating incredible visual and audiovisual projects.",
+      "about": "Our multimedia technologies program offers deep immersion in creation of audiovisual materials, 3D modeling, animation and much more. The program allows students to master tools used by modern designers and animators for creating interactive media products.\n\nYou will study: design basics, work with video and audio, creation of interactive applications, use of virtual and augmented reality technologies.",
+      "courses": {
+        "design": {
+          "title": "Design and Animation",
+          "description": "Master basics of graphic design and animation. Learn to create amazing 2D and 3D animations that attract attention."
+        },
+        "video": {
+          "title": "Video Editing and Post-production",
+          "description": "Learn to edit video, add visual effects and work with editing programs. Become professional in creating clips for cinema and television."
+        },
+        "vr": {
+          "title": "Virtual Reality",
+          "description": "Learn how to create content for virtual reality. Work with technologies that create fully immersive experience."
+        },
+        "ar": {
+          "title": "Augmented Reality",
+          "description": "Study principles of augmented reality and learn to implement digital objects in real world using modern tools."
+        }
+      }
+    },
+    "mobileDevelopment": {
+      "title": "Mobile Development",
+      "shortDescription": "Learn how to create mobile applications for iOS and Android using the most modern technologies.",
+      "about": "Mobile development is one of the most demanded and dynamically developing branches of IT. With growing popularity of smartphones, tablets and other mobile devices, ability to create applications for iOS and Android becomes crucial skill for IT specialists.",
+      "courses": {
+        "foundations": {
+          "title": "Mobile Development Fundamentals",
+          "description": "Study basic principles of mobile development for iOS and Android, and get acquainted with tools necessary for starting work."
+        },
+        "reactNative": {
+          "title": "React Native Development",
+          "description": "Master cross-platform mobile application development using React Native framework."
+        },
+        "ios": {
+          "title": "iOS Development with Swift",
+          "description": "Study Swift programming language and learn to create native applications for iPhone and iPad."
+        },
+        "android": {
+          "title": "Android Development with Kotlin",
+          "description": "Study Kotlin - main language for Android application development, and start creating your own projects."
+        }
+      }
+    }
+  },
+  "college": {
+    "title": "International College of IT and Business",
+    "subtitle": "Structural subdivision of Salymbekov University - preparation of secondary education specialists in IT",
+    "applyButton": "Apply Now",
+    "about": {
+      "title": "About College",
+      "description1": "Main task of the college is preparation of secondary (vocational-technical) education specialists in IT.",
+      "description2": "Student admission is conducted after 9th and 11th grades. Students receive two diplomas upon graduation - Kyrgyz and international standard.",
+      "description3": "Double diploma program is implemented in cooperation with Lincoln University (Malaysia).",
+      "description4": "Education is conducted in Russian and English languages with strong emphasis on practice."
+    },
+    "features": {
+      "title": "Key Advantages",
+      "doubleDiploma": {
+        "title": "Double Diploma",
+        "description": "Diplomas of Kyrgyz and international standard from Lincoln University (Malaysia)"
+      },
+      "international": {
+        "title": "International Cooperation",
+        "description": "Possibility of partial study in Malaysia and international diploma recognition"
+      },
+      "practical": {
+        "title": "Practical Orientation",
+        "description": "Creation of real projects from first courses: websites, mobile applications and much more"
+      },
+      "teachers": {
+        "title": "Experienced Teachers",
+        "description": "Specialists from IT companies and teachers from Kyrgyzstan and Malaysia"
+      }
+    },
+    "programs": {
+      "title": "Study Directions",
+      "softwareDevelopment": "Software Development",
+      "mobileDevelopment": "Mobile Application Development",
+      "multimedia": "Multimedia Application Development",
+      "ai": "Artificial Intelligence",
+      "webDevelopment": "Web Development",
+      "business": "International Business"
+    },
+    "pricing": {
+      "title": "Tuition Fees",
+      "perYear": "per year",
+      "note": "Cost may change, check with admission committee",
+      "computerScience": {
+        "program": "Computer Science",
+        "price": "308,000 KGS",
+        "usd": "≈ 3,500 USD"
+      },
+      "ai": {
+        "program": "Artificial Intelligence",
+        "price": "308,000 KGS",
+        "usd": "≈ 3,500 USD"
+      },
+      "webDevelopment": {
+        "program": "Web Development",
+        "price": "262,350 KGS",
+        "usd": "≈ 3,000 USD"
+      },
+      "business": {
+        "program": "International Business",
+        "price": "218,625 KGS",
+        "usd": "≈ 2,500 USD"
+      }
+    },
+    "contacts": {
+      "title": "Contacts",
+      "address": "Address",
+      "addressValue": "Bishkek, Maldybaeva st., 24b",
+      "phone": "Phone",
+      "phoneValue1": "+996 778 99 88 89",
+      "phoneValue2": "+996 706 99 88 89",
+      "email": "Email",
+      "emailValue": "info@salymbekov.com"
+    }
+  },
+  "computerScience": {
+    "title": "Computer Science",
+    "shortDescription": "Discover the exciting world of computer science by learning programming, artificial intelligence, databases, and much more.",
+    "codePreview": {
+      "welcome": "Welcome to Computer Science",
+      "joke": "Just kidding, never stop!"
+    },
+    "about": {
+      "title": "About the Program",
+      "content": "The 'Computer Science' program offers students an in-depth study of theory and practice necessary for creating innovative software solutions. Our goal is to train professionals capable of solving complex problems, developing software, and working in interdisciplinary teams."
+    },
+    "techStack": [
+      "AI/ML",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Data Science",
+      "IoT",
+      "Blockchain"
+    ],
+    "courses": {
+      "title": "Courses",
+      "choose": "Choose a course to learn",
+      "progress": "Course Progress",
+      "startLearning": "Start Learning",
+      "foundations": {
+        "title": "Programming Fundamentals",
+        "description": "Master the basic concepts of programming such as syntax, logic, and algorithms. Perfect for beginners."
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "Dive into AI and machine learning technologies. Learn how to create intelligent systems and applications."
+      },
+      "web": {
+        "title": "Web Application Development",
+        "description": "Learn to build dynamic websites and applications using popular programming languages and frameworks."
+      },
+      "mobile": {
+        "title": "Mobile Applications",
+        "description": "Master mobile app development for iOS and Android using modern tools and methodologies."
+      }
+    },
+    "admission": {
+      "title": "How to Apply",
+      "description": "To apply for the 'Computer Science' program, submit your application through our online portal. We welcome students of all skill levels.",
+      "cta": "Apply Now",
+      "startToday": "Start your IT journey today!",
+      "steps": [
+        "Online Application",
+        "Interview",
+        "Testing",
+        "Enrollment"
+      ]
+    }
+  },
+  "multimedia": {
+    "title": "Multimedia Programs",
+    "shortDescription": "Discover the world of multimedia technologies! Programs that unite art and technology to create stunning visual and audiovisual projects.",
+    "creativeTech": "CREATIVE_TECH.exe",
+    "about": {
+      "title": "About the Program",
+      "content1": "Our multimedia technology program offers deep immersion into the creation of audiovisual materials, 3D modeling, animation, and more. Students gain hands-on experience with the tools used by modern designers and animators to create interactive media products.",
+      "content2": "You will study the fundamentals of design, video and audio production, interactive applications, and technologies for virtual and augmented reality."
+    },
+    "youWillLearn": "You will learn:",
+    "skills": {
+      "design": "Design Fundamentals",
+      "video": "Video and Audio",
+      "interactive": "Interactive Applications",
+      "vrar": "VR/AR Technologies"
+    },
+    "courses": {
+      "title": "Courses",
+      "subtitle": "Explore the world of creative technologies",
+      "design": {
+        "title": "Design and Animation",
+        "description": "Master the basics of graphic design and animation. Learn to create impressive 2D and 3D animations that capture attention."
+      },
+      "video": {
+        "title": "Video Editing and Post-production",
+        "description": "Learn to edit videos, add visual effects, and work with professional editing software. Become an expert in creating videos for film and television."
+      },
+      "vr": {
+        "title": "Virtual Reality",
+        "description": "Discover how to create content for virtual reality and work with technologies that deliver immersive experiences."
+      },
+      "ar": {
+        "title": "Augmented Reality",
+        "description": "Learn the principles of augmented reality and how to integrate digital objects into the real world using modern tools."
+      }
+    },
+    "tools": {
+      "title": "TOOLS:",
+      "design": "Design",
+      "animation": "Animation",
+      "vrar": "VR/AR",
+      "video": "Video"
+    },
+    "admission": {
+      "title": "How to Apply",
+      "description": "To apply for the multimedia technology program, submit your application through our online portal. We will review your creative portfolio and conduct an interview.",
+      "cta": "Apply Now",
+      "steps": {
+        "portfolio": "Portfolio",
+        "application": "Online Application",
+        "interview": "Creative Interview",
+        "enrollment": "Program Enrollment"
+      }
+    },
+    "startCreativePath": "Start Your Creative Journey →",
+    "showPotential": "Show your creative potential!"
+  },
+  "mobile": {
+    "title": "Mobile Development",
+    "shortDescription": "Learn how to create mobile applications for iOS and Android using the latest technologies.",
+    "hero": {
+      "tagline": "MOBILE_DEV.exe"
+    },
+    "about": {
+      "title": "About the Profession",
+      "content": "Mobile development is one of the most in-demand and rapidly growing fields in IT. With the increasing popularity of smartphones, tablets, and other mobile devices, the ability to create apps for iOS and Android has become an essential skill for IT specialists."
+    },
+    "platforms": {
+      "all": "All Platforms",
+      "ios": "iOS",
+      "android": "Android",
+      "cross": "Cross-Platform"
+    },
+    "platformLabels": {
+      "ios": "🍎 iOS",
+      "android": "🤖 Android",
+      "cross": "🌐 Cross-Platform",
+      "both": "📱 iOS & Android"
+    },
+    "platformTypes": {
+      "ios": "iOS Development",
+      "android": "Android Development",
+      "cross": "Cross-Platform Development",
+      "both": "Mobile Fundamentals"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "courses": {
+      "title": "Courses",
+      "subtitle": "Choose your path in mobile development",
+      "foundations": {
+        "title": "Mobile Development Fundamentals",
+        "description": "Learn the core principles of mobile development for iOS and Android, and get familiar with the tools you need to start building apps."
+      },
+      "reactNative": {
+        "title": "React Native Development",
+        "description": "Master cross-platform mobile development using the React Native framework."
+      },
+      "ios": {
+        "title": "iOS Development with Swift",
+        "description": "Learn the Swift programming language and build native applications for iPhone and iPad."
+      },
+      "android": {
+        "title": "Android Development with Kotlin",
+        "description": "Learn Kotlin, the main language for Android app development, and start building your own projects."
+      }
+    },
+    "demand": {
+      "title": "📈 Demand:",
+      "skills": [
+        { "skill": "iOS Developer", "demand": 95 },
+        { "skill": "Android Developer", "demand": 92 },
+        { "skill": "React Native", "demand": 88 }
+      ]
+    },
+    "techStack": ["Swift", "Kotlin", "React Native", "Flutter"],
+    "techKeywords": ["Swift", "Kotlin", "React Native", "Flutter", "iOS", "Android", "API", "UI/UX", "Firebase", "Redux"],
+    "floatingIcons": ["📱", "📲", "⚡", "🚀", "💫", "✨"],
+    "duration": "8 weeks",
+    "technologies": "TECHNOLOGIES",
+    "startButton": "Start Developing",
+    "admission": {
+      "title": "How to Apply",
+      "description": "Join our Mobile Development program and start your career in a fast-growing, high-tech field. Apply online and begin learning today!",
+      "cta": "Apply Now",
+      "footer": "Become a sought-after developer!",
+      "steps": [
+        "Basic programming knowledge",
+        "Motivational letter",
+        "Technical interview",
+        "Start learning"
+      ]
+    }
+  },
+  "documents": {
+    "badge": "Documents",
+    "title": "Required Documents for Admission",
+    "subtitle": "Complete list of documents required for application submission to Salymbekov University",
+    "requiredDocuments": "Required Documents",
+    "selectCategory": "Select Applicant Category",
+    "required": "Required",
+    "actions": {
+      "checklist": "Checklist",
+      "print": "Print"
+    },
+    "stats": {
+      "documents": "Main Documents",
+      "categories": "Applicant Categories",
+      "acceptance": "Document Acceptance",
+      "support": "Consultation"
+    },
+    "features": {
+      "title": "Important Information",
+      "complete": {
+        "title": "Complete Set",
+        "description": "All documents must be provided in full for application consideration"
+      },
+      "timely": {
+        "title": "Timeliness",
+        "description": "Documents must be submitted within established deadlines of admission committee"
+      },
+      "attention": {
+        "title": "Attention",
+        "description": "Carefully check all documents for compliance with requirements"
+      },
+      "checklist": {
+        "title": "Checklist",
+        "description": "Use our checklist for verifying completeness of document package"
+      }
+    },
+    "categories": {
+      "citizens": {
+        "title": "For Citizens of Kyrgyz Republic",
+        "description": "Citizens of KR with secondary general or professional education",
+        "documents": {
+          "application": "Application to Rector",
+          "education": "Education Document",
+          "passport": "Passport Copy",
+          "photos": "Photos",
+          "medical": "Medical Certificate",
+          "military": "Military Document"
+        },
+        "descriptions": {
+          "application": "Application to Rector of Salymbekov University Institution (sample provided)",
+          "education": "State standard document of secondary general or secondary professional education (certificate or diploma)",
+          "passport": "Copy of passport of Kyrgyz Republic citizen",
+          "photos": "Document photos: 2 photos 4×6 cm and 4 photos 3×4 cm",
+          "medical": "Medical certificate form 086-U about health condition",
+          "military": "Military ID or registration certificate (for military personnel)"
+        }
+      },
+      "foreigners": {
+        "title": "For Foreign Citizens",
+        "description": "Citizens of near and far abroad countries",
+        "documents": {
+          "application": "Application to Rector",
+          "passport": "Passport with Visa",
+          "education": "Education Document",
+          "translation": "Document Translation",
+          "equivalence": "Equivalence Certificate",
+          "photos": "Photos",
+          "medical": "Medical Examination"
+        },
+        "descriptions": {
+          "application": "Application to Rector of Salymbekov University Institution (sample)",
+          "passport": "Passport with entry visa corresponding to KR legislation requirements and its copy",
+          "education": "Original document of complete secondary education with indicated studied subjects and grades (scores) and notarized copy",
+          "translation": "Notarized translation of complete secondary education document to official language of KR",
+          "equivalence": "Certificate from Ministry of Education and Science of KR about equivalence of complete secondary education",
+          "photos": "Document photos: 2 photos 4×6 cm and 4 photos 3×4 cm",
+          "medical": "Results of medical examination of established sample"
+        }
+      }
+    },
+    "deadlines": {
+      "title": "Document Submission Deadlines",
+      "active": "Current",
+      "note": "All documents must be provided within established deadlines",
+      "fall": {
+        "title": "Fall Admission 2025",
+        "date": "until August 20, 2025"
+      },
+      "spring": {
+        "title": "Spring Admission 2026",
+        "date": "until January 15, 2026"
+      },
+      "summer": {
+        "title": "Summer Admission 2026",
+        "date": "until June 1, 2026"
+      }
+    },
+    "contact": {
+      "title": "Admission Committee Contacts",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "consultation": "Get Consultation"
+    },
+     "formats": {
+    "original": "Original",
+    "copy": "Copy",
+    "originalCopy": "Original + Copy",
+    "certifiedCopy": "Original + Certified Copy",
+    "notarizedTranslation": "Notarized Translation",
+    "equivalenceCertificate": "Ministry of Education Equivalence Certificate",
+    "medicalForm": "Original Form 086-U",
+    "medicalResults": "Medical Examination Results",
+    "photosCount": "6 photos",
+    "photoSizes": "4×6 cm (2 pcs), 3×4 cm (4 pcs)"
+  }
+  },
+  "tuition": {
+    "badge": "Tuition Fees",
+    "title": "Tuition Fees and Discount Policy",
+    "subtitle": "Transparent payment system and social support for Salymbekov University students",
+    "currency": "KGS",
+    "perYear": "per year",
+    "duration": "2 years",
+    "credits": "120 ECTS",
+    "creditsLabel": "credits",
+    "programFeatures": "Main Directions",
+    "paymentConditions": "Payment Conditions",
+    "installmentPlan": "Installment Plan",
+    "paymentParts": "Number of Parts",
+    "discounts": "Discount System",
+    "scholarships": "Scholarships",
+    "available": "Available",
+    "parts": "parts",
+    "applyNow": "Apply Now",
+    "requirements": "Requirements",
+    "benefitsList": "Provided Benefits",
+    "stats": {
+      "programs": "Educational Programs",
+      "price": "Tuition Fees",
+      "categories": "Discount Categories",
+      "support": "Social Support"
+    },
+    "features": {
+      "title": "Payment and Support Conditions",
+      "installments": {
+        "title": "Installments",
+        "description": "Pay tuition in equal parts during the academic year"
+      },
+      "performance": {
+        "title": "Academic Performance",
+        "description": "Benefits are provided for excellent and good performance"
+      },
+      "support": {
+        "title": "Social Support",
+        "description": "Free accommodation, discounted meals, and other support services"
+      },
+      "achievements": {
+        "title": "Achievements",
+        "description": "Benefits for participation in scientific, cultural, and sports activities"
+      }
+    },
+    "programs": {
+      "title": "Tuition Fees by Program",
+      "subtitle": "International College of IT and Business",
+      "select": "Select a Program",
+      "cs": {
+        "name": "Computer Science",
+        "description": "Fundamental training in computer science and programming",
+        "features": {
+          "programming": "Programming in modern languages",
+          "algorithms": "Algorithms and data structures",
+          "databases": "Databases and data management",
+          "networks": "Computer networks and security"
+        }
+      },
+      "mobile": {
+        "name": "Mobile App Development",
+        "description": "Creating mobile apps for iOS, Android, and cross-platform solutions",
+        "features": {
+          "ios": "iOS Development (Swift)",
+          "android": "Android Development (Kotlin)",
+          "flutter": "Cross-Platform Development (Flutter)",
+          "ui": "Mobile App UI/UX Design"
+        }
+      },
+      "multimedia": {
+        "name": "Multimedia Development",
+        "description": "Creating multimedia content and interactive applications",
+        "features": {
+          "vfx": "VFX Design and Visual Effects",
+          "premiere": "Video Editing (Adobe Premiere Pro)",
+          "design": "Graphic Design and Animation",
+          "animation": "2D/3D Animation and Modeling"
+        }
+      }
+    },
+    "benefits": {
+      "title": "Student Categories for Discounts",
+      "category1": {
+        "title": "Category I: High Achievers",
+        "description": "Students with excellent performance in all subjects",
+        "requirements": {
+          "excellent": "Only excellent grades in all subjects",
+          "noDebt": "No academic debt",
+          "active": "Active participation in university life"
+        },
+        "benefits": {
+          "discount": "Tuition discount up to 50%",
+          "housing": "Free dormitory accommodation",
+          "meals": "Discounted cafeteria meals"
+        }
+      },
+      "category2": {
+        "title": "Category II: Social Support",
+        "description": "Students requiring special social assistance",
+        "requirements": {
+          "orphans": "Orphans and students who lost their breadwinner",
+          "disabled": "Disabled, groups I and II",
+          "documentation": "Relevant documentation"
+        },
+        "benefits": {
+          "significant": "Significant tuition discounts",
+          "housing": "Free accommodation",
+          "support": "Comprehensive social support"
+        }
+      },
+      "category3": {
+        "title": "Category III: Children of Staff",
+        "description": "Students whose parents work at the university",
+        "requirements": {
+          "parents": "Parents are full-time university staff",
+          "contribution": "Significant contribution of parents to university development",
+          "participation": "Active participation in social life"
+        },
+        "benefits": {
+          "discount": "Tuition discount 20-30%",
+          "priority": "Priority in dormitory placement",
+          "support": "Additional support"
+        }
+      },
+      "category4": {
+        "title": "Category IV: Sports and Science",
+        "description": "Students representing the university in competitions",
+        "requirements": {
+          "competitions": "Participation in national and international competitions",
+          "levels": "Representing the university at a high level",
+          "achievements": "Achievements in sports, science, or art"
+        },
+        "benefits": {
+          "discount": "Tuition discount 15-25%",
+          "recognition": "Official recognition of achievements",
+          "support": "Support for participation in events"
+        }
+      },
+      "category5": {
+        "title": "Category V: Talented Applicants",
+        "description": "Outstanding applicants at admission",
+        "requirements": {
+          "firstYear": "Admission to the first year",
+          "achievements": "Outstanding achievements in school or college",
+          "competitions": "Wins in national and international olympiads"
+        },
+        "benefits": {
+          "discount": "First-year tuition discount 10-20%",
+          "recognition": "Special status of a talented student",
+          "support": "Individual educational path"
+        }
+      }
+    },
+    "contact": {
+      "title": "Admissions Office",
+      "description": "Get detailed consultation about tuition fees and benefits",
+      "address": "Maldybaeva St, 24b / Akhunbaeva, 125",
+      "addressLabel": "Address",
+      "phone": "Phones",
+      "email": "Email",
+      "basisTitle": "Basis",
+      "basis": "Decision of the Academic Council from August 30, 2022",
+      "consultation": "Get Consultation"
+    }
+  },
+  "admissions": {
+    "badge": "Admission Committee",
+    "title": "Admission Committee",
+    "subtitle": "Become part of innovative educational community",
+    "contact": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Address",
+        "content": "Maldybaeva st., 24b / Akhunbaeva, 125",
+        "description": "Main university campus"
+      },
+      "phone": {
+        "title": "Phone",
+        "content": "+996 778 99 88 89 / +996 706 99 88 89",
+        "description": "Daily from 9:00 to 18:00"
+      },
+      "email": {
+        "title": "Email",
+        "content": "info@salymbekov.com",
+        "description": "Response within 24 hours"
+      }
+    },
+    "welcome": {
+      "title": "Dear Applicants!",
+      "description1": "Salymbekov University is pleased to welcome you in the new academic year and happily opens its doors for you. The university is a modern innovative educational institution.",
+      "description2": "Founded in 2019, as continuation of educational activities of Askar Salymbekov Foundation, Salymbekov university has all resources for training qualified specialists.",
+      "description3": "The university pays great attention to extracurricular activities of students. Students actively participate in ENACTUS project, IT events and Business school trainings. Welcome to Salymbekov University!"
+    },
+    "features": {
+      "modern": {
+        "title": "Modern",
+        "description": "Latest technologies and teaching methods"
+      },
+      "innovative": {
+        "title": "Innovative",
+        "description": "Advanced educational programs"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Active student life and events"
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "High education standards"
+      }
+    },
+    "programs": {
+      "title": "Educational Programs",
+      "it": {
+        "title": "IT Technologies",
+        "description": "Programming, cybersecurity, artificial intelligence and software development"
+      },
+      "business": {
+        "title": "Business School",
+        "description": "Management, marketing, entrepreneurship and finance with practical trainings"
+      },
+      "design": {
+        "title": "Design and Creative",
+        "description": "Graphic design, web design, UX/UI and digital media"
+      }
+    },
+    "stats": {
+      "founded": "Founded",
+      "students": "Students",
+      "teachers": "Teachers",
+      "programs": "Programs"
+    },
+    "applyButton": "Apply Now",
+    "cta": {
+      "badge": "Salymbekov University",
+      "title": "Ready to Start Your Educational Path?",
+      "description": "Join our university and become part of successful future",
+      "applyButton": "Apply Online",
+      "contactButton": "Contact Us"
+    }
+  },
+  "projects": {
+    "badge": "Student Projects",
+    "title": "Student Projects",
+    "subtitle": "Real projects developed by our students using modern technologies",
+    "technologies": {
+      "title": "Used Technologies"
+    },
+    "features": "Main Features",
+    "visit": "Visit Website",
+    "stats": {
+      "projects": "Projects",
+      "technologies": "Technologies",
+      "quality": "Quality",
+      "support": "Support"
+    },
+    "erkin": {
+      "title": "Construction Portal",
+      "description": "Construction website providing information about various construction services and materials, and allowing users to easily find contractors and builders.",
+      "features": {
+        "services": "Construction services catalog",
+        "materials": "Materials information",
+        "contractors": "Contractor search",
+        "booking": "Online booking"
+      }
+    },
+    "daniel": {
+      "title": "Car Rental Platform",
+      "description": "Car rental platform allowing users to choose cars based on various criteria and book them online.",
+      "features": {
+        "selection": "Selection by criteria",
+        "filters": "Advanced filters",
+        "booking": "Online booking",
+        "payment": "Secure payment"
+      }
+    },
+    "ulukbek": {
+      "title": "Auto Parts Store",
+      "description": "Website for buying and selling automotive parts where users can find necessary parts for their cars and order them online.",
+      "features": {
+        "catalog": "Extensive catalog",
+        "search": "Smart search",
+        "ordering": "Online ordering",
+        "delivery": "Delivery"
+      }
+    },
+    "cta": {
+      "title": "Want to Create Your Project?",
+      "description": "Join our courses and start creating real projects during your studies",
+      "button": "Start Learning"
+    }
+  },
+  "council": {
+    "badge": "Student Council",
+    "title": "Salymbekov University Student Council",
+    "subtitle": "The voice of students, initiatives, and events – creating a better university environment together",
+    "mission": {
+      "title": "Our Mission"
+    },
+    "features": {
+      "representation": {
+        "title": "Representation",
+        "description": "We protect students’ interests and ensure their participation in important decision-making"
+      },
+      "initiatives": {
+        "title": "Student Initiatives",
+        "description": "We support and implement projects proposed by students to improve university life"
+      },
+      "events": {
+        "title": "Event Organization",
+        "description": "We organize cultural, sports, and educational events for the entire student community"
+      },
+      "feedback": {
+        "title": "Feedback",
+        "description": "We collect and convey students’ opinions to the university administration"
+      }
+    },
+    "team": {
+      "title": "Our Team"
+    },
+    "members": {
+      "president": {
+        "name": "Aylin Omurakunova",
+        "position": "Student Council President",
+        "bio": "Aylin leads the council, represents students’ interests, and ensures their needs and requests are addressed."
+      },
+      "vicePresident": {
+        "name": "Ibrokhim Abdraimov",
+        "position": "Vice President",
+        "bio": "Ibrokhim coordinates council activities, maintains connections with other organizations, and assists in project implementation."
+      },
+      "academicManager": {
+        "name": "Iliyar Midinov",
+        "position": "Minister of Education",
+        "bio": "Iliyar oversees academic matters, collaborates with teachers, and improves the learning process."
+      },
+      "eventManager": {
+        "name": "Aynazik Togolokova",
+        "position": "Minister of Organizations",
+        "bio": "Aynazik coordinates all student organizations, supports their initiatives, and fosters student community development."
+      },
+      "prManager": {
+        "name": "Aruuzhan Kaparbekova",
+        "position": "Minister of Culture",
+        "bio": "Aruuzhan organizes cultural events, supports creative initiatives, and promotes arts among students."
+      },
+      "sportsManager": {
+        "name": "Arsen Adylov",
+        "position": "Minister of Finance",
+        "bio": "Arsen manages the council’s budget, ensures financial transparency, and supports student-focused initiatives."
+      }
+    },
+    "upcomingEvents": "Upcoming Events",
+    "participate": "Participate",
+    "events": {
+      "dates": {
+        "december15": "15 DEC",
+        "december20": "20 DEC",
+        "december25": "25 DEC"
+      },
+      "meetup": {
+        "title": "IT Meetup",
+        "description": "Meeting with alumni and IT professionals. Networking and career opportunities"
+      },
+      "elections": {
+        "title": "Council Elections",
+        "description": "Annual elections for the new student council"
+      },
+      "christmas": {
+        "title": "Christmas Ball",
+        "description": "Traditional festive evening with contests, music, and gifts"
+      }
+    },
+    "stats": {
+      "members": "Active Members",
+      "events": "Events per Year",
+      "students": "Students in the Community",
+      "projects": "Implemented Projects"
+    }
+  },
+  "debate": {
+    "badge": "Debate Club",
+    "title": "Debate Club of Salymbekov University",
+    "subtitle": "Developing critical thinking for solving professional and life tasks",
+    "about": {
+      "title": "About Debate Club",
+      "description": "Goal of debate club is developing critical thinking among Salymbekov University students for solving various problems in professional activity and practical life situations. These are skills that traditional educational programs cannot provide."
+    },
+    "tasks": {
+      "title": "Debate Club Tasks"
+    },
+    "features": {
+      "learning": {
+        "title": "Educational",
+        "description": "Promotes consolidation, updating of previously acquired knowledge, mastering new knowledge, skills and abilities."
+      },
+      "development": {
+        "title": "Developmental",
+        "description": "Promotes development of intellectual, linguistic qualities, creative abilities. Develops logic, critical thinking, systemic vision of problem."
+      },
+      "education": {
+        "title": "Educational",
+        "description": "Forms culture of dispute, tolerance, recognition of multiple approaches to problem solving."
+      },
+      "communication": {
+        "title": "Communicative",
+        "description": "Learning occurs in process of joint activity and interpersonal communication."
+      }
+    },
+    "advantages": {
+      "title": "Advantages of Debate Technology",
+      "criticalThinking": "Formation of speech critical thinking of students",
+      "differentiation": "Differentiation of educational material content",
+      "individuation": "Ensuring individualization of educational activity",
+      "diversity": "Diversity of forms and teaching methods",
+      "practicalSkills": "Formation of generalized practical skills of students"
+    },
+    "stats": {
+      "members": "Participants",
+      "tournaments": "Tournaments",
+      "winners": "Winners",
+      "debates": "Conducted Debates"
+    },
+    "cta": {
+      "title": "Ready to Develop Critical Thinking?",
+      "description": "Join our debate club and discover new opportunities for personal and professional growth",
+      "button": "Join Club"
+    }
+  },
+  "clubs": {
+    "badge": "Creative Groups",
+    "title": "Creative Groups and Clubs of Salymbekov University",
+    "subtitle": "For strengthening educational, scientific and research activities, Salymbekov university provides its students with opportunity to participate in creative groups, clubs according to their interests and desires.",
+    "about": {
+      "title": "ABOUT CREATIVE GROUPS AND CLUBS"
+    },
+    "availableClubs": "Available Clubs",
+    "joinButton": "Join",
+    "details": {
+      "members": "Members",
+      "schedule": "Schedule"
+    },
+    "levels": {
+      "all": "All Levels",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "schedule": {
+      "weekly": "1 time per week",
+      "twiceWeekly": "2 times per week",
+      "flexible": "Flexible schedule"
+    },
+    "stats": {
+      "clubs": "Clubs",
+      "participants": "Participants",
+      "events": "Events",
+      "achievements": "Achievements"
+    },
+    "features": {
+      "creative": {
+        "title": "Creative Development",
+        "description": "Revealing creative potential of students through various art directions and self-expression"
+      },
+      "skills": {
+        "title": "Skills Development",
+        "description": "Helping students develop soft skills and professional competencies"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Creating friendly atmosphere for communication and joint creativity"
+      },
+      "development": {
+        "title": "Personal Growth",
+        "description": "Promoting comprehensive personality development and talent revelation"
+      }
+    },
+    "clubs": {
+      "dancing": {
+        "title": "Dancing",
+        "description": "Studying various dance directions, participation in competitions and performances"
+      },
+      "english": {
+        "title": "English Speaking Club",
+        "description": "English language practice in informal setting, discussions and games"
+      },
+      "debates": {
+        "title": "Debates and Leadership Skills",
+        "description": "Developing public speaking, critical thinking and leadership skills"
+      },
+      "esports": {
+        "title": "E-sports",
+        "description": "Tournaments in popular games, developing strategic thinking and teamwork"
+      },
+      "sports": {
+        "title": "Sports and Chess",
+        "description": "Sports events, chess tournaments and logical thinking development"
+      }
+    },
+    "cta": {
+      "title": "Find Your Club Today!",
+      "description": "Join any of our creative groups and reveal your potential",
+      "button": "Choose Club"
+    }
+  },
+  "regulations": {
+    "badge": "Regulatory Documents",
+    "title": "Instructions and Regulations",
+    "subtitle": "Resource bases and resources of Salymbekov university are guided by following instructions and regulations when conducting educational and teaching activities.",
+    "description": "These regulations help ensure effectiveness of educational process, promote improvement of educational standards and aim to maintain high education quality. Considering changes in legislation, as well as recommendations of Ministry of Education, Salymbekov university constantly updates and adapts its methodological materials and instructions for providing students with relevant information.",
+    "categories": {
+      "title": "Regulation Categories"
+    },
+    "educational": {
+      "title": "Educational Regulations",
+      "description": "Regulatory documents governing educational process and educational standards",
+      "documents": {
+        "academic": "Regulation on Academic Policy",
+        "curriculum": "Regulation on Study Plans and Programs",
+        "assessment": "Regulation on Assessment System"
+      }
+    },
+    "administrative": {
+      "title": "Administrative Regulations",
+      "description": "Documents governing administrative and organizational activities",
+      "documents": {
+        "staff": "Regulation on Staff",
+        "faculty": "Regulation on Teaching Staff",
+        "organization": "Regulation on Organizational Structure"
+      }
+    },
+    "quality": {
+      "title": "Quality Assurance",
+      "description": "Quality management system and accreditation documents",
+      "documents": {
+        "standards": "Regulation on Quality Standards",
+        "accreditation": "Regulation on Accreditation",
+        "monitoring": "Regulation on Quality Monitoring"
+      }
+    },
+    "resources": {
+      "title": "Resource Regulations",
+      "description": "Documents on resource management and infrastructure",
+      "documents": {
+        "library": "Regulation on Library Fund",
+        "laboratories": "Regulation on Laboratories and Equipment",
+        "digital": "Regulation on Digital Resources"
+      }
+    },
+    "stats": {
+      "documents": "Documents",
+      "access": "Access",
+      "compliance": "Compliance",
+      "updated": "Updated"
+    },
+    "important": {
+      "title": "Current Information",
+      "description": "All documents are regularly updated according to changes in legislation and recommendations of Ministry of Education",
+      "button": "All Documents"
+    },
+    "cta": {
+      "badge": "Salymbekov University",
+      "title": "Need Additional Information?",
+      "description": "Contact educational department for consultation on regulatory documents and regulations",
+      "button": "Contact Department"
+    }
+  },
+  "resources": {
+    "badge": "Educational Resources",
+    "title": "Educational Resources",
+    "subtitle": "Scientific library of Salymbekov university includes full paper and electronic resources, catalogs, electronic journals and databases for promoting development and ensuring educational and research resources for students and teachers of university through all forms and methods of library and information activities.",
+    "about": {
+      "title": "ABOUT LIBRARY RESOURCES"
+    },
+    "availableResources": "Library Resources",
+    "accessButton": "Get Access",
+    "details": {
+      "access": "Access",
+      "available": "Available"
+    },
+    "types": {
+      "paper": "Paper",
+      "electronic": "Electronic",
+      "mixed": "Mixed"
+    },
+    "access": {
+      "physical": "Physical",
+      "online": "Online",
+      "campus": "On Campus",
+      "subscription": "By Subscription"
+    },
+    "stats": {
+      "books": "Books",
+      "ebooks": "E-books",
+      "databases": "Databases",
+      "journals": "Journals"
+    },
+    "features": {
+      "paperResources": {
+        "title": "Paper Resources",
+        "description": "Extensive collection of textbooks, scientific literature and periodicals in print format"
+      },
+      "electronicResources": {
+        "title": "Electronic Resources",
+        "description": "E-books, online courses and digital materials for remote access"
+      },
+      "databases": {
+        "title": "Databases",
+        "description": "Specialized scientific databases and indexes for research work"
+      },
+      "journals": {
+        "title": "Electronic Journals",
+        "description": "Access to international scientific journals and periodicals"
+      }
+    },
+    "resources": {
+      "books": {
+        "title": "Textbooks and Books",
+        "description": "Fundamental and educational literature in all training directions"
+      },
+      "ebooks": {
+        "title": "E-books",
+        "description": "Digital versions of textbooks and scientific literature with online access"
+      },
+      "databases": {
+        "title": "Scientific Databases",
+        "description": "Access to Scopus, Web of Science, Springer and other scientific resources"
+      },
+      "journals": {
+        "title": "Scientific Journals",
+        "description": "Periodicals and scientific journals in print and electronic format"
+      },
+      "theses": {
+        "title": "Diploma Works",
+        "description": "Archive of graduation qualification works and dissertations"
+      },
+      "catalogs": {
+        "title": "Electronic Catalogs",
+        "description": "Search systems and catalogs for quick finding of necessary materials"
+      }
+    },
+    "hours": {
+      "title": "Working Hours",
+      "weekdays": "Mon - Fri",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "closed": "Day Off"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "location": "Location",
+      "website": "Website",
+      "guide": "User Guide",
+      "download": "Download PDF"
+    }
+  },
+  "calendar": {
+    "badge": "Academic Calendar",
+    "title": "Module and Exam Schedule",
+    "subtitle": "Plan your studies with our academic calendar",
+    "noEvents": "No events scheduled for this day",
+    "upcoming": {
+      "title": "Upcoming Events",
+      "module1": "Start of Module 1",
+      "exam1": "Midterm Exams",
+      "holiday": "Spring Break"
+    },
+    "stats": {
+      "modules": "Study Modules",
+      "exams": "Exam Sessions",
+      "days": "Study Days",
+      "gpa": "Average GPA"
+    },
+    "modules": {
+      "module1": {
+        "title": "Module 1: Programming Basics",
+        "description": "Learn the basic concepts of programming and algorithms"
+      },
+      "module2": {
+        "title": "Module 2: Web Development",
+        "description": "Frontend and backend development of modern web applications"
+      },
+      "module3": {
+        "title": "Module 3: Databases",
+        "description": "Design and work with relational and NoSQL databases"
+      },
+      "module4": {
+        "title": "Module 4: Advanced Technologies",
+        "description": "Explore modern frameworks and development tools"
+      }
+    },
+    "exams": {
+      "midterm": {
+        "title": "Midterm Assessment",
+        "description": "Exams on modules completed in the first semester"
+      },
+      "final": {
+        "title": "Final Assessment",
+        "description": "Final exams for all semester courses"
+      }
+    },
+    "schedule": {
+      "title": "Semester Schedule"
+    },
+    "print": "Print",
+    "download": "Download",
+    "weekDays": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "legend": {
+      "modules": "Modules",
+      "exams": "Exams",
+      "today": "Today"
+    },
+    "eventTypes": {
+      "exam": "Exam",
+      "module": "Module",
+      "holiday": "Holiday"
+    },
+    "daysLeft": "in {{count}} d.",
+    "examPeriod": "Exam Period",
+    "studyModule": "Study Module"
+  },
+  "schedule": {
+    "badge": "Schedule",
+    "title": "College Schedule",
+    "subtitle": "Up-to-date class schedule for all courses and groups at Salymbekov University",
+    "currentSchedule": "Current Schedule",
+    "academicYear": "Academic Year",
+    "noLessons": "No Lessons",
+    "noLessonsDescription": "No classes are scheduled for the selected day",
+    "lesson": "Lesson",
+    "features": {
+      "title": "Schedule Features",
+      "current": {
+        "title": "Up-to-date",
+        "description": "Always current schedule with automatic updates"
+      },
+      "updates": {
+        "title": "Notifications",
+        "description": "Alerts about changes in the schedule"
+      },
+      "download": {
+        "title": "Download",
+        "description": "Ability to download the schedule in a convenient format"
+      },
+      "share": {
+        "title": "Share",
+        "description": "Quickly share the schedule with classmates"
+      }
+    },
+    "stats": {
+      "days": "Academic Days",
+      "hours": "Academic Hours",
+      "teachers": "Teachers",
+      "groups": "Groups"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "daysShort": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat"
+    },
+    "groups": {
+      "all": "All Groups"
+    },
+    "types": {
+      "lecture": "Lecture",
+      "lab": "Lab",
+      "practice": "Practice",
+      "seminar": "Seminar",
+      "project": "Project",
+      "consultation": "Consultation",
+      "elective": "Elective",
+      "club": "Club",
+      "sports": "Sports"
+    },
+    "subjects": {
+      "math": "Mathematics",
+      "physics": "Physics",
+      "programming": "Programming",
+      "english": "English",
+      "economics": "Economics",
+      "databases": "Databases",
+      "webdev": "Web Development",
+      "accounting": "Accounting",
+      "pe": "Physical Education",
+      "algorithms": "Algorithms",
+      "networks": "Networks",
+      "law": "Law",
+      "statistics": "Statistics",
+      "ai": "Artificial Intelligence",
+      "marketing": "Marketing",
+      "mobiledev": "Mobile Development",
+      "programmingClub": "Programming Club",
+      "cybersecurity": "Cybersecurity",
+      "projectWork": "Project Work",
+      "anatomy": "Anatomy",
+      "consultations": "Consultations",
+      "datascience": "Data Science",
+      "sports": "Sports Sections"
+    },
+    "rooms": {
+      "computer1": "Computer Lab 1",
+      "computer2": "Computer Lab 2",
+      "computer3": "Computer Lab 3",
+      "gym": "Gym",
+      "lab5": "Lab 5"
+    },
+    "actions": {
+      "download": "Download",
+      "print": "Print"
+    },
+    "legend": {
+      "title": "Lesson Types"
+    }
+  }
+,
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to most popular questions about admission, studies and college life",
+    "questionsTitle": "Frequently Asked Questions",
+    "questionsCount": "Questions Found: {{count}}",
+    "search": {
+      "placeholder": "Search questions and answers..."
+    },
+    "stats": {
+      "questions": "Questions",
+      "answered": "Answered",
+      "support": "Support",
+      "students": "Students"
+    },
+    "categories": {
+      "admission": "Admission",
+      "education": "Education",
+      "finance": "Finance",
+      "career": "Career",
+      "international": "International",
+      "campus": "Campus"
+    },
+    "contact": {
+      "title": "Didn't Find Answer?",
+      "description": "Contact us directly - we are always ready to help and answer all your questions",
+      "phone": "Phones",
+      "email": "Email"
+    },
+    "links": {
+      "title": "Quick Links",
+      "admission": "Admission Process",
+      "programs": "Educational Programs",
+      "scholarships": "Scholarships and Discounts",
+      "contact": "Contact Us"
+    },
+    "questions": [
+      {
+        "question": "1. What specialties does college offer?",
+        "answer": "College offers three main IT specialist training directions: software development, mobile application development (iOS, Android, Flutter), multimedia application development (VFX design, Adobe Premiere Pro, etc.)."
+      },
+      {
+        "question": "2. How to complete registration process?",
+        "answer": "For admission, contact admission committee by phones: +996 778 99 88 89 or +996 706 99 88 89, or send request to email info@salymbekov.com. Applicant admission is conducted based on 9 and 11 grades."
+      },
+      {
+        "question": "3. Is there possibility of getting scholarships?",
+        "answer": "College regularly conducts competitions offering discounts up to 100% on tuition. Also our students have opportunity to study free in semester programs in Malaysia and Korea. These programs allow students to study in foreign educational institutions, expanding their academic experience and cultural horizons."
+      },
+      {
+        "question": "4. What employment opportunities does college provide?",
+        "answer": "College cooperates with leading IT companies, and teachers are active developers, which promotes practice-oriented learning and increases employment chances of graduates."
+      },
+      {
+        "question": "5. What is tuition cost in college?",
+        "answer": "Tuition cost depends on chosen program and conditions. For current information, contact admission committee by indicated contacts."
+      },
+      {
+        "question": "6. What additional services does college provide?",
+        "answer": "College offers education in English language, which opens opportunities for international cooperation and employment. Also competitions and events for students are conducted, aimed at developing professional skills."
+      },
+      {
+        "question": "7. How does college support educational process?",
+        "answer": "Education is conducted according to modern programs using advanced material-technical base. Teachers are practicing specialists, which ensures relevance and practical orientation of education."
+      },
+      {
+        "question": "8. Is it possible to study abroad?",
+        "answer": "Yes, double diploma program provides education both in Kyrgyzstan and Malaysia. Students who completed 11 grades study 1 year in Kyrgyzstan and 1.5 years in Malaysia; completed 9 grades - 2 years in Kyrgyzstan and 1.5 years in Malaysia."
+      },
+      {
+        "question": "9. How are students assessed?",
+        "answer": "Information about student assessment system is not indicated on official website. Recommend clarifying details with admission committee or teaching staff."
+      },
+      {
+        "question": "10. What languages can be studied in college?",
+        "answer": "Main education is conducted in Russian and English languages. Special attention is paid to English language study for achieving TOEFL/IELTS level."
+      },
+      {
+        "question": "11. How can students participate in college public life?",
+        "answer": "College organizes various competitions and events aimed at developing professional and personal skills of students."
+      },
+      {
+        "question": "12. How does college help students develop leadership skills?",
+        "answer": "Trainings and master classes are conducted, aimed at developing leadership qualities and personal growth."
+      }
+    ]
+  },
+  "contacts": {
+    "badge": "Contacts",
+    "title": "Contacts",
+    "subtitle": "Welcome to our university website. Contact information is presented here; we will be happy to answer your question.",
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Address",
+        "content": "Bishkek, Maldybaeva st. 24b"
+      },
+      "phone": {
+        "title": "Phone",
+        "content": "+996 706 99 88 89"
+      },
+      "email": {
+        "title": "Email",
+        "content": "salymbekov.kg@gmail.com"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "content": "Mon-Fri: 9:00-18:00, Sat: 9:00-14:00"
+      }
+    },
+    "social": {
+      "title": "We in Social Networks"
+    },
+    "form": {
+      "title": "Feedback",
+      "description": "Have questions? Write to us and we will definitely answer",
+      "name": "Your Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your phone",
+      "subject": "Subject",
+      "subjectPlaceholder": "Message subject",
+      "message": "Message",
+      "messagePlaceholder": "Enter your message...",
+      "button": "Send Message",
+      "success": "Message sent successfully!"
+    },
+    "departments": {
+      "title": "University Departments",
+      "admission": {
+        "title": "Admission Committee",
+        "description": "Admission and enrollment questions"
+      },
+      "registrar": {
+        "title": "Educational Department",
+        "description": "Academic questions and documents"
+      },
+      "finance": {
+        "title": "Finance Department",
+        "description": "Tuition payment and scholarships"
+      },
+      "international": {
+        "title": "International Department",
+        "description": "International programs and exchange"
+      }
+    },
+    "map": {
+      "title": "Our Address",
+      "address": "Bishkek, Maldybaeva st. 24b",
+      "button": "Open in Maps"
+    }
+  },
+  "documentViewer": {
+    "defaultName": "Document",
+    "errorTitle": "Error",
+    "refreshButton": "Refresh Page",
+    "resetZoom": "Reset",
+    "loading": "Loading...",
+    "loadingDocument": "Loading document...",
+    "errors": {
+      "noUrl": "Document URL not specified",
+      "loadFailed": "Document loading error",
+      "renderFailed": "Page display error"
+    }
+  },
+  "vacancies": {
+    "badge": "Vacancies",
+    "title": "International College of IT and Business of Salymbekov University announces teacher recruitment",
+    "subtitle": "Join our team for 2025-2026 academic year and become part of modern educational process",
+    "availablePositions": "Open Vacancies",
+    "weOffer": "We Offer",
+    "requirements": "Requirements",
+    "applyButton": "Apply Now",
+    "stats": {
+      "positions": "Vacancies",
+      "academicYear": "Academic Year",
+      "opportunities": "Opportunities",
+      "professional": "Professionalism"
+    },
+    "positions": {
+      "it": {
+        "title": "Information Technologies",
+        "description": "Teaching modern IT disciplines for college students",
+        "requirements": {
+          "education": "Higher education in corresponding profile",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Teaching e-commerce basics and digital marketing",
+        "requirements": {
+          "education": "Higher education in e-commerce or marketing",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "software": {
+        "title": "Software Engineering",
+        "description": "Teaching software engineering principles and development",
+        "requirements": {
+          "education": "Higher education in software engineering",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "webdev": {
+        "title": "Web Programming",
+        "description": "Teaching modern web development technologies",
+        "requirements": {
+          "education": "Higher education in web development",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "webdesign": {
+        "title": "Web Design",
+        "description": "Teaching web design basics and UI/UX design",
+        "requirements": {
+          "education": "Higher education in design",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "cybersecurity": {
+        "title": "Computer Security",
+        "description": "Teaching cybersecurity basics and information protection",
+        "requirements": {
+          "education": "Higher education in information security",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      },
+      "multimedia": {
+        "title": "Multimedia Management System",
+        "description": "Teaching multimedia technologies and management systems",
+        "requirements": {
+          "education": "Higher education in multimedia",
+          "methods": "Knowledge of modern teaching methods",
+          "experience": "Experience in educational or IT sphere welcomed",
+          "personal": "Responsibility, initiative and desire to work with youth"
+        }
+      }
+    },
+    "benefits": {
+      "environment": {
+        "title": "Modern Educational Environment",
+        "description": "Work in modern classrooms with advanced equipment"
+      },
+      "salary": {
+        "title": "Competitive Salary",
+        "description": "Decent salary and social package"
+      },
+      "development": {
+        "title": "Professional Development",
+        "description": "Participation in educational projects and growth opportunities"
+      }
+    },
+    "application": {
+      "title": "How to Apply",
+      "description": "Become part of our teaching team",
+      "email": "Email",
+      "subject": "Teacher 2025-2026",
+      "deadlineTitle": "Application Deadline",
+      "deadline": "until August 20, 2025",
+      "requirements": "Required Documents",
+      "documents": {
+        "resume": "Resume",
+        "coverLetter": "Cover Letter"
+      },
+      "applyNow": "Send Application"
+    }
+  },
+  "admissionRules": {
+    "badge": "Admission Rules",
+    "title": "Rules and Admission Plan",
+    "subtitle": "All necessary information for admission to Salymbekov University",
+    "tabs": {
+      "rules": "Admission Rules",
+      "schedule": "Admission Schedule",
+      "programs": "Programs",
+      "dates": "Important Dates"
+    },
+    "stats": {
+      "seats": "Budget Seats",
+      "deadline": "Submission Deadline",
+      "scholarships": "Scholarships",
+      "programs": "Directions"
+    },
+    "rules": {
+      "title": "Admission Rules",
+      "description": "For admission to Salymbekov University, applicants need to meet following requirements and provide necessary document package."
+    },
+    "requirements": {
+      "documents": {
+        "category": "Documents",
+        "item1": "Admission Application",
+        "item2": "Education Document (certificate/diploma)",
+        "item3": "Passport Copy",
+        "item4": "4 photos 3x4 cm",
+        "item5": "Medical Certificate form 086-U"
+      },
+      "academic": {
+        "category": "Academic Requirements",
+        "item1": "Minimum average score: 4.0",
+        "item2": "Successful completion of entrance tests",
+        "item3": "Interview with admission committee",
+        "item4": "Portfolio (for creative specialties)"
+      },
+      "exams": {
+        "category": "Entrance Tests",
+        "item1": "Testing in main subjects",
+        "item2": "English language (level B1+)",
+        "item3": "Computer literacy"
+      }
+    },
+    "schedule": {
+      "title": "Admission Plan for 2024",
+      "stage1": {
+        "stage": "Document Submission",
+        "period": "01.06 - 15.07.2024",
+        "description": "Document acceptance from applicants in online and offline format"
+      },
+      "stage2": {
+        "stage": "Entrance Tests",
+        "period": "16.07 - 25.07.2024",
+        "description": "Conducting tests and interviews"
+      },
+      "stage3": {
+        "stage": "Enrollment",
+        "period": "26.07 - 05.08.2024",
+        "description": "Formation of enrolled applicant lists"
+      },
+      "stage4": {
+        "stage": "Study Start",
+        "period": "01.09.2024",
+        "description": "Official start of academic year"
+      }
+    },
+    "programs": {
+      "title": "Educational Programs",
+      "it": {
+        "name": "Information Technologies",
+        "duration": "4 years",
+        "seats": "150 seats",
+        "price": "45,000 KGS/month",
+        "requirements": "Mathematics, computer science, English language. Technical interview."
+      },
+      "business": {
+        "name": "Business Management",
+        "duration": "4 years",
+        "seats": "120 seats",
+        "price": "40,000 KGS/month",
+        "requirements": "Mathematics, social studies, English language. Interview."
+      },
+      "design": {
+        "name": "Design and Art",
+        "duration": "4 years",
+        "seats": "80 seats",
+        "price": "38,000 KGS/month",
+        "requirements": "Creative competition, portfolio, interview."
+      }
+    },
+    "dates": {
+      "title": "Important Admission Dates",
+      "start": {
+        "title": "Admission Start",
+        "date": "June 1, 2024",
+        "description": "Official start of admission campaign"
+      },
+      "deadline": {
+        "title": "Submission Deadline",
+        "date": "July 15, 2024",
+        "description": "Last day of document acceptance"
+      },
+      "exams": {
+        "title": "Entrance Exams",
+        "date": "July 16-25, 2024",
+        "description": "Period of entrance tests"
+      },
+      "results": {
+        "title": "Results Announcement",
+        "date": "August 5, 2024",
+        "description": "Publication of enrolled lists"
+      }
+    },
+    "actions": {
+      "download": "Download Rules",
+      "print": "Print Schedule",
+      "apply": "Apply Now"
+    },
+    "important": {
+      "title": "Important Information",
+      "description1": "All documents must be provided in original or certified copy. Admission committee reserves right to verify authenticity of provided documents.",
+      "description2": "For foreign citizens, additional requirements are provided. Detailed information check in international department."
+    }
+  },
+  "selectionSchedule": {
+    "badge": "Selection Schedule",
+    "title": "Selection and Enrollment Schedule",
+    "subtitle": "Salymbekov University conducts applicant selection and enrollment strictly in accordance with the rules and regulations of the Ministry of Education and Science of the Kyrgyz Republic",
+    "description": "Every year, the schedule of selection rounds for the 2024-2025 academic year is prepared and published",
+    "toursTitle": "Selection Rounds",
+    "registerButton": "Register Now",
+    "table": {
+      "action": "Action",
+      "date": "Date",
+      "status": "Status"
+    },
+    "important": {
+      "title": "Important Information"
+    },
+    "stats": {
+      "tours": "Selection Round",
+      "start": "Start of Admission",
+      "end": "End of Admission",
+      "places": "Available Seats"
+    },
+    "status": {
+      "completed": "Completed",
+      "current": "Current",
+      "upcoming": "Upcoming",
+      "unknown": "Unknown"
+    },
+    "tours": {
+      "tour1": {
+        "tour": "First Round",
+        "actions": {
+          "action1": { "action": "Participant Registration", "date": "July 17, 8:00" },
+          "action2": { "action": "End of Registration", "date": "July 24, 17:00" }
+        }
+      },
+      "tour2": {
+        "tour": "Second Round",
+        "actions": {
+          "action1": { "action": "Participant Registration", "date": "July 30, 08:00" },
+          "action2": { "action": "End of Registration", "date": "August 7, 17:00" }
+        }
+      },
+      "tour3": {
+        "tour": "Third Round",
+        "actions": {
+          "action1": { "action": "Participant Registration", "date": "August 13, 08:00" },
+          "action2": { "action": "End of Registration", "date": "August 20, 17:00" }
+        }
+      },
+      "tour4": {
+        "tour": "Fourth Round",
+        "actions": {
+          "action1": { "action": "Participant Registration", "date": "August 26, 08:00" },
+          "action2": { "action": "End of Registration", "date": "August 28, 17:00" }
+        }
+      }
+    },
+    "notes": {
+      "note1": "Registration is conducted exclusively through the official university website",
+      "note2": "Full set of documents is required to participate",
+      "note3": "Results of each round are published within 3 working days",
+      "note4": "Applicants may participate in only one selection round"
+    },
+    "actions": {
+      "download": "Download Schedule",
+      "print": "Print"
+    },
+    "cta": {
+      "badge": "Salymbekov University",
+      "title": "Ready to start the admission process?",
+      "description": "Don’t wait — register for the upcoming selection round and take the first step toward a successful career",
+      "button": "Start Registration"
+    }
+  },
+  "webDevelopment": {
+    "title": "Web Development",
+    "shortDescription": "Create modern web applications using advanced technologies and frameworks.",
+    "hero": {
+      "status": "WEB_DEV.js"
+    },
+    "browser": {
+      "url": "https://awesome-web-app.com",
+      "sections": [
+        {
+          "emoji": "⚡",
+          "title": "Frontend"
+        },
+        {
+          "emoji": "🛠️",
+          "title": "Backend"
+        },
+        {
+          "emoji": "💾",
+          "title": "Database"
+        }
+      ]
+    },
+    "technologies": {
+      "title": "Technology Stack",
+      "subtitle": "Modern tools for creating web applications",
+      "htmlCss": {
+        "title": "HTML/CSS",
+        "description": "Structure and styles of web pages",
+        "examples": [
+          "Semantic markup",
+          "CSS Grid & Flexbox",
+          "Responsive design"
+        ]
+      },
+      "javascript": {
+        "title": "JavaScript",
+        "description": "Interactivity and logic",
+        "examples": [
+          "ES6+",
+          "DOM Manipulation",
+          "Async Programming"
+        ]
+      },
+      "react": {
+        "title": "React",
+        "description": "Modern user interfaces",
+        "examples": [
+          "Hooks",
+          "Component Lifecycle",
+          "State Management"
+        ]
+      },
+      "nodejs": {
+        "title": "Node.js",
+        "description": "Server development",
+        "examples": [
+          "REST APIs",
+          "Database Integration",
+          "Authentication"
+        ]
+      }
+    },
+    "codePreview": {
+      "title": "Live Code Preview"
+    },
+    "codeSnippets": [
+      "// Responsive Grid Layout\n.container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 2rem;\n  padding: 2rem;\n}",
+      "// Modern React Component\nfunction App() {\n  const [data, setData] = useState([]);\n  \n  useEffect(() => {\n    fetchData().then(setData);\n  }, []);\n  \n  return (\n    <div className=\"app\">\n      {data.map(item => (\n        <Card key={item.id} {...item} />\n      ))}\n    </div>\n  );\n}",
+      "// API Route with Node.js\napp.get('/api/users', async (req, res) => {\n  try {\n    const users = await User.find();\n    res.json(users);\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n});",
+      "// JavaScript Animation\nfunction animateElement(element) {\n  element.animate([\n    { transform: 'translateY(0px)', opacity: 0 },\n    { transform: 'translateY(-20px)', opacity: 1 }\n  ], {\n    duration: 1000,\n    easing: 'ease-out'\n  });\n}"
+    ],
+    "projects": {
+      "title": "Project Examples",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Source Code",
+      "list": [
+        {
+          "name": "E-commerce Platform",
+          "tech": "React, Node.js, MongoDB",
+          "emoji": "🛒"
+        },
+        {
+          "name": "Social Media App",
+          "tech": "Vue.js, Firebase, PWA",
+          "emoji": "👥"
+        },
+        {
+          "name": "Dashboard Analytics",
+          "tech": "D3.js, Express, PostgreSQL",
+          "emoji": "📊"
+        }
+      ]
+    },
+    "career": {
+      "title": "Career in Web Development",
+      "description": "Become demanded specialist with salary from 80,000 KGS for Junior to 300,000+ KGS for Senior developers.",
+      "subtitle": "First projects in just 2 weeks!",
+      "cta": "Start Learning",
+      "paths": [
+        {
+          "role": "Frontend Developer",
+          "salary": "80,000 - 180,000 KGS"
+        },
+        {
+          "role": "Fullstack Developer",
+          "salary": "120,000 - 250,000 KGS"
+        },
+        {
+          "role": "Senior Web Developer",
+          "salary": "200,000 - 400,000 KGS"
+        }
+      ]
+    }
+  },
+  "main": {
+    "header": {
+      "badge": "Promising Directions",
+      "title": "Choose Your IT Major",
+      "subtitle": "Three in-demand fields with internationally recognized diplomas and guaranteed career growth"
+    },
+    "cards": {
+      "highlightsTitle": "Key Areas:",
+      "learnMore": "Learn More",
+      "computerScience": {
+        "title": "Computer Science",
+        "description": "Become a full-stack developer with a deep understanding of computer science fundamentals",
+        "badge": "Most Popular",
+        "highlights": [
+          "Web Development",
+          "Algorithms",
+          "Cloud",
+          "Backend Development"
+        ]
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "Create intelligent systems and work with the technologies of the future",
+        "badge": "High Salary",
+        "highlights": [
+          "Machine Learning",
+          "Neural Networks",
+          "Data Science",
+          "Computer Vision"
+        ]
+      },
+      "business": {
+        "title": "Business",
+        "description": "Lead digital transformation and become an IT leader in business",
+        "badge": "Business Focus",
+        "highlights": [
+          "Business Analytics",
+          "Project Management",
+          "Digital Strategy",
+          "IT Consulting"
+        ]
+      }
+    },
+    "modal": {
+      "highlightsTitle": "What You Will Learn:",
+      "featuresTitle": "Program Benefits:",
+      "features": {
+        "internationalDiploma": "Internationally recognized diploma",
+        "careerGrowth": "Guaranteed career growth",
+        "practicalSkills": "Practical skills through real projects",
+        "mentorship": "Mentorship from industry experts"
+      },
+      "applyNow": "Apply Now",
+      "close": "Close"
+    }
+  },
+  "business": {
+    "title": "Business Programs",
+    "shortDescription": "Transform your career with world-class business education and leadership development",
+    "leadershipExcellence": "Leadership Excellence",
+    "about": {
+      "title": "About Our Business School",
+      "content1": "Our business programs are designed to develop the next generation of leaders and innovators. Through rigorous academic training and real-world experience, we prepare students to excel in today's dynamic business environment.",
+      "content2": "With a focus on practical skills, ethical leadership, and global perspective, our graduates are equipped to drive meaningful change in organizations worldwide."
+    },
+    "coreCompetencies": "Core Competencies",
+    "programs": {
+      "title": "Business Programs",
+      "subtitle": "Choose your path to business excellence",
+      "entrepreneurship": {
+        "title": "Entrepreneurship",
+        "description": "Learn to build and scale successful businesses from the ground up with our comprehensive entrepreneurship program."
+      },
+      "management": {
+        "title": "Management",
+        "description": "Develop advanced leadership and strategic management skills to lead organizations to success."
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Master financial analysis, investment strategies, and risk management in global markets."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Create powerful brand strategies and master digital marketing in the modern business landscape."
+      }
+    },
+    "competencies": {
+      "leadership": "Strategic Leadership",
+      "strategy": "Business Strategy",
+      "innovation": "Innovation Management",
+      "analytics": "Data Analytics"
+    },
+    "admission": {
+      "title": "Admission Process",
+      "description": "Join our prestigious business programs and start your journey to leadership excellence",
+      "cta": "Apply Now",
+      "steps": {
+        "application": "Online Application Submission",
+        "assessment": "Academic & Professional Assessment",
+        "interview": "Admission Interview",
+        "enrollment": "Program Enrollment"
+      }
+    },
+    "tools": {
+      "analytics": "Business Analytics",
+      "strategy": "Strategic Planning",
+      "management": "Project Management",
+      "finance": "Financial Tools"
+    },
+    "stats": {
+      "employment": "Employment Rate",
+      "alumni": "Global Alumni",
+      "partners": "Corporate Partners",
+      "satisfaction": "Student Satisfaction"
+    },
+    "keySkills": "Key Skills",
+    "startBusinessPath": "Start Your Business Journey",
+    "buildFuture": "Build your future in business leadership"
+  },
+  "programs": {
+    "hero": {
+      "tagline": "Future-Ready Education",
+      "title": "Our Programs",
+      "description": "Choose from our cutting-edge programs designed to launch your career in the most in-demand fields of tomorrow"
+    },
+    "business": {
+      "title": "Business & Management",
+      "description": "Develop exceptional leadership skills and strategic thinking to solve modern business challenges. Learn from industry experts and build your professional network."
+    },
+    "cs": {
+      "title": "Computer Science",
+      "description": "Master programming, artificial intelligence, and software development. Build the technical skills needed for the digital age with hands-on projects."
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Create innovative mobile applications for iOS and Android platforms. Learn native and cross-platform development with industry-standard tools."
+    },
+    "multimedia": {
+      "title": "Multimedia & Design",
+      "description": "Bring ideas to life with stunning visual experiences. Master cutting-edge design tools and create immersive digital content that captivates audiences."
+    },
+    "stats": {
+      "0": "Employment Rate",
+      "1": "Alumni Network",
+      "2": "Industry Partners",
+      "3": "Student Satisfaction"
+    },
+    "learnMore": "Explore Program",
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Join thousands of successful graduates who transformed their careers with our industry-leading programs",
+      "applyNow": "Apply Now",
+      "contact": "Contact Advisor"
+    }
+  },
+  "home": {
+  "latestNews": "Latest News",
+  "latestNewsSubtitle": "Stay informed about the latest events and updates from our company",
+  "viewAllNews": "View All News"
+}
+
+}

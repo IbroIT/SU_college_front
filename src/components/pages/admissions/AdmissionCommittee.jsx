@@ -1,245 +1,324 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import './AdmissionCommittee.css';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { 
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaUserGraduate,
+  FaUniversity,
+  FaRocket,
+  FaUsers,
+  FaAward,
+  FaArrowRight,
+  FaCalendarAlt,
+  FaGraduationCap
+} from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
-const AdmissionCommittee = () => {
+const Admissions = () => {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const contactInfo = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      title: t('admission.address.title'),
-      content: t('admission.address.content'),
-      link: null
+      icon: <FaMapMarkerAlt className="text-blue-500" size={24} />,
+      title: t('admissions.contact.address.title'),
+      content: t('admissions.contact.address.content'),
+      description: t('admissions.contact.address.description')
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-      ),
-      title: t('admission.phones.title'),
-      content: [
-        t('admission.phones.primary'),
-        t('admission.phones.secondary')
-      ],
-      link: null
+      icon: <FaPhone className="text-green-500" size={24} />,
+      title: t('admissions.contact.phone.title'),
+      content: t('admissions.contact.phone.content'),
+      description: t('admissions.contact.phone.description')
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: t('admission.email.title'),
-      content: t('admission.email.content'),
-      link: `mailto:${t('admission.email.content')}`
+      icon: <FaEnvelope className="text-purple-500" size={24} />,
+      title: t('admissions.contact.email.title'),
+      content: t('admissions.contact.email.content'),
+      description: t('admissions.contact.email.description')
     }
   ];
 
   const features = [
     {
-      icon: "🚀",
-      title: t('admission.features.innovative.title'),
-      description: t('admission.features.innovative.description')
+      icon: <FaUniversity className="text-blue-500" size={28} />,
+      title: t('admissions.features.modern.title'),
+      description: t('admissions.features.modern.description')
     },
     {
-      icon: "🎯",
-      title: t('admission.features.foundation.title'),
-      description: t('admission.features.foundation.description')
+      icon: <FaRocket className="text-green-500" size={28} />,
+      title: t('admissions.features.innovative.title'),
+      description: t('admissions.features.innovative.description')
     },
     {
-      icon: "🌟",
-      title: t('admission.features.activities.title'),
-      description: t('admission.features.activities.description')
+      icon: <FaUsers className="text-purple-500" size={28} />,
+      title: t('admissions.features.community.title'),
+      description: t('admissions.features.community.description')
+    },
+    {
+      icon: <FaAward className="text-orange-500" size={28} />,
+      title: t('admissions.features.quality.title'),
+      description: t('admissions.features.quality.description')
     }
   ];
 
-  return (
-    <div className="admission-committee min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-5xl md:text-6xl font-bold text-blue-900 mb-6">
-            {t('admission.title')}
-          </h1>
-          <p className="text-xl text-blue-700 max-w-3xl mx-auto leading-relaxed">
-            {t('admission.subtitle')}
-          </p>
-        </div>
+  const programs = [
+    {
+      title: t('admissions.programs.it.title'),
+      description: t('admissions.programs.it.description'),
+      icon: "💻",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: t('admissions.programs.business.title'),
+      description: t('admissions.programs.business.description'),
+      icon: "📊",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: t('admissions.programs.design.title'),
+      description: t('admissions.programs.design.description'),
+      icon: "🎨",
+      color: "from-purple-500 to-pink-500"
+    }
+  ];
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-          {/* Left Column - Contact Information */}
-          <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            {/* Contact Cards */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-all duration-500">
-              <h2 className="text-3xl font-bold text-blue-800 mb-8 text-center">
-                {t('admission.contactTitle')}
+  const stats = [
+    { number: "2021", label: t('admissions.stats.founded'), icon: <FaCalendarAlt className="text-blue-500" /> },
+    { number: "500+", label: t('admissions.stats.students'), icon: <FaUserGraduate className="text-green-500" /> },
+    { number: "25+", label: t('admissions.stats.teachers'), icon: <FaUsers className="text-purple-500" /> },
+    { number: "4+", label: t('admissions.stats.programs'), icon: <FaAward className="text-orange-500" /> }
+  ];
+
+  const [activeProgram, setActiveProgram] = useState(0);
+
+  const handleApplyClick = () => {
+    // Логика для подачи заявки
+    window.open('/apply', '_self');
+  };
+
+  const handleContactClick = (type, value) => {
+    switch (type) {
+      case 'phone':
+        window.open(`tel:${value}`, '_self');
+        break;
+      case 'email':
+        window.open(`mailto:${value}`, '_self');
+        break;
+      case 'address':
+        window.open('https://maps.google.com/?q=ул. Малдыбаева, 24б / Ахунбаева, 125', '_blank');
+        break;
+      default:
+        break;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Декоративные элементы */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-blue-50 to-cyan-50"
+            style={{
+              width: Math.random() * 100 + 50,
+              height: Math.random() * 100 + 50,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -25, 0],
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.08, 1]
+            }}
+            transition={{
+              duration: 9 + Math.random() * 9,
+              repeat: Infinity,
+              delay: Math.random() * 4
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+        {/* Герой секция */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full mb-6"
+          >
+            <FaUserGraduate className="text-xl" />
+            <span className="font-semibold">{t('admissions.badge')}</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
+            {t('admissions.title')}
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {t('admissions.subtitle')}
+          </p>
+        </motion.div>
+
+        {/* Статистика */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+            >
+              <div className="flex justify-center mb-3">
+                <div className="text-2xl">
+                  {stat.icon}
+                </div>
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                {stat.number}
+              </div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          {/* Контактная информация */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-8">
+                {t('admissions.contact.title')}
               </h2>
               
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
-                  <div 
+                  <motion.div
                     key={index}
-                    className="flex items-start space-x-4 p-4 rounded-2xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                    className={`p-4 rounded-2xl border-2 border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 cursor-pointer group ${
+                      index === 0 ? 'bg-blue-50 border-blue-200' : ''
+                    }`}
+                    onClick={() => {
+                      const type = index === 0 ? 'address' : index === 1 ? 'phone' : 'email';
+                      handleContactClick(type, item.content);
+                    }}
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-blue-900 text-lg mb-1">
-                        {item.title}
-                      </h3>
-                      {Array.isArray(item.content) ? (
-                        <div className="space-y-1">
-                          {item.content.map((phone, phoneIndex) => (
-                            <p key={phoneIndex} className="text-blue-700">
-                              {item.link ? (
-                                <a href={item.link} className="hover:text-blue-900 transition-colors">
-                                  {phone}
-                                </a>
-                              ) : (
-                                phone
-                              )}
-                            </p>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-blue-700">
-                          {item.link ? (
-                            <a href={item.link} className="hover:text-blue-900 transition-colors">
-                              {item.content}
-                            </a>
-                          ) : (
-                            item.content
-                          )}
+                    <div className="flex items-start gap-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white border border-gray-200 group-hover:scale-110 transition-transform duration-300">
+                        {item.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-800 mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600 font-semibold text-lg mb-1">
+                          {item.content}
                         </p>
-                      )}
+                        <p className="text-gray-500 text-sm">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* Quick Actions */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <button className="bg-blue-600 text-white py-3 px-4 rounded-xl font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span>{t('admission.callNow')}</span>
-                </button>
-                <button className="border-2 border-blue-600 text-blue-600 py-3 px-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                  <span>{t('admission.chat')}</span>
-                </button>
-              </div>
+              {/* Кнопка подачи заявки */}
+              <motion.button
+                onClick={handleApplyClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full mt-8 bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-3"
+              >
+                <FaGraduationCap className="text-sm" />
+                <span>{t('admissions.applyButton')}</span>
+                <FaArrowRight className="text-sm" />
+              </motion.button>
             </div>
+          </motion.div>
 
-            {/* Map Placeholder */}
-            <div className="bg-white rounded-3xl shadow-2xl p-6 transform hover:scale-105 transition-all duration-500">
-              <h3 className="text-xl font-bold text-blue-800 mb-4">{t('admission.location')}</h3>
-              <div className="bg-blue-100 rounded-2xl h-48 flex items-center justify-center">
-                <div className="text-center text-blue-600">
-                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                  <p className="font-semibold">{t('admission.interactiveMap')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Welcome Message */}
-          <div className={`space-y-8 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            {/* Welcome Card */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl shadow-2xl p-8 text-white transform hover:scale-105 transition-all duration-500">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v6l9-5-9-5-9 5 9 5z" />
-                  </svg>
-                </div>
-                <h2 className="text-3xl font-bold">{t('admission.welcomeTitle')}</h2>
-              </div>
-              
-              <div className="space-y-4 text-blue-100 leading-relaxed">
-                <p className="text-lg">{t('admission.welcomeMessage.p1')}</p>
-                <p>{t('admission.welcomeMessage.p2')}</p>
-                <p>{t('admission.welcomeMessage.p3')}</p>
-                <p className="font-semibold text-white text-lg mt-6">
-                  {t('admission.welcomeMessage.p4')}
-                </p>
-              </div>
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="text-3xl mb-4">{feature.icon}</div>
-                  <h3 className="font-bold text-blue-800 text-lg mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-blue-600 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Section */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-blue-800 mb-4">
-                {t('admission.cta.title')}
-              </h3>
-              <p className="text-blue-600 mb-6">
-                {t('admission.cta.description')}
+          {/* Приветственное сообщение */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="space-y-8"
+          >
+            <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-8 text-white">
+              <h2 className="text-3xl font-bold mb-6">
+                {t('admissions.welcome.title')}
+              </h2>
+              <p className="text-lg leading-relaxed mb-6">
+                {t('admissions.welcome.description1')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-blue-600 text-white py-3 px-8 rounded-xl font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300">
-                  {t('admission.cta.applyNow')}
-                </button>
-                <button className="border-2 border-blue-600 text-blue-600 py-3 px-8 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-300">
-                  {t('admission.cta.tour')}
-                </button>
-              </div>
+              <p className="text-lg leading-relaxed mb-6">
+                {t('admissions.welcome.description2')}
+              </p>
+              <p className="text-lg leading-relaxed">
+                {t('admissions.welcome.description3')}
+              </p>
             </div>
-          </div>
+
+          </motion.div>
         </div>
 
-        {/* Floating Elements */}
-        <div className="fixed bottom-8 right-8 space-y-4">
-          <button className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-          </button>
-          <button className="w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
-          </button>
-        </div>
+        {/* Призыв к действию */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-center"
+        >
+          <div className="bg-gradient-to-r from-gray-800 to-blue-700 rounded-3xl p-8 md:p-12 text-white">
+            <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
+              <FaUniversity className="text-xl" />
+              <span className="font-semibold">{t('admissions.cta.badge')}</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              {t('admissions.cta.title')}
+            </h3>
+            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+              {t('admissions.cta.description')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-3"
+              >
+                <FaPhone className="text-sm" />
+                <span>{t('admissions.cta.contactButton')}</span>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default AdmissionCommittee;
+export default Admissions;

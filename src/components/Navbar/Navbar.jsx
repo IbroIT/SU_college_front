@@ -80,7 +80,6 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
       title: t('nav.applicant', 'Абитуриенту'),
       submenu: [
         { title: t('nav.admission_committee', 'Приемная комиссия'), link: '/admissions/committee' },
-        { title: t('nav.our_specialties', 'Наши специальности'), link: '/admissions/specialties' },
         { 
           title: t('nav.programs', 'Программы'), 
           hasNested: true,
@@ -88,10 +87,11 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             { title: t('nav.computer_science', 'Компьютерная наука'), link: '/programs/computer-science' },
             { title: t('nav.multimedia_programs', 'Мультимедийные программы'), link: '/programs/multimedia' },
             { title: t('nav.mobile_applications', 'Мобильные приложения'), link: '/programs/mobile' },
+            { title: t('nav.webdev', 'Веб-разработка'), link: '/programs/webdev' },
+            { title: t('nav.business', 'Бизнес'), link: '/programs/business' },
           ]
         },
         { title: t('nav.admission_rules', 'Правила и план приема'), link: '/admissions/rules' },
-        { title: t('nav.admission_procedure', 'Порядок приема'), link: '/admissions/procedure' },
         { title: t('nav.required_documents', 'Необходимые документы'), link: '/admissions/documents' },
         { title: t('nav.selection_schedule', 'График отбора'), link: '/admissions/schedule' },
         { title: t('nav.tuition_fees', 'Стоимость обучения'), link: '/admissions/tuition' },
@@ -100,11 +100,14 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
     student: {
       title: t('nav.student', 'Студенту'),
       submenu: [
-        { title: t('nav.info_system', 'Информационная система'), link: '/student/info-system' },
         { title: t('nav.student_projects', 'Проекты наших студентов'), link: '/student/projects' },
-        { title: 'Ebilim', link: '/student/ebilim' },
-        { title: 'Lincoln', link: '/student/lincoln' },
-        { title: t('nav.surveys', 'Анкетирование'), link: '/student/surveys' },
+          {title: t('nav.info_system', 'Информационная система'), 
+            hasNested: true,
+            nestedItems: [
+              { title: 'Ebilim', link: 'https://ebilim.salymbekov.com/Account/Login?ReturnUrl=%2F' },
+              { title: 'Lincoln', link: 'https://online.collaborative.lincoln.edu.my' },
+    ]
+  },
         { 
           title: t('nav.student_communities', 'Студенческие сообщества'), 
           hasNested: true,
@@ -127,7 +130,6 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           title: t('nav.schedules', 'Графики и расписания'), 
           hasNested: true,
           nestedItems: [
-            { title: t('nav.study_schedules', 'Учебные графики'), link: '/student/schedules' },
             { title: t('nav.modules_exams', 'Графики модулей и экзаменов'), link: '/student/modules' },
             { title: t('nav.college_schedule', 'Расписание колледжа'), link: '/student/timetable' },
             { title: t('nav.academic_calendar', 'График учебного процесса'), link: '/student/calendar' },
@@ -150,13 +152,9 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             { title: 'Diploma Computer Science', link: '/curriculum/diploma-cs' },
           ]
         },
-        { title: t('nav.main_documents', 'Основное'), link: '/documents' },
         { title: t('nav.license', 'Лицензия'), link: '/documents/license' },
         { title: t('nav.international_accreditation', 'Международная институциональная аккредитация'), link: '/documents/accreditation' },
         { title: t('nav.program_accreditation', 'Программная аккредитация'), link: '/documents/program-accreditation' },
-        { title: t('nav.mission', 'Миссия'), link: '/about/mission' },
-        { title: t('nav.mission_text', 'Подготовка современных кадров...'), link: '/about/mission' },
-        
       ]
     },
     contacts: {
@@ -197,7 +195,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
 
           {/* Центральное меню - скрыто на мобильных */}
           <div className="flex items-center space-x-6">
-            <div className="hidden min-[1475px]:flex flex-1 justify-center">
+            <div className="hidden min-[1000px]:flex flex-1 justify-center">
               {Object.entries(menuData).map(([key, item]) => (
                 <div
                   key={key}
@@ -227,12 +225,9 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
                             : 'text-white hover:text-white hover:bg-white/20'
                       }`}
                     >
-                      <span className="relative z-10">{item.title}</span>
-                      <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-3/4 ${
-                        activeMenu === key ? 'w-3/4' : ''
-                      }`}></div>
+                      <span className="relative z-10">{item.title}</span> 
                     </button>
-
+                    
                     {/* Выпадающее меню с анимацией */}
                     {activeMenu === key && (
                       <div
@@ -327,7 +322,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             </div>
 
             {/* Кнопка мобильного меню */}
-            <div className="block min-[1475px]:hidden">
+            <div className="block min-[1000px]:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`inline-flex items-center justify-center p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
@@ -355,7 +350,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
 
       {/* Мобильное меню с анимацией */}
       {isMenuOpen && (
-        <div className="block min-[1475px]:hidden bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md shadow-xl border-t border-blue-100 transform transition-all duration-300 ease-out animate-in slide-in-from-top-2 fade-in">
+        <div className="block min-[1000px]:hidden bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md shadow-xl border-t border-blue-100 transform transition-all duration-300 ease-out animate-in slide-in-from-top-2 fade-in">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {Object.entries(menuData).map(([key, item]) => (
               <div key={key} className="relative">

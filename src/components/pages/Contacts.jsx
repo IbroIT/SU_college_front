@@ -1,139 +1,587 @@
-// components/Footer.jsx
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { 
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaClock,
+  FaFacebook,
+  FaInstagram,
+  FaTelegram,
+  FaWhatsapp,
+  FaPaperPlane,
+  FaUniversity,
+  FaCheck,
+  FaExclamationTriangle
+} from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import emailjs from 'emailjs-com';
 
-const Footer = () => {
+const Contacts = () => {
   const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  // Конфигурация EmailJS
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_bmhla5h',
+    TEMPLATE_ID: 'template_4d59uop',
+    USER_ID: '_B-R_iemQHDFnvQ1W'
+  };
+
+  const contactInfo = [
+    {
+      icon: <FaMapMarkerAlt className="text-blue-500" size={24} />,
+      title: t('contacts.info.address.title'),
+      content: t('contacts.info.address.content'),
+      link: "https://maps.google.com/?q=г. Бишкек, ул. Малдыбаева 24б",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: <FaPhone className="text-green-500" size={24} />,
+      title: t('contacts.info.phone.title'),
+      content: t('contacts.info.phone.content'),
+      link: "tel:+996706998889",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: <FaEnvelope className="text-purple-500" size={24} />,
+      title: t('contacts.info.email.title'),
+      content: t('contacts.info.email.content'),
+      link: "mailto:salymbekov.kg@gmail.com",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: <FaClock className="text-orange-500" size={24} />,
+      title: t('contacts.info.hours.title'),
+      content: t('contacts.info.hours.content'),
+      color: "from-orange-500 to-red-500"
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: <FaFacebook size={20} />,
+      name: "Facebook",
+      url: "https://facebook.com/salymbekovuniversity",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      icon: <FaInstagram size={20} />,
+      name: "Instagram",
+      url: "https://instagram.com/salymbekovuniversity",
+      color: "from-pink-500 to-purple-500"
+    },
+    {
+      icon: <FaTelegram size={20} />,
+      name: "Telegram",
+      url: "https://t.me/salymbekovuniversity",
+      color: "from-cyan-500 to-blue-500"
+    },
+    {
+      icon: <FaWhatsapp size={20} />,
+      name: "WhatsApp",
+      url: "https://wa.me/996706998889",
+      color: "from-green-500 to-emerald-500"
+    }
+  ];
+
+  const departments = [
+    {
+      name: t('contacts.departments.admission.title'),
+      phone: "+996 706 99 88 89",
+      email: "admission@salymbekov.kg",
+      description: t('contacts.departments.admission.description')
+    },
+    {
+      name: t('contacts.departments.registrar.title'),
+      phone: "+996 706 99 88 90",
+      email: "registrar@salymbekov.kg",
+      description: t('contacts.departments.registrar.description')
+    },
+    {
+      name: t('contacts.departments.finance.title'),
+      phone: "+996 706 99 88 91",
+      email: "finance@salymbekov.kg",
+      description: t('contacts.departments.finance.description')
+    },
+    {
+      name: t('contacts.departments.international.title'),
+      phone: "+996 706 99 88 92",
+      email: "international@salymbekov.kg",
+      description: t('contacts.departments.international.description')
+    }
+  ];
+
+  // Функция для открытия карты в новом окне
+  const openMapInNewWindow = () => {
+    window.open("https://www.google.com/maps/place/%D0%A1%D0%B0%D0%BB%D1%8B%D0%BC%D0%B1%D0%B5%D0%BA%D0%BE%D0%B2+%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82/@42.8441282,74.6001724,17z/data=!3m1!4b1!4m6!3m5!1s0x389ec987f324329b:0x2cd99bcd0df5fc1f!8m2!3d42.8441282!4d74.6001724!16s%2Fg%2F11lh2dfxc_?entry=ttu", "_blank");
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    if (submitStatus.type) {
+      setSubmitStatus({ type: '', message: '' });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      // Валидация формы
+      if (!formData.name || !formData.email || !formData.message) {
+        throw new Error('Пожалуйста, заполните обязательные поля');
+      }
+
+      // Отправка через EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone || 'Не указан',
+        subject: formData.subject || 'Сообщение с сайта',
+        message: formData.message,
+        to_email: 'salymbekov.kg@gmail.com',
+        reply_to: formData.email,
+        time: new Date().toLocaleString('ru-RU')
+      };
+
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.USER_ID
+      );
+
+      setSubmitStatus({
+        type: 'success',
+        message: t('contacts.form.success') || 'Сообщение успешно отправлено!'
+      });
+
+      // Сброс формы
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('Ошибка отправки:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: error.message || t('contacts.form.error') || 'Произошла ошибка при отправке'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Основной контент футера */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Колонка 1: Контакты */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-blue-400 mb-4">
-              {t('footer.collegeName')}
-            </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
-              {t('footer.mission')}
-            </p>
-            
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">{t('footer.contactUs')}</p>
-                  <a 
-                    href="tel:+996706998889" 
-                    className="text-white hover:text-blue-300 transition-colors font-semibold"
-                  >
-                    +996 (706) 99 88 89
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-400">Email</p>
-                  <a 
-                    href="mailto:info@salymbekov.com" 
-                    className="text-white hover:text-blue-300 transition-colors break-all"
-                  >
-                    info@salymbekov.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Колонка 2: О нас */}
-          <div>
-            <h4 className="text-lg font-semibold text-blue-400 mb-4">
-              {t('footer.about.title')}
-            </h4>
-            <p className="text-gray-300 leading-relaxed">
-              {t('footer.about.description')}
-            </p>
-          </div>
-
-          {/* Колонка 3: FAQ */}
-          <div>
-            <h4 className="text-lg font-semibold text-blue-400 mb-4">
-              {t('footer.faq.title')}
-            </h4>
-            <div className="space-y-3">
-              <div className="border-l-2 border-blue-500 pl-3">
-                <p className="text-white font-medium text-sm">
-                  {t('footer.faq.questions.0.question')}
-                </p>
-              </div>
-              <div className="border-l-2 border-blue-500 pl-3">
-                <p className="text-white font-medium text-sm">
-                  {t('footer.faq.questions.1.question')}
-                </p>
-              </div>
-              <div className="border-l-2 border-blue-500 pl-3">
-                <p className="text-white font-medium text-sm">
-                  {t('footer.faq.questions.2.question')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Социальные сети */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-                aria-label="Instagram"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.22 14.815 3.73 13.664 3.73 12.367s.49-2.448 1.396-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.906.875 1.396 2.026 1.396 3.323s-.49 2.448-1.396 3.323c-.875.807-2.026 1.297-3.323 1.297z"/>
-                </svg>
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-            
-            <div className="text-center md:text-right">
-              <p className="text-gray-400 text-sm">
-                {t('footer.copyright')}
-              </p>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Декоративные элементы */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-r from-blue-50 to-cyan-50"
+            style={{
+              width: Math.random() * 100 + 50,
+              height: Math.random() * 100 + 50,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.05, 1]
+            }}
+            transition={{
+              duration: 8 + Math.random() * 8,
+              repeat: Infinity,
+              delay: Math.random() * 4
+            }}
+          />
+        ))}
       </div>
-    </footer>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+        {/* Герой секция */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full mb-6"
+          >
+            <FaUniversity className="text-xl" />
+            <span className="font-semibold">{t('contacts.badge')}</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
+            {t('contacts.title')}
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {t('contacts.subtitle')}
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          {/* Контактная информация */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">
+              {t('contacts.info.title')}
+            </h2>
+            
+            <div className="space-y-6">
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className={`bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group ${
+                    item.link ? 'cursor-pointer' : ''
+                  }`}
+                  onClick={() => item.link && window.open(item.link, '_blank')}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r ${item.color} group-hover:scale-110 transition-transform duration-300`}>
+                      {item.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {item.content}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Социальные сети */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                {t('contacts.social.title')}
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-14 h-14 bg-gradient-to-r ${social.color} text-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Форма обратной связи */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                {t('contacts.form.title')}
+              </h2>
+              <p className="text-gray-600 mb-8">
+                {t('contacts.form.description')}
+              </p>
+
+              {/* Статус отправки */}
+              {submitStatus.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mb-6 p-4 rounded-2xl ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-50 border border-green-200 text-green-800' 
+                      : 'bg-red-50 border border-red-200 text-red-800'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    {submitStatus.type === 'success' ? (
+                      <FaCheck className="text-green-500 text-xl" />
+                    ) : (
+                      <FaExclamationTriangle className="text-red-500 text-xl" />
+                    )}
+                    <span className="font-medium">{submitStatus.message}</span>
+                  </div>
+                </motion.div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      {t('contacts.form.name')} *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder={t('contacts.form.namePlaceholder')}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      {t('contacts.form.email')} *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder={t('contacts.form.emailPlaceholder')}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      {t('contacts.form.phone')}
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder={t('contacts.form.phonePlaceholder')}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      {t('contacts.form.subject')}
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      placeholder={t('contacts.form.subjectPlaceholder')}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    {t('contacts.form.message')} *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows="5"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                    placeholder={t('contacts.form.messagePlaceholder')}
+                  ></textarea>
+                </div>
+
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>{t('contacts.form.sending') || 'Отправка...'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaPaperPlane className="text-sm" />
+                      <span>{t('contacts.form.button')}</span>
+                    </>
+                  )}
+                </motion.button>
+
+                <p className="text-xs text-gray-500 text-center">
+                  * {t('contacts.form.required') || 'Обязательные поля'}
+                </p>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Отделы университета */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-20"
+        >
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+            {t('contacts.departments.title')}
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {departments.map((dept, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+              >
+                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  {dept.name}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {dept.description}
+                </p>
+                <div className="space-y-2">
+                  <a 
+                    href={`tel:${dept.phone}`}
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    <FaPhone className="text-sm" />
+                    <span className="text-sm">{dept.phone}</span>
+                  </a>
+                  <a 
+                    href={`mailto:${dept.email}`}
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    <FaEnvelope className="text-sm" />
+                    <span className="text-sm">{dept.email}</span>
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Карта */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
+        >
+          <div className="h-96 relative bg-gray-100">
+            <div className="absolute inset-0 flex items-center justify-center flex-col bg-white/80 backdrop-blur-sm map-fallback">
+              <FaMapMarkerAlt className="text-blue-500 text-4xl mb-4" />
+              <p className="text-gray-600 text-lg mb-4 text-center">
+                {t('contacts.map.loading') || "Карта загружается..."}
+              </p>
+              <motion.button
+                onClick={openMapInNewWindow}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors"
+              >
+                <FaMapMarkerAlt />
+                <span>{t('contacts.map.button') || "Открыть карту"}</span>
+              </motion.button>
+            </div>
+            
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.748238083213!2d74.5979985!3d42.8448895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec987f324329b%3A0x2cd99bcd0df5fc1f!2z0KHQsNC70YPQvdCx0LjQutC-0LIg0KPQvdC40LLQtdGA0YHQuNGC0LXRgiDQo9C90LjQstC10YDRgdC40YLQtdGC!5e0!3m2!1sru!2skg!4v1690000000000!5m2!1sru!2skg"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Расположение Салымбеков Университета"
+              className="absolute inset-0"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                const fallback = document.querySelector('.map-fallback');
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
+            
+            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800">
+                    {t('contacts.map.title')}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {t('contacts.map.address')}
+                  </p>
+                </div>
+                <motion.button
+                  onClick={openMapInNewWindow}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-600 transition-colors text-sm"
+                >
+                  <FaMapMarkerAlt />
+                  <span>{t('contacts.map.button')}</span>
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 
-export default Footer;
+export default Contacts;

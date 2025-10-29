@@ -1,6 +1,13 @@
 // components/PhotoGallery.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import img1 from '../../../assets/gallery/506A0617.JPG'
+import img2 from '../../../assets/gallery/506A0632.JPG'
+import img3 from '../../../assets/gallery/BC0B2032.jpg'
+import img4 from '../../../assets/gallery/BC0B2041.jpg'
+import img5 from '../../../assets/gallery/BC0B2355.jpg'
+import img6 from '../../../assets/gallery/BC0B6214.jpg'
+
 
 // SVG Icons
 const ChevronLeftIcon = ({ className }) => (
@@ -48,37 +55,37 @@ const PhotoGallery = () => {
   const photos = [
     {
       id: 1,
-      src: '/api/placeholder/800/600',
+      src: img1,
       alt: t('gallery.photos.campus'),
       title: t('gallery.photos.campus')
     },
     {
       id: 2,
-      src: '/api/placeholder/800/600',
+      src: img2,
       alt: t('gallery.photos.labs'),
       title: t('gallery.photos.labs')
     },
     {
       id: 3,
-      src: '/api/placeholder/800/600',
+      src: img3,
       alt: t('gallery.photos.students'),
       title: t('gallery.photos.students')
     },
     {
       id: 4,
-      src: '/api/placeholder/800/600',
+      src: img4,
       alt: t('gallery.photos.classrooms'),
       title: t('gallery.photos.classrooms')
     },
     {
       id: 5,
-      src: '/api/placeholder/800/600',
+      src: img5,
       alt: t('gallery.photos.events'),
       title: t('gallery.photos.events')
     },
     {
       id: 6,
-      src: '/api/placeholder/800/600',
+      src: img6,
       alt: t('gallery.photos.graduation'),
       title: t('gallery.photos.graduation')
     }
@@ -188,16 +195,6 @@ const PhotoGallery = () => {
               alt={photos[currentIndex].alt}
               className="w-full h-full object-cover transition-opacity duration-500"
             />
-            
-            {/* Image Title Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-              <h3 className="text-2xl font-bold text-white">
-                {photos[currentIndex].title}
-              </h3>
-              <p className="text-blue-200 mt-1">
-                {currentIndex + 1} / {photos.length}
-              </p>
-            </div>
 
             {/* Navigation Arrows */}
             <button

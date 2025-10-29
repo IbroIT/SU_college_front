@@ -1,0 +1,204 @@
+.programs-homepage {
+  position: relative;
+  background: #ffffff;
+}
+
+/* Анимации */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Уникальные паттерны для карточек */
+.business-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.business-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.business-pattern .pattern-overlay::after {
+  content: '📈';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 4rem;
+  opacity: 0.03;
+  transform: rotate(12deg);
+}
+
+.code-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.code-pattern::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-20%, 20%);
+}
+
+.code-pattern .pattern-overlay::after {
+  content: '</>';
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 3rem;
+  opacity: 0.03;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.mobile-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-pattern::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -50%);
+}
+
+.mobile-pattern .pattern-overlay::after {
+  content: '📱';
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  font-size: 3.5rem;
+  opacity: 0.03;
+  transform: translateY(-50%) rotate(-15deg);
+}
+
+.web-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.web-pattern .pattern-overlay::after {
+  content: '</>';
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  font-size: 4rem;
+  opacity: 0.03;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+/* Плавные переходы */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Тени и эффекты подъема */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:shadow-2xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Стили для backdrop blur */
+@supports (backdrop-filter: blur(12px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Анимация пульсации для точек */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .programs-homepage .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .business-pattern::before,
+  .code-pattern::before,
+  .mobile-pattern::before,
+  .web-pattern::before {
+    display: none;
+  }
+  
+  .business-pattern .pattern-overlay::after,
+  .code-pattern .pattern-overlay::after,
+  .mobile-pattern .pattern-overlay::after,
+  .web-pattern .pattern-overlay::after {
+    font-size: 2rem;
+  }
+}

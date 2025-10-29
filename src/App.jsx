@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/pages/Contacts';
+import Footer from './components/pages/Footer';
+import Contacts from './components/pages/Contacts';
 import { useTranslation } from 'react-i18next';
 
 // Импорты страниц
@@ -51,11 +52,14 @@ import CurriculumMultimediaPrograms from './components/pages/curriculum/Curricul
 import DiplomaMultimedia from './components/pages/curriculum/DiplomaMultimedia';
 import DiplomaMobile from './components/pages/curriculum/DiplomaMobile';
 import DiplomaComputerScience from './components/pages/curriculum/DiplomaComputerScience';
-import Contacts from './components/pages/Contacts';
 import FAQ from './components/pages/FAQ';
 import Vacancies from './components/pages/Vacancies';
 import NewsDetail from './components/pages/NewsDetail';
 import SpecialtyDetail from './components/pages/admissions/SpecialtyDetail';
+import DocumentViewer from './components/pages/DocumentViewer';
+import WebDevelopment from './components/pages/programs/WebDevelopment';
+import BusinessPrograms from './components/pages/programs/BusinessProgram';
+
 function App() {
   const { i18n } = useTranslation();
 
@@ -113,6 +117,8 @@ function App() {
             <Route path="/programs/computer-science" element={<ProgramComputerScience />} />
             <Route path="/programs/multimedia" element={<ProgramMultimedia />} />
             <Route path="/programs/mobile" element={<ProgramMobile />} />
+            <Route path="/programs/webdev" element={<WebDevelopment />} />
+            <Route path="/programs/business" element={<BusinessPrograms />} />
             
             {/* Студенту */}
             <Route path="/student/info-system" element={<InfoSystem />} />
@@ -123,27 +129,27 @@ function App() {
             <Route path="/student/council" element={<StudentCouncil />} />
             <Route path="/student/debate" element={<DebateClub />} />
             <Route path="/student/creative" element={<CreativeGroups />} />
-            <Route path="/student/report-2024" element={<Report2024 />} />
+            <Route path="/student/report-2024" element={<DocumentViewer documentUrl="/pdfs/Отчет с диаграммами 2024 (1).pdf" />} />
             <Route path="/student/instructions" element={<Instructions />} />
             <Route path="/student/resources" element={<EducationalResources />} />
             <Route path="/student/schedules" element={<StudySchedules />} />
-            <Route path="/student/modules" element={<ModulesExams />} />
+            <Route path="/student/modules" element={<DocumentViewer documentUrl="/pdfs/График экзаменов зимней сессии 2024-2025.pdf" />} />
             <Route path="/student/timetable" element={<CollegeSchedule />} />
             <Route path="/student/calendar" element={<AcademicCalendar />} />
             
             {/* Документы */}
             <Route path="/documents" element={<Documents />} />
-            <Route path="/documents/license" element={<License />} />
-            <Route path="/documents/accreditation" element={<Accreditation />} />
-            <Route path="/documents/program-accreditation" element={<ProgramAccreditation />} />
+            <Route path="/documents/license" element={<DocumentViewer documentUrl="/pdfs/license.pdf" />} />
+            <Route path="/documents/accreditation" element={<DocumentViewer documentUrl="/pdfs/2. International Institutional accreditation.pdf" />}  />
+            <Route path="/documents/program-accreditation" element={<DocumentViewer documentUrl="/pdfs/Сертификат_колледж.PDF" />} />
             
             {/* Учебные планы */}
-            <Route path="/curriculum/computer-science" element={<CurriculumComputerScience />} />
-            <Route path="/curriculum/multimedia-computing" element={<CurriculumMultimediaComputing />} />
-            <Route path="/curriculum/multimedia-programs" element={<CurriculumMultimediaPrograms />} />
-            <Route path="/curriculum/diploma-multimedia" element={<DiplomaMultimedia />} />
-            <Route path="/curriculum/diploma-mobile" element={<DiplomaMobile />} />
-            <Route path="/curriculum/diploma-cs" element={<DiplomaComputerScience />} />
+            <Route path="/curriculum/computer-science" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_КН_20224.PDF" />} />
+            <Route path="/curriculum/multimedia-computing" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_МВ_20224.PDF" />} />
+            <Route path="/curriculum/multimedia-programs" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_МП_20224.PDF" />} />
+            <Route path="/curriculum/diploma-multimedia" element={<DocumentViewer documentUrl="/pdfs/CURRICULUM_Diploma in Multimedia Applications Area2_LINCOLN UNIVERSITY COLLEGE.pdf" />} />
+            <Route path="/curriculum/diploma-mobile" element={<DocumentViewer documentUrl="/pdfs/LAST Diploma in Mobile Computing PA 4733.pdf" />} />
+            <Route path="/curriculum/diploma-cs" element={<DocumentViewer documentUrl="/pdfs/LAST Diploma in COMPUTER SCIENCE Area2_LUK.pdf" />} />
             
             {/* Контакты и др. */}
             <Route path="/contacts" element={<Contacts />} />

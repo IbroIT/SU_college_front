@@ -1,119 +1,113 @@
-// components/ITHeroBanner.jsx
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import './Banner.css';
-
-const ITHeroBanner = () => {
-  const { t } = useTranslation();
+import { useState, useEffect } from 'react';
+import img1 from '../../../assets/banner/1.jpg';
+import img2 from '../../../assets/banner/photo_2022-08-31_17-03-13.jpg';
+import img3 from '../../../assets/banner/IMG_9443.jpg';
+const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // ✅ Универсальная функция для получения ссылки на картинку
-  const getImageUrl = (path) => {
-    // Если это полный URL (https://...), возвращаем как есть
-    if (path.startsWith('http')) return path;
-    // Если это локальный путь (например, /images/it-bg-1.jpg)
-    return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
-  };
-
-  // ✅ Массив фоновых изображений (можно вставлять URL или локальные пути)
-  const backgroundImages = [
-    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61', // Внешний URL
-    '/images/it-bg-2.jpg', // Локальный файл
-    '/images/it-bg-3.jpg',
-    '/images/it-bg-4.jpg'
-  ];
-
+  // Массив с изображениями для слайдера
   const slides = [
+    // {
+    //   id: 1,
+    //   image: img1,
+    // },
     {
-      title: t('hero.it.slides.0.title'),
-      subtitle: t('hero.it.slides.0.subtitle'),
-      description: t('hero.it.slides.0.description'),
+      id: 2,
+      image: img2,
     },
     {
-      title: t('hero.it.slides.1.title'),
-      subtitle: t('hero.it.slides.1.subtitle'),
-      description: t('hero.it.slides.1.description'),
-    },
-    {
-      title: t('hero.it.slides.2.title'),
-      subtitle: t('hero.it.slides.2.subtitle'),
-      description: t('hero.it.slides.2.description'),
-    },
-    {
-      title: t('hero.it.slides.3.title'),
-      subtitle: t('hero.it.slides.3.subtitle'),
-      description: t('hero.it.slides.3.description'),
+      id: 3,
+      image: img3,
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
+  // Автоматическая смена слайдов
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
+
+  // Переход к конкретному слайду
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Переход к следующему слайду
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  // Переход к предыдущему слайду
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Фоновые изображения */}
-      {backgroundImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            backgroundImage: `url(${getImageUrl(image)})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        </div>
-      ))}
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Слайды */}
+      <div className="relative w-full h-full">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
 
-      {/* Стрелки */}
+      {/* Кнопки навигации */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-blue-500 bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center transition-all duration-300 group"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        aria-label="Предыдущий слайд"
       >
-        <svg className="w-6 h-6 text-white transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 bg-blue-500 bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center transition-all duration-300 group"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        aria-label="Следующий слайд"
       >
-        <svg className="w-6 h-6 text-white transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      {/* Индикаторы */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+      {/* Индикаторы слайдов */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-blue-500 scale-125'
-                : 'bg-blue-500 bg-opacity-50 hover:bg-opacity-75'
+              index === currentSlide 
+                ? 'bg-white scale-125' 
+                : 'bg-white/60 hover:bg-white/80'
             }`}
+            aria-label={`Перейти к слайду ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* Номер текущего слайда */}
+      <div className="absolute bottom-6 right-6 bg-blue-600/80 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
+        {currentSlide + 1} / {slides.length}
       </div>
     </div>
   );
 };
 
-export default ITHeroBanner;
+export default Banner;

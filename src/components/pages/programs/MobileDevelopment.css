@@ -1,0 +1,168 @@
+/* MobileDevelopment.css */
+.mobile-development {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Mobile-specific gradient animation */
+@keyframes gradient-mobile {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-mobile {
+  background-size: 200% 200%;
+  animation: gradient-mobile 6s ease infinite;
+}
+
+/* Floating mobile elements */
+@keyframes float-mobile {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) rotate(90deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(5px) translateX(-5px) rotate(180deg);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translateY(-10px) translateX(-10px) rotate(270deg);
+    opacity: 0.25;
+  }
+}
+
+.animate-float-mobile {
+  animation: float-mobile 12s ease-in-out infinite;
+}
+
+/* Code terminal effect */
+.terminal-effect {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #0ea5e9, #22d3ee, #10b981);
+  border-radius: 12px 12px 0 0;
+}
+
+/* Mobile app preview animation */
+@keyframes app-preview {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.animate-app-preview {
+  animation: app-preview 4s ease-in-out infinite;
+}
+
+/* Platform-specific glows */
+.ios-glow {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3),
+              0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+.android-glow {
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.4),
+              0 0 60px rgba(52, 211, 153, 0.2);
+}
+
+.cross-platform-glow {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4),
+              0 0 60px rgba(34, 211, 238, 0.2);
+}
+
+/* Dev tool hover effects */
+.dev-tool-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dev-tool-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading animation for mobile elements */
+@keyframes mobile-loading {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.mobile-load-in {
+  animation: mobile-loading 0.6s ease-out forwards;
+}
+
+/* Custom scrollbar for mobile theme */
+.mobile-development ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mobile-development ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 4px;
+}
+
+.mobile-development ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0ea5e9, #10b981);
+  border-radius: 4px;
+}
+
+.mobile-development ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #38bdf8, #34d399);
+}
+
+/* Tech stack badges */
+.tech-badge {
+  background: linear-gradient(135deg, #0ea5e9, #10b981);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile notification style pulses */
+@keyframes notification-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.animate-notification {
+  animation: notification-pulse 2s ease-in-out infinite;
+}
