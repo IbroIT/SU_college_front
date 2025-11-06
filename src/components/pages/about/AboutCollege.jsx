@@ -246,19 +246,6 @@ const UltimateHero = () => {
           transition={{ delay: 2, duration: 0.8 }}
           className="flex flex-wrap justify-center gap-6"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full font-bold text-white overflow-hidden group"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <a href="#">{t('hero.applyButton')}</a> <FaArrowRight />
-            </span>
-            <motion.span
-              className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20"
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
         </motion.div>
       </motion.div>
 

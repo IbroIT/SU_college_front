@@ -59,6 +59,8 @@ import SpecialtyDetail from './components/pages/admissions/SpecialtyDetail';
 import DocumentViewer from './components/pages/DocumentViewer';
 import WebDevelopment from './components/pages/programs/WebDevelopment';
 import BusinessPrograms from './components/pages/programs/BusinessProgram';
+import ArtificialIntelligence from './components/pages/programs/ArtificialIntelligence';
+import DigitalEntrepreneurship from './components/pages/programs/DigitalEntrepreneurship';
 
 function App() {
   const { i18n } = useTranslation();
@@ -118,6 +120,8 @@ function App() {
             <Route path="/programs/multimedia" element={<ProgramMultimedia />} />
             <Route path="/programs/mobile" element={<ProgramMobile />} />
             <Route path="/programs/webdev" element={<WebDevelopment />} />
+            <Route path="/programs/ai" element={<ArtificialIntelligence />} />
+            <Route path="/programs/digital-entrepreneurship" element={<DigitalEntrepreneurship />} />
             <Route path="/programs/business" element={<BusinessPrograms />} />
             
             {/* Студенту */}

@@ -7,8 +7,6 @@ const LatestNewsSection = () => {
   const [latestNews, setLatestNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedNews, setSelectedNews] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
 
   // Загрузка последних новостей
@@ -42,7 +40,7 @@ const LatestNewsSection = () => {
             title: "Важные обновления платформы",
             excerpt: "Мы запустили новые функции для улучшения пользовательского опыта и производительности системы.",
             content: "Мы рады сообщить о выпуске крупного обновления нашей платформы. Новые функции включают в себя улучшенный интерфейс, расширенные возможности аналитики и оптимизированную работу на мобильных устройствах. Эти улучшения помогут нашим пользователям работать более эффективно и достигать лучших результатов.\n\nОсновные изменения:\n• Обновленный дизайн интерфейса\n• Новая система аналитики в реальном времени\n• Улучшенная мобильная версия\n• Оптимизация производительности\n\nМы продолжаем работать над улучшением платформы и будем рады получить ваши отзывы.",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&h=1080&q=80",
             date: new Date().toISOString(),
             category: { name: "Обновления", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
             slug: "platform-updates",
@@ -53,7 +51,7 @@ const LatestNewsSection = () => {
             title: "Новые партнерства и сотрудничество",
             excerpt: "Расширяем возможности платформы через стратегические партнерства с ведущими компаниями.",
             content: "Мы заключили стратегические партнерства с несколькими ведущими технологическими компаниями. Эти сотрудничества позволят нам предоставлять нашим пользователям еще более широкий спектр услуг и интеграций.\n\nНовые возможности включают:\n• Интеграция с популярными CRM-системами\n• Расширенные инструменты аналитики\n• Улучшенная безопасность данных\n• Новые способы монетизации\n\nМы уверены, что эти партнерства помогут нам создать еще более мощную и удобную платформу для всех наших пользователей.",
-            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&h=1080&q=80",
             date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
             category: { name: "Партнерства", color: "bg-gradient-to-r from-blue-600 to-indigo-600" },
             slug: "new-partnerships",
@@ -64,7 +62,7 @@ const LatestNewsSection = () => {
             title: "Веб-конференция 2024",
             excerpt: "Присоединяйтесь к нашей ежегодной веб-конференции, чтобы узнать о последних тенденциях.",
             content: "Мы рады пригласить вас на нашу ежегодную веб-конференцию, которая состоится в этом году в онлайн-формате. Мероприятие соберет ведущих экспертов отрасли, которые поделятся своими знаниями и опытом.\n\nТемы конференции:\n• Будущее веб-разработки\n• Искусственный интеллект в бизнесе\n• Кибербезопасность\n• Цифровая трансформация\n\nУчастие бесплатное, требуется предварительная регистрация. Все зарегистрированные участники получат запись мероприятия.",
-            image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&h=1080&q=80",
             date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
             category: { name: "События", color: "bg-gradient-to-r from-cyan-500 to-blue-500" },
             slug: "web-conference-2024",
@@ -79,19 +77,6 @@ const LatestNewsSection = () => {
 
     fetchLatestNews();
   }, [i18n.language]);
-
-  // Функции для модального окна
-  const openNewsModal = (newsItem) => {
-    setSelectedNews(newsItem);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeNewsModal = () => {
-    setIsModalOpen(false);
-    setSelectedNews(null);
-    document.body.style.overflow = 'unset';
-  };
 
   // Функция для поделиться
   const shareNews = async (newsItem) => {
@@ -228,12 +213,15 @@ const LatestNewsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Изображение новости */}
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
                     <img 
                       src={news.image} 
                       alt={news.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      onError={(e) => {
+                        e.target.src = 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&h=1080&q=80';
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                     
@@ -251,21 +239,18 @@ const LatestNewsSection = () => {
 
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                      <button
-                        onClick={() => openNewsModal(news)}
+                      <Link
+                        to={`/news/${news.id}`}
                         className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-white/90 backdrop-blur-sm text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-2xl hover:bg-white hover:scale-110"
                       >
                         {t('news.readMore', 'Read More')}
-                      </button>
+                      </Link>
                     </div>
                   </div>
 
                   {/* Контент новости */}
                   <div className="relative p-6 z-10">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <span>⏱️ {news.readingTime}</span>
-                      </div>
                       <div className="flex space-x-1">
                         {[1, 2, 3].map(dot => (
                           <div 
@@ -289,15 +274,15 @@ const LatestNewsSection = () => {
                     </p>
                     
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <button
-                        onClick={() => openNewsModal(news)}
+                      <Link
+                        to={`/news/${news.id}`}
                         className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-all duration-300 group/readmore"
                       >
                         <span>{t('news.readMore', 'Read More')}</span>
                         <svg className="w-4 h-4 transform group-hover/readmore:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
-                      </button>
+                      </Link>
                       
                       <div className="flex items-center gap-3">
                         <button
@@ -323,6 +308,7 @@ const LatestNewsSection = () => {
             <div className="text-center relative z-30">
               <Link
                 to="/news"
+                state={{ scrollToTop: true }}
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl font-bold group"
               >
                 <span>{t('home.viewAllNews', 'View All News')}</span>
@@ -334,83 +320,6 @@ const LatestNewsSection = () => {
           </>
         )}
       </div>
-
-      {/* Модальное окно для новости */}
-      {isModalOpen && selectedNews && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-fade-in"
-          onClick={closeNewsModal}
-        >
-          <div 
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[95vh] overflow-y-auto shadow-2xl transform animate-scale-in border border-white/20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative h-80 bg-gradient-to-br from-blue-100 to-cyan-100">
-              <img 
-                src={selectedNews.image} 
-                alt={selectedNews.title}
-                className="w-full h-full object-cover rounded-t-3xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-t-3xl"></div>
-              
-              <button
-                onClick={closeNewsModal}
-                className="absolute top-6 right-6 text-white hover:text-gray-200 bg-black/30 backdrop-blur-md rounded-2xl p-3 transition-all duration-300 hover:scale-110 hover:bg-black/40"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
-                  <span className={`${selectedNews.category?.color || 'bg-gradient-to-r from-blue-500 to-cyan-500'} text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-lg`}>
-                    {selectedNews.category?.name || t('news.news', 'News')}
-                  </span>
-                  <span className="bg-white/90 text-gray-700 px-3 py-2 rounded-2xl text-sm font-semibold">
-                    {formatDate(selectedNews.date)}
-                  </span>
-                  <span className="bg-white/90 text-gray-700 px-3 py-2 rounded-2xl text-sm font-semibold">
-                    ⏱️ {selectedNews.readingTime}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-                <h2 className="text-3xl font-bold text-gray-800 leading-tight flex-1 min-w-[300px]">
-                  {selectedNews.title}
-                </h2>
-                <button
-                  onClick={() => shareNews(selectedNews)}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-2xl transition-all duration-300 font-semibold hover:scale-105"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                  </svg>
-                  <span>{t('news.share', 'Share')}</span>
-                </button>
-              </div>
-              
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl border border-blue-100">
-                  {selectedNews.content || selectedNews.excerpt}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-200 flex justify-end">
-                <button
-                  onClick={closeNewsModal}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  {t('news.close', 'Close')}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <style jsx>{`
         @keyframes fade-in {

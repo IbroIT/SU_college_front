@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { 
   FaCalendarAlt,
   FaClock,
@@ -14,112 +15,241 @@ import {
   FaFilter,
   FaSearch,
   FaArrowLeft,
-  FaArrowRight
+  FaArrowRight,
+  FaSpinner
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const CollegeSchedule = () => {
-  const { t } = useTranslation();
-  const [activeDay, setActiveDay] = useState(0);
+  const { t, i18n } = useTranslation();
+  const [activeDay, setActiveDay] = useState(1); // 1 = Monday (backend format)
   const [selectedGroup, setSelectedGroup] = useState("all");
   const [currentWeek, setCurrentWeek] = useState(0);
+  
+  // State for API data
+  const [schedules, setSchedules] = useState([]);
+  const [studyGroups, setStudyGroups] = useState([]);
+  const [timeSlots, setTimeSlots] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  // API base URL
+  const API_BASE_URL = 'http://localhost:8000/api';
 
-  const daysOfWeek = [
-    { id: 0, name: t('schedule.days.monday'), short: t('schedule.daysShort.monday') },
-    { id: 1, name: t('schedule.days.tuesday'), short: t('schedule.daysShort.tuesday') },
-    { id: 2, name: t('schedule.days.wednesday'), short: t('schedule.daysShort.wednesday') },
-    { id: 3, name: t('schedule.days.thursday'), short: t('schedule.daysShort.thursday') },
-    { id: 4, name: t('schedule.days.friday'), short: t('schedule.daysShort.friday') },
-    { id: 5, name: t('schedule.days.saturday'), short: t('schedule.daysShort.saturday') }
-  ];
+  // Load data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        
+        // Fetch all required data
+        const [groupsRes, timeSlotsRes] = await Promise.all([
+          axios.get(`${API_BASE_URL}/schedule/api/groups/`),
+          axios.get(`${API_BASE_URL}/schedule/api/timeslots/`)
+        ]);
+        
+        setStudyGroups([
+          { id: "all", name: t('schedule.groups.all') },
+          ...(groupsRes.data.results || groupsRes.data || [])
+        ]);
+        setTimeSlots(timeSlotsRes.data.results || timeSlotsRes.data || []);
+        
+        // Fetch default schedule for all groups
+        await fetchScheduleForGroup("all");
+        
+      } catch (err) {
+        console.error('Error fetching schedule data:', err);
+        setError(err.message);
+        // Fallback to demo data if API fails
+        setDemoData();
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const timeSlots = [
-    { id: 1, time: "08:30 - 10:00" },
-    { id: 2, time: "10:10 - 11:40" },
-    { id: 3, time: "11:50 - 13:20" },
-    { id: 4, time: "13:30 - 15:00" },
-    { id: 5, time: "15:10 - 16:40" },
-    { id: 6, time: "16:50 - 18:20" }
-  ];
+    fetchData();
+  }, [t, i18n.language]);
 
-  const studyGroups = [
-    { id: "all", name: t('schedule.groups.all') },
-    { id: "cs-1", name: "CS-11" },
-    { id: "cs-2", name: "CS-12" },
-    { id: "bus-1", name: "BUS-21" },
-  ];
+  const setDemoData = () => {
+    // Fallback demo data if API is not available
+    setTimeSlots([
+      { id: 1, number: 1, start_time: "09:00", end_time: "10:20" },
+      { id: 2, number: 2, start_time: "10:30", end_time: "11:50" },
+      { id: 3, number: 3, start_time: "12:00", end_time: "13:20" },
+      { id: 4, number: 4, start_time: "14:00", end_time: "15:20" },
+      { id: 5, number: 5, start_time: "15:30", end_time: "16:50" },
+      { id: 6, number: 6, start_time: "17:00", end_time: "18:20" }
+    ]);
+    
+    setStudyGroups([
+      { id: "all", name: t('schedule.groups.all') },
+      { id: 1, name: "CS-101" },
+      { id: 2, name: "CS-102" },
+      { id: 3, name: "BUS-201" }
+    ]);
+    
+    // Demo schedule data - ensure arrays for each time slot
+    setSchedules({
+      1: { // Monday
+        1: [
+          { subject: "Mathematics", teacher: "J. Smith", room: "A-101", type: "lecture", group: "CS-101" },
+          { subject: "Physics", teacher: "J. Doe", room: "A-201", type: "lecture", group: "CS-102" }
+        ],
+        2: [
+          { subject: "Programming", teacher: "B. Johnson", room: "A-102", type: "practice", group: "CS-101" }
+        ],
+        3: [
+          { subject: "English", teacher: "A. Brown", room: "A-101", type: "seminar", group: "CS-101" }
+        ]
+      },
+      2: { // Tuesday
+        1: [
+          { subject: "Physics", teacher: "J. Doe", room: "A-201", type: "lecture", group: "CS-101" }
+        ],
+        2: [
+          { subject: "Mathematics", teacher: "J. Smith", room: "A-101", type: "lecture", group: "CS-102" }
+        ],
+        3: [
+          { subject: "Economics", teacher: "M. Wilson", room: "A-201", type: "lecture", group: "BUS-201" }
+        ]
+      },
+      3: { // Wednesday
+        1: [
+          { subject: "Programming", teacher: "B. Johnson", room: "A-102", type: "lab", group: "CS-101" }
+        ],
+        2: [
+          { subject: "Programming", teacher: "B. Johnson", room: "A-102", type: "lab", group: "CS-102" }
+        ]
+      }
+    });
+    
+    console.log('Demo data set successfully');
+  };
 
-  const scheduleData = {
-    0: { // Monday
-      1: [
-        { subject: t('schedule.subjects.math'), teacher: "А.К. Исакова", room: "302", type: "lecture", group: "CS-101" },
-        { subject: t('schedule.subjects.physics'), teacher: "М.С. Петров", room: "415", type: "lab", group: "CS-102" }
-      ],
-      2: [
-        { subject: t('schedule.subjects.programming'), teacher: "Н.А. Сидоров", room: t('schedule.rooms.computer1'), type: "practice", group: "CS-101" }
-      ],
-      4: [
-        { subject: t('schedule.subjects.english'), teacher: "С.М. Джонс", room: "205", type: "seminar", group: "CS-101" },
-        { subject: t('schedule.subjects.economics'), teacher: "Л.В. Ким", room: "310", type: "lecture", group: "BUS-201" }
-      ]
-    },
-    1: { // Tuesday
-      2: [
-        { subject: t('schedule.subjects.databases'), teacher: "А.Р. Васильев", room: t('schedule.rooms.computer2'), type: "lab", group: "CS-101" }
-      ],
-      3: [
-        { subject: t('schedule.subjects.webdev'), teacher: "Д.К. Нурматов", room: t('schedule.rooms.computer1'), type: "practice", group: "CS-101" },
-        { subject: t('schedule.subjects.accounting'), teacher: "Г.С. Ли", room: "215", type: "seminar", group: "BUS-201" }
-      ],
-      5: [
-        { subject: t('schedule.subjects.pe'), teacher: "П.А. Иванов", room: t('schedule.rooms.gym'), type: "practice", group: "CS-101" }
-      ]
-    },
-    2: { // Wednesday
-      1: [
-        { subject: t('schedule.subjects.algorithms'), teacher: "М.К. Смирнов", room: "305", type: "lecture", group: "CS-101" }
-      ],
-      3: [
-        { subject: t('schedule.subjects.networks'), teacher: "Р.Т. Козлов", room: t('schedule.rooms.computer3'), type: "lab", group: "CS-101" },
-        { subject: t('schedule.subjects.law'), teacher: "А.Б. Юсупов", room: "410", type: "lecture", group: "LAW-301" }
-      ],
-      4: [
-        { subject: t('schedule.subjects.statistics'), teacher: "Е.В. Новикова", room: "320", type: "seminar", group: "CS-101" }
-      ]
-    },
-    3: { // Thursday
-      2: [
-        { subject: t('schedule.subjects.ai'), teacher: "К.Л. Орлов", room: "305", type: "lecture", group: "CS-101" },
-        { subject: t('schedule.subjects.marketing'), teacher: "Т.С. Пак", room: "210", type: "seminar", group: "BUS-201" }
-      ],
-      4: [
-        { subject: t('schedule.subjects.mobiledev'), teacher: "Б.А. Чыныбаев", room: t('schedule.rooms.computer1'), type: "practice", group: "CS-101" }
-      ],
-      6: [
-        { subject: t('schedule.subjects.programmingClub'), teacher: "Н.А. Сидоров", room: t('schedule.rooms.computer2'), type: "club", group: "CS-101" }
-      ]
-    },
-    4: { // Friday
-      1: [
-        { subject: t('schedule.subjects.cybersecurity'), teacher: "А.С. Беков", room: "305", type: "lecture", group: "CS-101" }
-      ],
-      3: [
-        { subject: t('schedule.subjects.projectWork'), teacher: "Д.К. Нурматов", room: t('schedule.rooms.computer1'), type: "project", group: "CS-101" },
-        { subject: t('schedule.subjects.anatomy'), teacher: "Л.М. Джумабаев", room: t('schedule.rooms.lab5'), type: "lab", group: "MED-401" }
-      ],
-      5: [
-        { subject: t('schedule.subjects.consultations'), teacher: "А.К. Исакова", room: "302", type: "consultation", group: "CS-101" }
-      ]
-    },
-    5: { // Saturday
-      2: [
-        { subject: t('schedule.subjects.datascience'), teacher: "М.К. Смирнов", room: t('schedule.rooms.computer3'), type: "elective", group: "CS-101" }
-      ],
-      4: [
-        { subject: t('schedule.subjects.sports'), teacher: "П.А. Иванов", room: t('schedule.rooms.gym'), type: "sports", group: "CS-101" }
-      ]
+  // Refetch schedules when group changes
+  useEffect(() => {
+    if (selectedGroup && !loading) {
+      fetchScheduleForGroup(selectedGroup);
+    }
+  }, [selectedGroup]);
+
+  const fetchScheduleForGroup = async (groupId) => {
+    try {
+      setLoading(true);
+      
+      if (groupId === "all") {
+        // If "all" is selected, try to find a group with actual schedule data
+        console.log('Fetching schedule for all groups...');
+        
+        // First try to get any schedule data
+        const allScheduleResponse = await axios.get(`${API_BASE_URL}/schedule/api/schedules/weekly_schedule/`);
+        console.log('All schedule response:', allScheduleResponse.data);
+        
+        const allScheduleData = allScheduleResponse.data.schedule || {};
+        const hasAnySchedule = Object.keys(allScheduleData).some(day => 
+          Array.isArray(allScheduleData[day]) ? allScheduleData[day].length > 0 : false
+        );
+        
+        if (hasAnySchedule) {
+          setSchedules(allScheduleData);
+        } else {
+          // If no schedule in "all", try to find first group with schedule
+          console.log('No schedule found for all groups, trying individual groups...');
+          let foundGroupWithSchedule = false;
+          
+          for (const group of studyGroups) {
+            if (group.id !== "all") {
+              try {
+                const groupResponse = await axios.get(`${API_BASE_URL}/schedule/api/schedules/by_group/`, {
+                  params: { group_id: group.id }
+                });
+                
+                if (groupResponse.data && groupResponse.data.length > 0) {
+                  console.log(`Found schedule for group ${group.name}, switching to it`);
+                  setSelectedGroup(group.id);
+                  foundGroupWithSchedule = true;
+                  
+                  // Process the schedule data
+                  const groupedSchedule = {};
+                  groupResponse.data.forEach(schedule => {
+                    const weekday = schedule.weekday;
+                    if (!groupedSchedule[weekday]) {
+                      groupedSchedule[weekday] = [];
+                    }
+                    groupedSchedule[weekday].push(schedule);
+                  });
+                  
+                  setSchedules(groupedSchedule);
+                  
+                  // Auto-switch to first available day
+                  const availableDays = Object.keys(groupedSchedule).map(Number);
+                  if (availableDays.length > 0 && !availableDays.includes(activeDay)) {
+                    const firstAvailableDay = Math.min(...availableDays);
+                    console.log('Switching to first available day:', firstAvailableDay);
+                    setActiveDay(firstAvailableDay);
+                  }
+                  
+                  break;
+                }
+              } catch (err) {
+                console.log(`No schedule found for group ${group.name}`);
+              }
+            }
+          }
+          
+          if (!foundGroupWithSchedule) {
+            console.log('No schedules found for any group');
+            setSchedules({});
+          }
+        }
+      } else {
+        // Fetch schedule for specific group
+        const response = await axios.get(`${API_BASE_URL}/schedule/api/schedules/by_group/`, {
+          params: { group_id: groupId }
+        });
+        
+        console.log('Group schedule response:', response.data);
+        
+        // Group schedule data by weekday (keep as arrays)
+        const groupedSchedule = {};
+        (response.data || []).forEach(schedule => {
+          const weekday = schedule.weekday;
+          
+          if (!groupedSchedule[weekday]) {
+            groupedSchedule[weekday] = [];
+          }
+          
+          groupedSchedule[weekday].push(schedule);
+        });
+        
+        console.log('Grouped schedule:', groupedSchedule);
+        setSchedules(groupedSchedule);
+        
+        // Auto-switch to first available day if current day has no schedule
+        const availableDays = Object.keys(groupedSchedule).map(Number);
+        if (availableDays.length > 0 && !availableDays.includes(activeDay)) {
+          const firstAvailableDay = Math.min(...availableDays);
+          console.log('Switching to first available day:', firstAvailableDay);
+          setActiveDay(firstAvailableDay);
+        }
+      }
+    } catch (err) {
+      console.error('Error fetching group schedule:', err);
+      setError(err.message);
+      // Keep existing schedules on error
+    } finally {
+      setLoading(false);
     }
   };
+
+  const daysOfWeek = [
+    { id: 1, name: t('schedule.days.monday'), short: t('schedule.daysShort.monday') },
+    { id: 2, name: t('schedule.days.tuesday'), short: t('schedule.daysShort.tuesday') },
+    { id: 3, name: t('schedule.days.wednesday'), short: t('schedule.daysShort.wednesday') },
+    { id: 4, name: t('schedule.days.thursday'), short: t('schedule.daysShort.thursday') },
+    { id: 5, name: t('schedule.days.friday'), short: t('schedule.daysShort.friday') },
+    { id: 6, name: t('schedule.days.saturday'), short: t('schedule.daysShort.saturday') }
+  ];
 
   const scheduleFeatures = [
     {
@@ -145,53 +275,79 @@ const CollegeSchedule = () => {
   ];
 
   const scheduleStats = [
-    { number: "5", label: t('schedule.stats.days') },
-    { number: "36", label: t('schedule.stats.hours') },
+    { number: "6", label: t('schedule.stats.days') },
+    { number: timeSlots.length.toString(), label: t('schedule.stats.timeslots') },
     { number: "25+", label: t('schedule.stats.teachers') },
-    { number: "20+", label: t('schedule.stats.groups') }
+    { number: studyGroups.length > 1 ? (studyGroups.length - 1).toString() : "0", label: t('schedule.stats.groups') }
   ];
 
-  const getTypeColor = (type) => {
-    const colors = {
-      lecture: "from-blue-500 to-cyan-500",
-      lab: "from-green-500 to-emerald-500",
-      practice: "from-purple-500 to-indigo-500",
-      seminar: "from-orange-500 to-amber-500",
-      project: "from-pink-500 to-rose-500",
-      consultation: "from-teal-500 to-cyan-500",
-      elective: "from-yellow-500 to-orange-500",
-      club: "from-indigo-500 to-purple-500",
-      sports: "from-red-500 to-pink-500"
-    };
-    return colors[type] || "from-gray-500 to-gray-600";
-  };
-
-  const getTypeText = (type) => {
-    const types = {
-      lecture: t('schedule.types.lecture'),
-      lab: t('schedule.types.lab'),
-      practice: t('schedule.types.practice'),
-      seminar: t('schedule.types.seminar'),
-      project: t('schedule.types.project'),
-      consultation: t('schedule.types.consultation'),
-      elective: t('schedule.types.elective'),
-      club: t('schedule.types.club'),
-      sports: t('schedule.types.sports')
-    };
-    return types[type] || type;
-  };
-
-  const filteredSchedule = scheduleData[activeDay] || {};
+  // Get filtered lessons for current day
+  const dayScheduleData = schedules[activeDay] || [];
   
+  console.log('Current activeDay:', activeDay);
+  console.log('Current selectedGroup:', selectedGroup);
+  console.log('Current schedules:', schedules);
+  console.log('Day schedule data:', dayScheduleData);
+  console.log('Available days in schedules:', Object.keys(schedules));
+  
+  // Convert array of schedule items to grouped by time slot
   const filteredLessons = {};
-  Object.keys(filteredSchedule).forEach(timeSlot => {
-    const lessons = filteredSchedule[timeSlot].filter(lesson => 
-      selectedGroup === "all" || lesson.group === selectedGroup
-    );
-    if (lessons.length > 0) {
-      filteredLessons[timeSlot] = lessons;
-    }
-  });
+  
+  if (Array.isArray(dayScheduleData)) {
+    console.log('Processing', dayScheduleData.length, 'schedule items for day', activeDay);
+    dayScheduleData.forEach(scheduleItem => {
+      console.log('Processing schedule item:', scheduleItem);
+      
+      // Extract time slot number - now it comes directly as a number
+      const timeSlot = scheduleItem.time_slot || '1';
+      console.log('Extracted time slot:', timeSlot);
+      
+      // Create lesson object from schedule item
+      const lesson = {
+        subject: scheduleItem.subject_name || scheduleItem.subject?.name_ru || 'Unknown Subject',
+        teacher: scheduleItem.teacher_name || scheduleItem.teacher?.short_name || 'Unknown Teacher',
+        room: scheduleItem.room_name || scheduleItem.room?.full_name || 'Unknown Room',
+        type: scheduleItem.lesson_type || 'lecture',
+        group: scheduleItem.group_name || scheduleItem.group?.name || 'Unknown Group',
+        groupId: scheduleItem.group_id || scheduleItem.group?.id
+      };
+      
+      console.log('Created lesson:', lesson);
+      
+      // Filter by selected group - compare by group ID, not name
+      const groupMatches = selectedGroup === "all" || 
+                          String(selectedGroup) === String(lesson.groupId) ||
+                          selectedGroup === lesson.group;
+      
+      console.log('Group filter check:', {
+        selectedGroup,
+        lessonGroupId: lesson.groupId,
+        lessonGroupName: lesson.group,
+        matches: groupMatches
+      });
+      
+      if (groupMatches) {
+        console.log('Lesson matches group filter, adding to timeSlot:', timeSlot);
+        if (!filteredLessons[timeSlot]) {
+          filteredLessons[timeSlot] = [];
+        }
+        filteredLessons[timeSlot].push(lesson);
+      } else {
+        console.log('Lesson does not match group filter');
+      }
+    });
+  }
+  
+  console.log('Final filtered lessons:', filteredLessons);
+
+  // Function to format time without seconds
+  const formatTimeRange = (slot) => {
+    // Use formatted fields from API if available, otherwise format manually
+    const startTime = slot.start_time_formatted || (slot.start_time ? slot.start_time.substring(0, 5) : '');
+    const endTime = slot.end_time_formatted || (slot.end_time ? slot.end_time.substring(0, 5) : '');
+    
+    return `${startTime} - ${endTime}`;
+  };
 
   const handleDownloadSchedule = () => {
     console.log("Download schedule");
@@ -230,32 +386,63 @@ const CollegeSchedule = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
-        {/* Герой секция */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
+        {/* Error Display */}
+        {error && (
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-full mb-6"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-lg mb-6"
           >
-            <FaCalendarAlt className="text-xl" />
-            <span className="font-semibold">{t('schedule.badge')}</span>
+            <div className="flex items-center">
+              <FaBell className="mr-2" />
+              <div>
+                <strong className="font-bold">{t('schedule.apiError')}: </strong>
+                <span>{t('schedule.usingDemoData')}</span>
+              </div>
+            </div>
           </motion.div>
+        )}
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-            {t('schedule.title')}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            {t('schedule.subtitle')}
-          </p>
-        </motion.div>
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center items-center py-20"
+          >
+            <FaSpinner className="animate-spin text-4xl text-blue-500 mr-4" />
+            <span className="text-xl text-gray-600">{t('schedule.loading')}</span>
+          </motion.div>
+        )}
+        {/* Main Content - показываем только когда данные загружены */}
+        {!loading && !error && (
+          <>
+            {/* Герой секция */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-20"
+            >
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-full mb-6"
+              >
+                <FaCalendarAlt className="text-xl" />
+                <span className="font-semibold">{t('schedule.badge')}</span>
+              </motion.div>
+
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                {t('schedule.title')}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                {t('schedule.subtitle')}
+              </p>
+            </motion.div>
 
         {/* Статистика */}
         <motion.div
@@ -323,24 +510,32 @@ const CollegeSchedule = () => {
             {/* Дни недели */}
             <div className="p-6 border-b border-gray-200">
               <div className="flex overflow-x-auto pb-2 gap-2">
-                {daysOfWeek.map(day => (
-                  <motion.button
-                    key={day.id}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveDay(day.id)}
-                    className={`flex-1 min-w-[120px] px-6 py-4 rounded-2xl font-semibold transition-all duration-300 ${
-                      activeDay === day.id
-                        ? 'bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                  >
-                    <div className="text-center">
-                      <div className="text-sm font-medium">{day.short}</div>
-                      <div className="text-lg font-bold">{day.name}</div>
-                    </div>
-                  </motion.button>
-                ))}
+                {daysOfWeek.map(day => {
+                  const hasSchedule = schedules[day.id] && schedules[day.id].length > 0;
+                  return (
+                    <motion.button
+                      key={day.id}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setActiveDay(day.id)}
+                      className={`flex-1 min-w-[120px] px-6 py-4 rounded-2xl font-semibold transition-all duration-300 relative ${
+                        activeDay === day.id
+                          ? 'bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg'
+                          : hasSchedule 
+                            ? 'bg-gray-100 text-gray-600 hover:bg-gray-200' 
+                            : 'bg-gray-50 text-gray-400 opacity-50'
+                      }`}
+                    >
+                      <div className="text-center">
+                        <div className="text-sm font-medium">{day.short}</div>
+                        <div className="text-lg font-bold">{day.name}</div>
+                        {hasSchedule && (
+                          <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full"></div>
+                        )}
+                      </div>
+                    </motion.button>
+                  );
+                })}
               </div>
             </div>
 
@@ -352,7 +547,7 @@ const CollegeSchedule = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-2xl font-bold text-gray-800 mb-8 text-center"
               >
-                {daysOfWeek[activeDay]?.name} - {selectedGroup === "all" ? t('schedule.groups.all') : studyGroups.find(g => g.id === selectedGroup)?.name}
+                {daysOfWeek.find(day => day.id === activeDay)?.name} - {selectedGroup === "all" ? t('schedule.groups.all') : studyGroups.find(g => g.id == selectedGroup)?.name}
               </motion.h3>
 
               {Object.keys(filteredLessons).length === 0 ? (
@@ -363,115 +558,94 @@ const CollegeSchedule = () => {
                 >
                   <FaCalendarAlt className="text-gray-300 text-6xl mx-auto mb-4" />
                   <h4 className="text-xl font-semibold text-gray-500 mb-2">
-                    {t('schedule.noLessons')}
+                    {loading ? "Поиск расписания..." : t('schedule.noLessons')}
                   </h4>
                   <p className="text-gray-400">
-                    {t('schedule.noLessonsDescription')}
+                    {loading 
+                      ? "Автоматически выбираем группу с доступным расписанием..." 
+                      : (selectedGroup === "all" 
+                        ? "Для просмотра расписания выберите конкретную группу" 
+                        : t('schedule.noLessonsDescription')
+                      )
+                    }
                   </p>
                 </motion.div>
               ) : (
                 <div className="grid gap-4 max-w-4xl mx-auto">
-                  {timeSlots.map(slot => (
-                    <motion.div
-                      key={slot.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: slot.id * 0.1 }}
-                      className={`bg-white rounded-2xl p-6 border-2 transition-all duration-300 ${
-                        filteredLessons[slot.id] 
-                          ? 'border-blue-200 shadow-lg hover:shadow-xl' 
-                          : 'border-gray-100 opacity-50'
-                      }`}
-                    >
-                      <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-                        {/* Время */}
-                        <div className="flex items-center gap-4 min-w-[180px]">
-                          <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
-                            <FaClock className="text-blue-600 text-lg" />
-                          </div>
-                          <div>
-                            <div className="text-lg font-bold text-gray-800">
-                              {slot.time}
+                  {timeSlots.map(slot => {
+                    const slotNumber = slot.number || slot.id;
+                    const slotKey = slot.id || slot.number || Math.random();
+                    
+                    return (
+                      <motion.div
+                        key={slotKey}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: (slotNumber || 1) * 0.1 }}
+                        className={`bg-white rounded-2xl p-6 border-2 transition-all duration-300 ${
+                          filteredLessons[slotNumber] 
+                            ? 'border-blue-200 shadow-lg hover:shadow-xl' 
+                            : 'border-gray-100 opacity-50'
+                        }`}
+                      >
+                        <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+                          {/* Время */}
+                          <div className="flex items-center gap-4 min-w-[180px]">
+                            <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
+                              <FaClock className="text-blue-600 text-lg" />
                             </div>
-                            <div className="text-sm text-gray-500">
-                              {t('schedule.lesson')} {slot.id}
+                            <div>
+                              <div className="text-lg font-bold text-gray-800">
+                                {formatTimeRange(slot)}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {t('schedule.lesson')} {slotNumber}
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        {/* Занятия */}
-                        <div className="flex-1 grid gap-3">
-                          {filteredLessons[slot.id]?.map((lesson, index) => (
-                            <motion.div
-                              key={index}
-                              whileHover={{ scale: 1.02 }}
-                              className={`bg-gradient-to-r ${getTypeColor(lesson.type)} text-white rounded-xl p-4 shadow-lg`}
-                            >
-                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                                <div className="flex-1">
-                                  <h4 className="font-bold text-lg mb-1">
-                                    {lesson.subject}
-                                  </h4>
-                                  <div className="flex flex-wrap gap-4 text-white/90 text-sm">
-                                    <span className="flex items-center gap-1">
-                                      <FaChalkboardTeacher className="text-sm" />
-                                      {lesson.teacher}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                      <FaBuilding className="text-sm" />
-                                      {lesson.room}
-                                    </span>
-                                    <span className="bg-white/20 px-2 py-1 rounded-lg text-xs">
-                                      {getTypeText(lesson.type)}
-                                    </span>
+                          {/* Занятия */}
+                          <div className="flex-1 grid gap-3">
+                            {filteredLessons[slotNumber]?.map((lesson, index) => (
+                              <motion.div
+                                key={index}
+                                whileHover={{ scale: 1.02 }}
+                                className={`bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-xl p-4 shadow-lg`}
+                              >
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                  <div className="flex-1">
+                                    <h4 className="font-bold text-lg mb-1">
+                                      {lesson.subject}
+                                    </h4>
+                                    <div className="flex flex-wrap gap-4 text-white/90 text-sm">
+                                      <span className="flex items-center gap-1">
+                                        <FaChalkboardTeacher className="text-sm" />
+                                        {lesson.teacher}
+                                      </span>
+                                      <span className="flex items-center gap-1">
+                                        <FaBuilding className="text-sm" />
+                                        {lesson.room}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div className="bg-white/20 px-3 py-1 rounded-lg text-sm font-semibold">
+                                    {lesson.group}
                                   </div>
                                 </div>
-                                <div className="bg-white/20 px-3 py-1 rounded-lg text-sm font-semibold">
-                                  {lesson.group}
-                                </div>
-                              </div>
-                            </motion.div>
-                          ))}
+                              </motion.div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      </motion.div>
+                    );
+                  })}
                 </div>
               )}
             </div>
           </div>
         </motion.div>
-
-        {/* Легенда типов занятий */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200"
-        >
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-            {t('schedule.legend.title')}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {Object.entries({
-              lecture: t('schedule.types.lecture'),
-              lab: t('schedule.types.lab'),
-              practice: t('schedule.types.practice'),
-              seminar: t('schedule.types.seminar'),
-              project: t('schedule.types.project')
-            }).map(([type, name]) => (
-              <motion.div
-                key={type}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 p-3 rounded-xl bg-gray-50"
-              >
-                <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${getTypeColor(type)}`} />
-                <span className="text-sm font-medium text-gray-700">{name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        </>
+        )}
       </div>
     </div>
   );

@@ -231,12 +231,11 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-
         {/* Technologies Stack */}
-        <section className={`mb-20 transition-all duration-1000 delay-300 ${
+        <section className={`mb-10 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
               {t('webDevelopment.technologies.title')}
             </h2>
@@ -345,44 +344,6 @@ const WebDevelopment = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Career Path */}
-        <section className={`transition-all duration-1000 delay-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="bg-gradient-to-r from-orange-900 to-yellow-900 rounded-3xl p-8 border border-orange-400 border-opacity-30 backdrop-blur-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-4xl font-bold mb-4 text-white">
-                  {t('webDevelopment.career.title')}
-                </h2>
-                <p className="text-orange-100 text-lg leading-relaxed mb-6">
-                  {t('webDevelopment.career.description')}
-                </p>
-                <div className="space-y-4">
-                  {careerPaths.map((job, index) => (
-                    <div key={index} className="flex justify-between items-center p-4 bg-black bg-opacity-30 rounded-lg">
-                      <span className="text-white font-semibold">{job.role}</span>
-                      <span className="text-yellow-400 font-mono">{job.salary}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <div className="inline-block p-8 bg-black bg-opacity-30 rounded-2xl border border-orange-500 border-opacity-20">
-                  <div className="text-6xl mb-4">💻</div>
-                  <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-orange-600 hover:to-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-2xl">
-                    {t('webDevelopment.career.cta')}
-                  </button>
-                  <p className="text-orange-200 mt-4 text-sm">
-                    {t('webDevelopment.career.subtitle')}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>

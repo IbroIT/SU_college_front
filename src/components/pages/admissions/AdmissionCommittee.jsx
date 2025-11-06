@@ -244,18 +244,6 @@ const Admissions = () => {
                   </motion.div>
                 ))}
               </div>
-
-              {/* Кнопка подачи заявки */}
-              <motion.button
-                onClick={handleApplyClick}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full mt-8 bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-3"
-              >
-                <FaGraduationCap className="text-sm" />
-                <span>{t('admissions.applyButton')}</span>
-                <FaArrowRight className="text-sm" />
-              </motion.button>
             </div>
           </motion.div>
 

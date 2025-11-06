@@ -347,26 +347,6 @@ const AdmissionDocuments = () => {
                     {t('documents.selectCategory')}
                   </p>
                 </div>
-                
-                <div className="flex gap-3">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-blue-600 transition-colors"
-                  >
-                    <FaDownload className="text-sm" />
-                    <span>{t('documents.actions.checklist')}</span>
-                  </motion.button>
-                  
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-2xl font-semibold hover:bg-gray-200 transition-colors"
-                  >
-                    <FaPrint className="text-sm" />
-                    <span>{t('documents.actions.print')}</span>
-                  </motion.button>
-                </div>
               </div>
 
               {/* Переключение категорий */}

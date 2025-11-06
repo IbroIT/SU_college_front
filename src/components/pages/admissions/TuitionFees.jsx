@@ -26,8 +26,8 @@ const TuitionFees = () => {
   const [activeProgram, setActiveProgram] = useState("cs");
 
   const tuitionStats = [
-    { number: "3", label: t('tuition.stats.programs') },
-    { number: "308K", label: t('tuition.stats.price') },
+    { number: "5", label: t('tuition.stats.programs') },
+    { number: "220K+", label: t('tuition.stats.price') },
     { number: "5", label: t('tuition.stats.categories') },
     { number: "100%", label: t('tuition.stats.support') }
   ];
@@ -60,7 +60,7 @@ const TuitionFees = () => {
       id: "cs",
       name: t('tuition.programs.cs.name'),
       description: t('tuition.programs.cs.description'),
-      price: "308,000",
+      price: t('tuition.programs.cs.price', '308,000'),
       currency: t('tuition.currency'),
       duration: t('tuition.duration'),
       credits: t('tuition.credits'),
@@ -74,37 +74,71 @@ const TuitionFees = () => {
       ]
     },
     {
-      id: "mobile",
-      name: t('tuition.programs.mobile.name'),
-      description: t('tuition.programs.mobile.description'),
-      price: "308,000",
+      id: "ai",
+      name: t('tuition.programs.ai.name'),
+      description: t('tuition.programs.ai.description'),
+      price: t('tuition.programs.ai.price', '308,000'),
       currency: t('tuition.currency'),
       duration: t('tuition.duration'),
       credits: t('tuition.credits'),
       icon: <FaRocket className="text-3xl" />,
-      color: "from-green-500 to-emerald-500",
+      color: "from-purple-500 to-pink-500",
       features: [
-        t('tuition.programs.mobile.features.ios'),
-        t('tuition.programs.mobile.features.android'),
-        t('tuition.programs.mobile.features.flutter'),
-        t('tuition.programs.mobile.features.ui')
+        t('tuition.programs.ai.features.ml'),
+        t('tuition.programs.ai.features.python'),
+        t('tuition.programs.ai.features.vision'),
+        t('tuition.programs.ai.features.nlp')
       ]
     },
     {
-      id: "multimedia",
-      name: t('tuition.programs.multimedia.name'),
-      description: t('tuition.programs.multimedia.description'),
-      price: "308,000",
+      id: "webdev",
+      name: t('tuition.programs.webdev.name'),
+      description: t('tuition.programs.webdev.description'),
+      price: t('tuition.programs.webdev.price', '260,000'),
       currency: t('tuition.currency'),
       duration: t('tuition.duration'),
       credits: t('tuition.credits'),
       icon: <FaStar className="text-3xl" />,
-      color: "from-purple-500 to-indigo-500",
+      color: "from-green-500 to-emerald-500",
       features: [
-        t('tuition.programs.multimedia.features.vfx'),
-        t('tuition.programs.multimedia.features.premiere'),
-        t('tuition.programs.multimedia.features.design'),
-        t('tuition.programs.multimedia.features.animation')
+        t('tuition.programs.webdev.features.frontend'),
+        t('tuition.programs.webdev.features.backend'),
+        t('tuition.programs.webdev.features.databases'),
+        t('tuition.programs.webdev.features.deployment')
+      ]
+    },
+    {
+      id: "business",
+      name: t('tuition.programs.business.name'),
+      description: t('tuition.programs.business.description'),
+      price: t('tuition.programs.business.price', '220,000'),
+      currency: t('tuition.currency'),
+      duration: t('tuition.duration'),
+      credits: t('tuition.credits'),
+      icon: <FaTrophy className="text-3xl" />,
+      color: "from-orange-500 to-red-500",
+      features: [
+        t('tuition.programs.business.features.management'),
+        t('tuition.programs.business.features.marketing'),
+        t('tuition.programs.business.features.finance'),
+        t('tuition.programs.business.features.strategy')
+      ]
+    },
+    {
+      id: "entrepreneurship",
+      name: t('tuition.programs.entrepreneurship.name'),
+      description: t('tuition.programs.entrepreneurship.description'),
+      price: t('tuition.programs.entrepreneurship.price', '220,000'),
+      currency: t('tuition.currency'),
+      duration: t('tuition.duration'),
+      credits: t('tuition.credits'),
+      icon: <FaRocket className="text-3xl" />,
+      color: "from-yellow-500 to-orange-500",
+      features: [
+        t('tuition.programs.entrepreneurship.features.startup'),
+        t('tuition.programs.entrepreneurship.features.ecommerce'),
+        t('tuition.programs.entrepreneurship.features.digital'),
+        t('tuition.programs.entrepreneurship.features.innovation')
       ]
     }
   ];
@@ -120,11 +154,6 @@ const TuitionFees = () => {
         t('tuition.benefits.category1.requirements.noDebt'),
         t('tuition.benefits.category1.requirements.active')
       ],
-      benefits: [
-        t('tuition.benefits.category1.benefits.discount'),
-        t('tuition.benefits.category1.benefits.housing'),
-        t('tuition.benefits.category1.benefits.meals')
-      ],
       color: "from-yellow-500 to-amber-500"
     },
     {
@@ -136,11 +165,6 @@ const TuitionFees = () => {
         t('tuition.benefits.category2.requirements.orphans'),
         t('tuition.benefits.category2.requirements.disabled'),
         t('tuition.benefits.category2.requirements.documentation')
-      ],
-      benefits: [
-        t('tuition.benefits.category2.benefits.significant'),
-        t('tuition.benefits.category2.benefits.housing'),
-        t('tuition.benefits.category2.benefits.support')
       ],
       color: "from-red-500 to-pink-500"
     },
@@ -154,11 +178,6 @@ const TuitionFees = () => {
         t('tuition.benefits.category3.requirements.contribution'),
         t('tuition.benefits.category3.requirements.participation')
       ],
-      benefits: [
-        t('tuition.benefits.category3.benefits.discount'),
-        t('tuition.benefits.category3.benefits.priority'),
-        t('tuition.benefits.category3.benefits.support')
-      ],
       color: "from-blue-500 to-cyan-500"
     },
     {
@@ -171,11 +190,6 @@ const TuitionFees = () => {
         t('tuition.benefits.category4.requirements.levels'),
         t('tuition.benefits.category4.requirements.achievements')
       ],
-      benefits: [
-        t('tuition.benefits.category4.benefits.discount'),
-        t('tuition.benefits.category4.benefits.recognition'),
-        t('tuition.benefits.category4.benefits.support')
-      ],
       color: "from-green-500 to-emerald-500"
     },
     {
@@ -187,11 +201,6 @@ const TuitionFees = () => {
         t('tuition.benefits.category5.requirements.firstYear'),
         t('tuition.benefits.category5.requirements.achievements'),
         t('tuition.benefits.category5.requirements.competitions')
-      ],
-      benefits: [
-        t('tuition.benefits.category5.benefits.discount'),
-        t('tuition.benefits.category5.benefits.recognition'),
-        t('tuition.benefits.category5.benefits.support')
       ],
       color: "from-purple-500 to-indigo-500"
     }
@@ -464,6 +473,86 @@ const TuitionFees = () => {
           </div>
         </motion.div>
 
+        {/* Стоимость обучения в партнерских университетах */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mb-20"
+        >
+          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl p-8 text-white">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              {t('tuition.programs.doubleDigploma.title')}
+            </h2>
+            <p className="text-center text-indigo-100 mb-8">
+              Получите два диплома: национальный и международный
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Россия */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <div className="text-2xl mb-3">🇷🇺</div>
+                <h3 className="text-xl font-bold mb-2">
+                  {t('tuition.programs.doubleDigploma.russia.name')}
+                </h3>
+                <div className="text-2xl font-bold text-yellow-300 mb-2">
+                  {t('tuition.programs.doubleDigploma.russia.price')}
+                </div>
+                <p className="text-indigo-100 text-sm">
+                  {t('tuition.programs.doubleDigploma.russia.description')}
+                </p>
+              </motion.div>
+              
+              {/* Корея */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <div className="text-2xl mb-3">🇰🇷</div>
+                <h3 className="text-xl font-bold mb-2">
+                  {t('tuition.programs.doubleDigploma.korea.name')}
+                </h3>
+                <div className="text-2xl font-bold text-green-300 mb-2">
+                  {t('tuition.programs.doubleDigploma.korea.price')}
+                </div>
+                <p className="text-indigo-100 text-sm">
+                  {t('tuition.programs.doubleDigploma.korea.description')}
+                </p>
+              </motion.div>
+              
+              {/* Малайзия */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <div className="text-2xl mb-3">🇲🇾</div>
+                <h3 className="text-xl font-bold mb-2">
+                  {t('tuition.programs.doubleDigploma.malaysia.name')}
+                </h3>
+                <div className="text-2xl font-bold text-blue-300 mb-2">
+                  {t('tuition.programs.doubleDigploma.malaysia.price')}
+                </div>
+                <p className="text-indigo-100 text-sm">
+                  {t('tuition.programs.doubleDigploma.malaysia.description')}
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Льготные категории */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -509,21 +598,6 @@ const TuitionFees = () => {
                       <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
                         <span className="text-blue-500 mt-1">•</span>
                         {req}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Льготы */}
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2 text-sm">
-                    {t('tuition.benefitsList')}:
-                  </h4>
-                  <ul className="space-y-1">
-                    {category.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-green-600">
-                        <span className="text-green-500 mt-1">✓</span>
-                        {benefit}
                       </li>
                     ))}
                   </ul>

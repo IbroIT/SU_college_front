@@ -1,17 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './NewsPage.css';
 
 const NewsPage = () => {
   const { t, i18n } = useTranslation();
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedNews, setSelectedNews] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  // Прокрутка в верх страницы при переходе
+  useEffect(() => {
+    if (location.state?.scrollToTop) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.state]);
 
   // Загрузка данных с бэкенда
   useEffect(() => {
@@ -32,7 +38,18 @@ const NewsPage = () => {
         }
 
         const data = await response.json();
-        setNews(data);
+        
+        // Добавляем время чтения для каждой новости
+        const newsWithReadingTime = data.map(newsItem => {
+          const wordCount = newsItem.content ? newsItem.content.split(' ').length : newsItem.excerpt ? newsItem.excerpt.split(' ').length : 0;
+          const readingTimeMinutes = Math.ceil(wordCount / 200);
+          return {
+            ...newsItem,
+            readingTime: `${readingTimeMinutes} мин`
+          };
+        });
+        
+        setNews(newsWithReadingTime);
         
       } catch (err) {
         console.error('Error fetching news:', err);
@@ -109,44 +126,8 @@ const NewsPage = () => {
     fetchNews();
   }, [i18n.language]);
 
-  // Получаем featured news (первые 3) и all news (все)
-  const featuredNews = news.slice(0, 3);
+  // Получаем все новости
   const allNews = news;
-
-  // Автопереключение слайдов
-  useEffect(() => {
-    if (featuredNews.length === 0 || !isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % featuredNews.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [featuredNews.length, isAutoPlaying]);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % featuredNews.length);
-  }, [featuredNews.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + featuredNews.length) % featuredNews.length);
-  }, [featuredNews.length]);
-
-  const goToSlide = useCallback((index) => {
-    setCurrentSlide(index);
-  }, []);
-
-  // Функции для модального окна
-  const openNewsModal = useCallback((newsItem) => {
-    setSelectedNews(newsItem);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  }, []);
-
-  const closeNewsModal = useCallback(() => {
-    setIsModalOpen(false);
-    setSelectedNews(null);
-    document.body.style.overflow = 'unset';
-  }, []);
 
   // Форматирование даты
   const formatDate = (dateString) => {
@@ -159,9 +140,15 @@ const NewsPage = () => {
 
   // Компонент карточки новости
 const NewsCard = ({ news, index, isFeatured = false }) => {
+  const navigate = useNavigate();
   // Случайно выбираем вариант анимации для каждой карточки
   const animationVariants = ['card-entrance', 'card-entrance-alt', 'card-entrance-right'];
   const animationName = animationVariants[index % animationVariants.length];
+
+  const handleReadMore = () => {
+    // Переход на отдельную страницу новости используя React Router
+    navigate(`/news/${news.id}`);
+  };
 
   return (
     <div 
@@ -176,31 +163,36 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
       {/* Градиентный overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
       
-      <div className="relative h-48 bg-gradient-to-br from-blue-100 to-cyan-100 overflow-hidden">
+      <div className="relative overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100" style={{ aspectRatio: '1/1' }}>
         <img 
           src={news.image} 
           alt={news.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
+          onError={(e) => {
+            e.target.src = 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&h=1080&q=80';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
         
         {/* Категория */}
         <div className="absolute top-4 left-4">
-          <span className={`${news.category?.color || 'bg-gradient-to-r from-blue-500 to-cyan-500'} text-white px-4 py-2 rounded-2xl text-xs font-bold shadow-lg backdrop-blur-sm`}>
+          <span className={`${news.category?.color ? `bg-[${news.category.color}]` : 'bg-gradient-to-r from-blue-500 to-cyan-500'} text-white px-4 py-2 rounded-2xl text-xs font-bold shadow-lg backdrop-blur-sm`}>
             {news.category?.name || 'Новость'}
           </span>
         </div>
 
-        {/* Дата */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1.5 rounded-2xl text-sm font-semibold shadow-lg">
-          {formatDate(news.date)}
+        {/* Дата и время чтения */}
+        <div className="absolute top-4 right-4 flex flex-col gap-2">
+          <div className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1.5 rounded-2xl text-sm font-semibold shadow-lg">
+            {formatDate(news.date)}
+          </div>
         </div>
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
           <button
-            onClick={() => openNewsModal(news)}
+            onClick={handleReadMore}
             className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 bg-white/90 backdrop-blur-sm text-blue-600 px-6 py-3 rounded-2xl font-bold shadow-2xl hover:bg-white hover:scale-110"
           >
             {t('news.readMore') || 'Читать далее'}
@@ -211,7 +203,7 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
       <div className="relative p-6 z-10">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 text-sm text-gray-500">
-            <span>⏱️ {news.readingTime}</span>
+            
           </div>
           <div className="flex space-x-1">
             {[1, 2, 3].map(dot => (
@@ -237,7 +229,7 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
         
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <button
-            onClick={() => openNewsModal(news)}
+            onClick={handleReadMore}
             className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-all duration-300 group/readmore"
           >
             <span>{t('news.readMore') || 'Читать далее'}</span>
@@ -265,8 +257,8 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto"></div>
             <div className="absolute inset-0 rounded-full h-16 w-16 border-t-2 border-cyan-400 animate-ping"></div>
           </div>
-          <p className="text-gray-700 font-semibold text-lg mb-2">Загрузка новостей...</p>
-          <p className="text-gray-500 text-sm">Мы готовим для вас самые свежие материалы</p>
+          <p className="text-gray-700 font-semibold text-lg mb-2">{t('news.loading') || 'Загрузка новостей...'}</p>
+          <p className="text-gray-500 text-sm">{t('news.preparing') || 'Мы готовим для вас самые свежие материалы'}</p>
         </div>
       </div>
     );
@@ -280,13 +272,13 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
         
         <div className="text-center max-w-md mx-auto p-8 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl relative z-10">
           <div className="text-6xl mb-6">📰</div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">Ошибка загрузки</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">{t('news.loadingError') || 'Ошибка загрузки'}</h3>
           <p className="text-gray-600 mb-6 leading-relaxed">{error}</p>
           <button 
             onClick={() => window.location.reload()}
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold"
           >
-            Попробовать снова
+            {t('news.tryAgain') || 'Попробовать снова'}
           </button>
         </div>
       </div>
@@ -311,7 +303,7 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-3 h-8 bg-gradient-to-b from-white to-blue-200 rounded-full animate-bounce"></div>
               <div className="text-white/80 text-sm font-semibold uppercase tracking-wider bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                {t('news.updates', 'Latest Updates')}
+                {t('news.latestUpdates') || 'Latest Updates'}
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
@@ -324,154 +316,9 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
         </div>
       </section>
 
-      {/* Featured News Slider */}
-      {featuredNews.length > 0 && (
-        <section className="py-20 relative">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-                {t('news.featuredTitle') || 'Главные новости'}
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
-            </div>
-            
-            <div className="relative max-w-6xl mx-auto">
-              {/* Slider Container */}
-              <div 
-                className="relative h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-cyan-100 border border-white/20"
-                onMouseEnter={() => setIsAutoPlaying(false)}
-                onMouseLeave={() => setIsAutoPlaying(true)}
-              >
-                {featuredNews.map((newsItem, index) => (
-                  <div
-                    key={newsItem.id}
-                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                      index === currentSlide 
-                        ? 'opacity-100 z-10 scale-100' 
-                        : 'opacity-0 z-0 scale-105'
-                    }`}
-                  >
-                    <img
-                      src={newsItem.image}
-                      alt={newsItem.title}
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent"></div>
-                    
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
-                      <div className="max-w-4xl">
-                        <div className="flex items-center mb-6 flex-wrap gap-3">
-                          <span className={`${newsItem.category?.color || 'bg-gradient-to-r from-blue-500 to-cyan-500'} text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-lg`}>
-                            {newsItem.category?.name || 'Новость'}
-                          </span>
-                          <span className="text-blue-200 text-sm font-medium bg-white/10 backdrop-blur-sm px-4 py-2 rounded-2xl border border-white/20">
-                            {formatDate(newsItem.date)}
-                          </span>
-                        </div>
-                        
-                        <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                          {newsItem.title}
-                        </h3>
-                        
-                        <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-                          {newsItem.excerpt}
-                        </p>
-                        
-                        <div className="flex flex-wrap gap-4">
-                          <button
-                            onClick={() => openNewsModal(newsItem)}
-                            className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center group"
-                          >
-                            {t('news.readMore') || 'Читать далее'}
-                            <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </button>
-                          
-                          <button
-                            onClick={() => {
-                              const element = document.getElementById('all-news');
-                              element?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
-                          >
-                            Все новости
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Navigation Arrows */}
-              {featuredNews.length > 1 && (
-                <>
-                  <button
-                    onClick={prevSlide}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 z-20 shadow-2xl hover:scale-110 border border-white/20"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-
-                  <button
-                    onClick={nextSlide}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 z-20 shadow-2xl hover:scale-110 border border-white/20"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </>
-              )}
-
-
-              {/* Dots Indicator */}
-              {featuredNews.length > 1 && (
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-                  {featuredNews.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        index === currentSlide 
-                          ? 'bg-white scale-125 shadow-lg' 
-                          : 'bg-white/50 hover:bg-white/80'
-                      }`}
-                    />
-                  ))}
-                </div>
-              )}
-
-              {/* Slide Counter */}
-              {featuredNews.length > 1 && (
-                <div className="absolute top-6 right-6 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-2xl text-sm font-semibold z-20 border border-white/20">
-                  <span className="text-cyan-300">{currentSlide + 1}</span>
-                  <span className="text-white/60"> / {featuredNews.length}</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* All News Grid */}
       <section id="all-news" className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-              {t('news.allNews') || 'Все новости'}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Будьте в курсе последних событий и обновлений нашей платформы
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mt-6"></div>
-          </div>
           
           {allNews.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -482,78 +329,12 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
           ) : (
             <div className="text-center py-16 bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl">
               <div className="text-8xl mb-6">📰</div>
-              <h3 className="text-2xl font-semibold text-gray-700 mb-4">Нет доступных новостей</h3>
-              <p className="text-gray-500 text-lg">Скоро здесь появятся новые материалы</p>
+              <h3 className="text-2xl font-semibold text-gray-700 mb-4">{t('news.noNews') || 'Нет доступных новостей'}</h3>
+              <p className="text-gray-500 text-lg">{t('news.comingSoon') || 'Скоро здесь появятся новые материалы'}</p>
             </div>
           )}
         </div>
       </section>
-
-      {/* Модальное окно для новости */}
-      {isModalOpen && selectedNews && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-fade-in"
-          onClick={closeNewsModal}
-        >
-          <div 
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[95vh] overflow-y-auto shadow-2xl transform animate-scale-in border border-white/20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative h-80 bg-gradient-to-br from-blue-100 to-cyan-100">
-              <img 
-                src={selectedNews.image} 
-                alt={selectedNews.title}
-                className="w-full h-full object-cover rounded-t-3xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-t-3xl"></div>
-              
-              <button
-                onClick={closeNewsModal}
-                className="absolute top-6 right-6 text-white hover:text-gray-200 bg-black/30 backdrop-blur-md rounded-2xl p-3 transition-all duration-300 hover:scale-110 hover:bg-black/40"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
-                  <span className={`${selectedNews.category?.color || 'bg-gradient-to-r from-blue-500 to-cyan-500'} text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-lg`}>
-                    {selectedNews.category?.name || 'Новость'}
-                  </span>
-                  <span className="bg-white/90 text-gray-700 px-3 py-2 rounded-2xl text-sm font-semibold">
-                    {formatDate(selectedNews.date)}
-                  </span>
-                  <span className="bg-white/90 text-gray-700 px-3 py-2 rounded-2xl text-sm font-semibold">
-                    ⏱️ {selectedNews.readingTime}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6 leading-tight">
-                {selectedNews.title}
-              </h2>
-              
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl border border-blue-100">
-                  {selectedNews.content || selectedNews.excerpt}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-200 flex justify-end">
-                <button
-                  onClick={closeNewsModal}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Закрыть
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <style jsx>{`
         @keyframes fade-in {

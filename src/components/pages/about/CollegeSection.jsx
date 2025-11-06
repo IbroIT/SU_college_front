@@ -201,10 +201,6 @@ const CollegeSection = () => {
               whileTap={{ scale: 0.95 }}
               className="inline-block"
             >
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 group">
-                <span>{t('college.applyButton')}</span>
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
             </motion.div>
           </motion.div>
 

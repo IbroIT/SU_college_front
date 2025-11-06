@@ -85,10 +85,12 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           hasNested: true,
           nestedItems: [
             { title: t('nav.computer_science', 'Компьютерная наука'), link: '/programs/computer-science' },
-            { title: t('nav.multimedia_programs', 'Мультимедийные программы'), link: '/programs/multimedia' },
-            { title: t('nav.mobile_applications', 'Мобильные приложения'), link: '/programs/mobile' },
+            // { title: t('nav.multimedia_programs', 'Мультимедийные программы'), link: '/programs/multimedia' },
+            // { title: t('nav.mobile_applications', 'Мобильные приложения'), link: '/programs/mobile' },
             { title: t('nav.webdev', 'Веб-разработка'), link: '/programs/webdev' },
-            { title: t('nav.business', 'Бизнес'), link: '/programs/business' },
+            { title: t('nav.ai', 'Искусственный интеллект'), link: '/programs/ai' },
+            { title: t('nav.digital_entrepreneurship', 'Цифровое предпринимательство'), link: '/programs/digital-entrepreneurship' },
+            { title: t('nav.business', 'Международный бизнес'), link: '/programs/business' },
           ]
         },
         { title: t('nav.admission_rules', 'Правила и план приема'), link: '/admissions/rules' },

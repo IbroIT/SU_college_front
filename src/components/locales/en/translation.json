@@ -13,6 +13,9 @@
     "multimedia_programs": "Multimedia Programs",
     "mobile_applications": "Mobile Applications",
     "webdev": "Web Development",
+    "ai": "Artificial Intelligence",
+    "digital_entrepreneurship": "Digital Entrepreneurship",
+    "business": "International Business",
     "admission_rules": "Admission Rules and Plan",
     "required_documents": "Required Documents",
     "selection_schedule": "Selection Schedule",
@@ -401,7 +404,10 @@
 }
 ,
   "news": {
-    "share": "Share",
+  "backToTop": "Back to Top",
+  "publishedOn": "Published on",
+  "latestUpdates": "Latest Updates",
+  "share": "Share",
   "close": "Close",
   "news": "News",
   "loadError": "Failed to load news",
@@ -692,12 +698,12 @@
       },
       "webDevelopment": {
         "program": "Web Development",
-        "price": "262,350 KGS",
+        "price": "260,000 KGS",
         "usd": "≈ 3,000 USD"
       },
       "business": {
         "program": "International Business",
-        "price": "218,625 KGS",
+        "price": "220,000 KGS",
         "usd": "≈ 2,500 USD"
       }
     },
@@ -1026,7 +1032,7 @@
     "subtitle": "Transparent payment system and social support for Salymbekov University students",
     "currency": "KGS",
     "perYear": "per year",
-    "duration": "2 years",
+    "duration": "1 year 10 months (based on 11th grade) / 2 years 10 months (based on 9th grade)",
     "credits": "120 ECTS",
     "creditsLabel": "credits",
     "programFeatures": "Main Directions",
@@ -1072,6 +1078,7 @@
       "cs": {
         "name": "Computer Science",
         "description": "Fundamental training in computer science and programming",
+        "price": "308,000",
         "features": {
           "programming": "Programming in modern languages",
           "algorithms": "Algorithms and data structures",
@@ -1079,24 +1086,66 @@
           "networks": "Computer networks and security"
         }
       },
-      "mobile": {
-        "name": "Mobile App Development",
-        "description": "Creating mobile apps for iOS, Android, and cross-platform solutions",
+      "ai": {
+        "name": "Artificial Intelligence",
+        "description": "Creating intelligent systems and machine learning",
+        "price": "308,000",
         "features": {
-          "ios": "iOS Development (Swift)",
-          "android": "Android Development (Kotlin)",
-          "flutter": "Cross-Platform Development (Flutter)",
-          "ui": "Mobile App UI/UX Design"
+          "ml": "Machine learning and neural networks",
+          "python": "Python programming",
+          "vision": "Computer vision",
+          "nlp": "Natural language processing"
         }
       },
-      "multimedia": {
-        "name": "Multimedia Development",
-        "description": "Creating multimedia content and interactive applications",
+      "webdev": {
+        "name": "Web Development",
+        "description": "Creating modern web applications and websites",
+        "price": "260,000",
         "features": {
-          "vfx": "VFX Design and Visual Effects",
-          "premiere": "Video Editing (Adobe Premiere Pro)",
-          "design": "Graphic Design and Animation",
-          "animation": "2D/3D Animation and Modeling"
+          "frontend": "Frontend development (React, Vue.js)",
+          "backend": "Backend development (Node.js, Python)",
+          "databases": "Databases and APIs",
+          "deployment": "Deployment and DevOps"
+        }
+      },
+      "business": {
+        "name": "International Business",
+        "description": "Business management in international environment",
+        "price": "220,000",
+        "features": {
+          "management": "Management and leadership",
+          "marketing": "International marketing",
+          "finance": "Finance and investment",
+          "strategy": "Strategic planning"
+        }
+      },
+      "entrepreneurship": {
+        "name": "Digital Entrepreneurship",
+        "description": "Creating and developing digital business",
+        "price": "220,000",
+        "features": {
+          "startup": "Creating startups",
+          "ecommerce": "E-commerce",
+          "digital": "Digital marketing",
+          "innovation": "Innovation and technology"
+        }
+      },
+      "doubleDigploma": {
+        "title": "Partner University Tuition Fees (Double Diploma Program)",
+        "russia": {
+          "name": "Russia (St. Petersburg Polytechnic University)",
+          "price": "from 180,000 to 250,000 rubles",
+          "description": "depending on the program and student's academic achievements"
+        },
+        "korea": {
+          "name": "Korean Universities",
+          "price": "from $3,000 to $5,000",
+          "description": "depending on the university and student's academic achievements"
+        },
+        "malaysia": {
+          "name": "Malaysia",
+          "price": "from $3,500 to $5,000",
+          "description": "depending on the university and student's academic achievements"
         }
       }
     },
@@ -1771,7 +1820,7 @@
     },
     "stats": {
       "days": "Academic Days",
-      "hours": "Academic Hours",
+      "timeslots": "Time Slots",
       "teachers": "Teachers",
       "groups": "Groups"
     },
@@ -1843,7 +1892,10 @@
     },
     "legend": {
       "title": "Lesson Types"
-    }
+    },
+    "loading": "Loading schedule...",
+    "apiError": "Failed to load data from server",
+    "usingDemoData": "Using demo data"
   }
 ,
   "faq": {
@@ -2570,6 +2622,10 @@
       "title": "Business & Management",
       "description": "Develop exceptional leadership skills and strategic thinking to solve modern business challenges. Learn from industry experts and build your professional network."
     },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "Deep dive into machine learning, neural networks, and AI technologies shaping the future."
+    },
     "cs": {
       "title": "Computer Science",
       "description": "Master programming, artificial intelligence, and software development. Build the technical skills needed for the digital age with hands-on projects."
@@ -2600,6 +2656,167 @@
   "latestNews": "Latest News",
   "latestNewsSubtitle": "Stay informed about the latest events and updates from our company",
   "viewAllNews": "View All News"
-}
+},
+  "ai": {
+    "title": "Artificial Intelligence",
+    "shortDescription": "Create intelligent systems that learn, adapt, and solve complex problems",
+    "hero": {
+      "status": "AI_INITIALIZED",
+      "brainTitle": "Neural Network in Action",
+      "parameters": "Parameters",
+      "accuracy": "Accuracy",
+      "inference": "Inference",
+      "potential": "Potential"
+    },
+    "areas": {
+      "title": "Areas of Study",
+      "subtitle": "Dive into key directions of artificial intelligence",
+      "machineLearning": {
+        "title": "Machine Learning",
+        "description": "Creating algorithms that learn from data"
+      },
+      "deepLearning": {
+        "title": "Deep Learning",
+        "description": "Neural networks and deep architectures"
+      },
+      "nlp": {
+        "title": "Natural Language Processing",
+        "description": "Understanding and generating natural language"
+      },
+      "computerVision": {
+        "title": "Computer Vision",
+        "description": "Analysis and interpretation of images"
+      }
+    },
+    "applications": {
+      "title": "AI Applications",
+      "chatbots": {
+        "title": "Chatbots and Assistants",
+        "description": "Intelligent communication systems"
+      },
+      "autonomousVehicles": {
+        "title": "Autonomous Vehicles",
+        "description": "Self-driving cars"
+      },
+      "medicalDiagnosis": {
+        "title": "Medical Diagnosis",
+        "description": "AI in healthcare"
+      },
+      "recommendation": {
+        "title": "Recommendation Systems",
+        "description": "Personalized recommendations"
+      }
+    },
+    "codePreview": {
+      "title": "Code Example"
+    },
+    "career": {
+      "title": "Career in AI",
+      "description": "Artificial intelligence is one of the fastest growing and highest paying fields in technology",
+      "mlEngineer": "ML Engineer",
+      "dataScientist": "Data Scientist",
+      "aiResearcher": "AI Researcher",
+      "aiConsultant": "AI Consultant",
+      "cta": "Start Learning",
+      "subtitle": "The future is here"
+    }
+  },
+  "digitalEntrepreneurship": {
+    "title": "Digital Entrepreneurship",
+    "shortDescription": "Create successful digital businesses and monetize innovative ideas",
+    "hero": {
+      "status": "BUSINESS_READY",
+      "dashboardTitle": "Your Business Metrics",
+      "revenue": "Revenue",
+      "users": "Users",
+      "growth": "Growth"
+    },
+    "modules": {
+      "title": "Key Modules",
+      "subtitle": "Master all aspects of digital business",
+      "digitalMarketing": {
+        "title": "Digital Marketing",
+        "description": "Business promotion in digital environment"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Creating and managing online stores"
+      },
+      "fintech": {
+        "title": "Fintech & Blockchain",
+        "description": "Financial technologies and cryptocurrencies"
+      },
+      "dataAnalytics": {
+        "title": "Data Analytics",
+        "description": "Data-driven decision making"
+      }
+    },
+    "canvas": {
+      "title": "Business Model Canvas",
+      "keyPartners": "Key Partners",
+      "partnersDesc": "Platforms, investors, suppliers",
+      "keyActivities": "Key Activities",
+      "activitiesDesc": "Development, marketing, support",
+      "valueProposition": "Value Proposition",
+      "valueDesc": "Unique benefit for customers",
+      "revenueStreams": "Revenue Streams",
+      "revenueDesc": "Subscriptions, commissions, advertising",
+      "activeModule": "Active Module"
+    },
+    "businessTypes": {
+      "title": "Types of Digital Business",
+      "potential": "Potential",
+      "saas": {
+        "title": "SaaS Platforms",
+        "description": "Software as a Service"
+      },
+      "marketplace": {
+        "title": "Marketplaces",
+        "description": "Platforms for buyers and sellers"
+      },
+      "content": {
+        "title": "Content Business",
+        "description": "Content and audience monetization"
+      },
+      "mobile": {
+        "title": "Mobile Applications",
+        "description": "iOS and Android apps"
+      }
+    },
+    "success": {
+      "title": "Success Stories",
+      "subtitle": "Our graduates create successful businesses",
+      "annualRevenue": "Annual Revenue",
+      "story1": {
+        "name": "Dmitry, 24",
+        "business": "E-commerce Store",
+        "story": "Started with dropshipping, developed into own brand"
+      },
+      "story2": {
+        "name": "Anna, 26",
+        "business": "SaaS Platform",
+        "story": "Created social media management tool"
+      },
+      "story3": {
+        "name": "Mark, 22",
+        "business": "Crypto Project",
+        "story": "Launched NFT collection and DeFi protocol"
+      }
+    },
+    "career": {
+      "title": "Career Opportunities",
+      "description": "Digital entrepreneurship opens unlimited opportunities for career and business",
+      "founder": "Startup Founder",
+      "founderDesc": "Creating your own business",
+      "growth": "Growth Hacker",
+      "growthDesc": "Accelerating product growth",
+      "product": "Product Manager",
+      "productDesc": "Managing digital products",
+      "digital": "Digital Marketer",
+      "digitalDesc": "Digital business promotion",
+      "cta": "Start Your Business",
+      "subtitle": "Time to Act"
+    }
+  }
 
 }

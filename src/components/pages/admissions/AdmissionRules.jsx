@@ -364,34 +364,6 @@ const AdmissionRules = () => {
           )}
         </div>
 
-        {/* Кнопки действий */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
-        >
-          <motion.button
-            onClick={handleDownloadRules}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-colors duration-300"
-          >
-            <FaDownload />
-            <span>{t('admissionRules.actions.download')}</span>
-          </motion.button>
-          
-          <motion.button
-            onClick={handlePrintSchedule}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-gray-100 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:bg-gray-200 transition-colors duration-300"
-          >
-            <FaPrint />
-            <span>{t('admissionRules.actions.print')}</span>
-          </motion.button>
-        </motion.div>
-
         {/* Важная информация */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -38,18 +38,18 @@ const ProgramsHomepage = () => {
       accentColor: '#3b82f6'
     },
     {
-      id: 'mobile',
-      title: t('programs.mobile.title'),
-      description: t('programs.mobile.description'),
-      icon: '📱',
-      color: 'from-cyan-400 to-emerald-500',
-      bgColor: 'bg-gradient-to-br from-cyan-50 to-emerald-50',
-      borderColor: 'border-cyan-200',
-      stats: ['97%', '30K+', '100+', '94%'],
-      features: ['iOS', 'Android', 'React Native', 'Flutter'],
-      buttonColor: 'bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-600 hover:to-emerald-600',
-      pattern: 'mobile-pattern',
-      accentColor: '#06b6d4'
+      id: 'ai',
+      title: t('programs.ai.title'),
+      description: t('programs.ai.description'),
+      icon: '🤖',
+      color: 'from-purple-400 to-pink-500',
+      bgColor: 'bg-gradient-to-br from-purple-50 to-pink-50',
+      borderColor: 'border-purple-200',
+      stats: ['99%', '25K+', '80+', '97%'],
+      features: ['Machine Learning', 'Neural Networks', 'Computer Vision', 'NLP'],
+      buttonColor: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600',
+      pattern: 'ai-pattern',
+      accentColor: '#8b5cf6'
     },
     {
       id: 'webdev',
@@ -73,9 +73,7 @@ const ProgramsHomepage = () => {
 
   const handleLearnMore = (programId) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
     navigate(`/programs/${programId}`);
-    
   };
 
   return (
@@ -86,7 +84,7 @@ const ProgramsHomepage = () => {
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
         <div className="absolute top-40 right-32 w-96 h-96 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-32 left-32 w-80 h-80 bg-orange-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '4s'}}></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-cyan-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '6s'}}></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{animationDelay: '6s'}}></div>
         
         {/* Сетка */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
