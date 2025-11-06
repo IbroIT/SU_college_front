@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import DefaultLogo from "../../assets/logo-salymbekov-university-site2.png";
 import ScrolledLogo from "../../assets/Logo_white3.png";
+import KoreaFlag from "../../assets/flags/south-korea.svg";
 
 const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
   const { t, i18n } = useTranslation();
@@ -47,6 +48,41 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
     };
   }, []);
 
+  // Flag icon component
+  const FlagIcon = ({ country }) => {
+    const flags = {
+      my: (
+        <svg className="w-5 h-4 mr-2" viewBox="0 0 28 14">
+          <rect width="28" height="14" fill="#fff"/>
+          <rect width="28" height="1" y="0" fill="#cc0001"/>
+          <rect width="28" height="1" y="2" fill="#cc0001"/>
+          <rect width="28" height="1" y="4" fill="#cc0001"/>
+          <rect width="28" height="1" y="6" fill="#cc0001"/>
+          <rect width="28" height="1" y="8" fill="#cc0001"/>
+          <rect width="28" height="1" y="10" fill="#cc0001"/>
+          <rect width="28" height="1" y="12" fill="#cc0001"/>
+          <rect width="14" height="7" fill="#010066"/>
+          <g transform="translate(7,3.5)">
+            <circle r="2" fill="#ffd100"/>
+            <circle r="2" cx="0.8" fill="#010066"/>
+            <path d="M-0.5,-1.5 L-0.3,-0.5 L-1.3,-1 L0.3,-1 L-0.7,-0.5 Z" fill="#ffd100"/>
+          </g>
+        </svg>
+      ),
+      ru: (
+        <svg className="w-5 h-4 mr-2" viewBox="0 0 9 6">
+          <rect fill="#fff" width="9" height="3"/>
+          <rect fill="#d52b1e" y="3" width="9" height="3"/>
+          <rect fill="#0039a6" y="2" width="9" height="2"/>
+        </svg>
+      ),
+      kr: (
+        <img src={KoreaFlag} alt="South Korea" className="w-5 h-4 mr-2" />
+      )
+    };
+    return flags[country] || null;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -64,14 +100,22 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
         { title: t('nav.salymbekov_university', 'Салымбеков Университет'), link: 'https://salymbekov.com/en/' },
         { title: t('nav.about_college', 'О колледже'), link: '/about' },
         { title: t('nav.director_letter', 'Письмо Директора'), link: '/about/director-letter' },
-        { title: t('nav.teachers', 'Преподаватели'), link: '/about/teachers' },
+        // { title: t('nav.teachers', 'Преподаватели'), link: '/about/teachers' },
         { title: t('nav.news', 'Новости'), link: '/news' },
         { 
           title: t('nav.our_partners', 'Наши партнеры'), 
           hasNested: true,
           nestedItems: [
-            { title: 'Lincoln University', link: 'https://www.lincoln.edu.my' },
-            { title: 'INTI University', link: 'https://newinti.edu.my' },
+            { title: 'Малайзия', isHeader: true, flag: 'my' },
+            { title: 'Lincoln University College', link: 'https://www.lincoln.edu.my' },
+            { title: 'INTI International University', link: 'https://newinti.edu.my' },
+            { title: 'Россия', isHeader: true, flag: 'ru' },
+            { title: 'Санкт-Петербургский политехнический университет Петра Великого', link: 'https://www.spbstu.ru' },
+            { title: 'Южная Корея', isHeader: true, flag: 'kr' },
+            { title: 'Pai Chai University', link: 'https://dept.pcu.ac.kr/dept/eckfl/_eng/index/index.jsp' },
+            { title: 'Chung-Ang University', link: 'https://neweng.cau.ac.kr/index.do' },
+            { title: 'Vision College of Jeonju', link: 'https://en.jvision.ac.kr/main/' },
+            { title: 'Kyungdong University', link: 'https://global.kduniv.ac.kr/global/index.php' },
           ]
         },
       ]
@@ -279,13 +323,23 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
                                     >
                                       <div className="py-2">
                                         {subItem.nestedItems.map((nestedItem, nestedIndex) => (
-                                          <a
-                                            key={nestedIndex}
-                                            href={nestedItem.link}
-                                            className="block px-4 py-3 text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 border-l-4 border-transparent hover:border-blue-600"
-                                          >
-                                            {nestedItem.title}
-                                          </a>
+                                          nestedItem.isHeader ? (
+                                            <div
+                                              key={nestedIndex}
+                                              className="px-4 py-2 text-xs font-bold text-blue-900 bg-blue-50/50 border-b border-blue-100 flex items-center"
+                                            >
+                                              {nestedItem.flag && <FlagIcon country={nestedItem.flag} />}
+                                              {nestedItem.title}
+                                            </div>
+                                          ) : (
+                                            <a
+                                              key={nestedIndex}
+                                              href={nestedItem.link}
+                                              className="block px-4 py-3 text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 border-l-4 border-transparent hover:border-blue-600"
+                                            >
+                                              {nestedItem.title}
+                                            </a>
+                                          )
                                         ))}
                                       </div>
                                     </div>
@@ -400,14 +454,24 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
                               {nestedMenu === `${key}-${index}` && (
                                 <div className="pl-4 mt-1 space-y-1">
                                   {subItem.nestedItems.map((nestedItem, nestedIndex) => (
-                                    <a
-                                      key={nestedIndex}
-                                      href={nestedItem.link}
-                                      className="block px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 border-l-4 border-transparent hover:border-blue-600"
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {nestedItem.title}
-                                    </a>
+                                    nestedItem.isHeader ? (
+                                      <div
+                                        key={nestedIndex}
+                                        className="px-4 py-2 text-xs font-bold text-blue-900 bg-blue-50/50 border-b border-blue-100 flex items-center"
+                                      >
+                                        {nestedItem.flag && <FlagIcon country={nestedItem.flag} />}
+                                        {nestedItem.title}
+                                      </div>
+                                    ) : (
+                                      <a
+                                        key={nestedIndex}
+                                        href={nestedItem.link}
+                                        className="block px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 border-l-4 border-transparent hover:border-blue-600"
+                                        onClick={() => setIsMenuOpen(false)}
+                                      >
+                                        {nestedItem.title}
+                                      </a>
+                                    )
                                   ))}
                                 </div>
                               )}

@@ -94,7 +94,7 @@ function App() {
             <Route path="/about/salymbekov-university" element={<SalymbekovUniversity />} />
             <Route path="/about/international-college" element={<InternationalCollege />} />
             <Route path="/about/director-letter" element={<DirectorLetter />} />
-            <Route path="/about/teachers" element={<Teachers />} />
+            {/* <Route path="/about/teachers" element={<Teachers />} /> */}
             <Route path="/about/mission" element={<Mission />} />
             
             {/* Новости */}

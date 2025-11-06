@@ -404,6 +404,8 @@
 }
 ,
   "news": {
+  "loading": "Loading news...",
+  "preparing": "Preparing news...",
   "backToTop": "Back to Top",
   "publishedOn": "Published on",
   "latestUpdates": "Latest Updates",
