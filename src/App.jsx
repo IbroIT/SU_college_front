@@ -133,7 +133,7 @@ function App() {
             <Route path="/student/council" element={<StudentCouncil />} />
             <Route path="/student/debate" element={<DebateClub />} />
             <Route path="/student/creative" element={<CreativeGroups />} />
-            <Route path="/student/report-2024" element={<DocumentViewer documentUrl="/pdfs/Отчет с диаграммами 2024 (1).pdf" />} />
+            {/* <Route path="/student/report-2024" element={<DocumentViewer documentUrl="/pdfs/Отчет с диаграммами 2024 (1).pdf" />} /> */}
             <Route path="/student/instructions" element={<Instructions />} />
             <Route path="/student/resources" element={<EducationalResources />} />
             <Route path="/student/schedules" element={<StudySchedules />} />
