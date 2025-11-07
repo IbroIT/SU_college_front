@@ -144,7 +144,7 @@ function App() {
             {/* Документы */}
             <Route path="/documents" element={<Documents />} />
             <Route path="/documents/license" element={<DocumentViewer documentUrl="/pdfs/license.pdf" />} />
-            <Route path="/documents/accreditation" element={<DocumentViewer documentUrl="/pdfs/2. International Institutional accreditation.pdf" />}  />
+            {/* <Route path="/documents/accreditation" element={<DocumentViewer documentUrl="/pdfs/2. International Institutional accreditation.pdf" />}  /> */}
             <Route path="/documents/program-accreditation" element={<DocumentViewer documentUrl="/pdfs/Сертификат_колледж.PDF" />} />
             
             {/* Учебные планы */}
