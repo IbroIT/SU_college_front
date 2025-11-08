@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/pages/Footer';
 import { useTranslation } from 'react-i18next';
@@ -17,27 +16,25 @@ function App() {
   ];
 
   return (
-    <HelmetProvider>
-      <Router>
-        <LanguageRouter>
-          <div className="min-h-screen bg-gray-50">
-            <Navbar 
-              languages={languages}
-            />
-            
-            <main>
-              <LanguageDetector />
-              <MultiLanguageRoutes />
-            </main>
-            
-            <Footer />
-            
-            {/* SEO Debugger - только в режиме разработки */}
-            {/* <SEODebugger enabled={import.meta.env.DEV} /> */}
-          </div>
-        </LanguageRouter>
-      </Router>
-    </HelmetProvider>
+    <Router>
+      <LanguageRouter>
+        <div className="min-h-screen bg-gray-50">
+          <Navbar 
+            languages={languages}
+          />
+          
+          <main>
+            <LanguageDetector />
+            <MultiLanguageRoutes />
+          </main>
+          
+          <Footer />
+          
+          {/* SEO Debugger - только в режиме разработки */}
+          <SEODebugger enabled={import.meta.env.DEV} />
+        </div>
+      </LanguageRouter>
+    </Router>
   );
 }
 

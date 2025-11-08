@@ -1,6 +1,6 @@
 // Тестовый компонент для проверки SEO
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const TestSEO = () => {
   return (
