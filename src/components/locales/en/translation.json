@@ -10,8 +10,8 @@
     "admission_committee": "Admission Committee",
     "programs": "Programs",
     "computer_science": "Computer Science",
-    "multimedia_programs": "Multimedia Programs",
-    "mobile_applications": "Mobile Applications",
+    "multimedia_programs": "International Business",
+    "mobile_applications": "Web Development",
     "webdev": "Web Development",
     "ai": "Artificial Intelligence",
     "digital_entrepreneurship": "Digital Entrepreneurship",
@@ -678,8 +678,8 @@
     "programs": {
       "title": "Study Directions",
       "softwareDevelopment": "Software Development",
-      "mobileDevelopment": "Mobile Application Development",
-      "multimedia": "Multimedia Application Development",
+      "mobileDevelopment": "Web Development",
+      "multimedia": "International Business",
       "ai": "Artificial Intelligence",
       "webDevelopment": "Web Development",
       "business": "International Business"

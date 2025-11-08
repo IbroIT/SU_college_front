@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Главная страница - Русский -->
+  <url>
+    <loc>https://www.su-college.com/</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/" />
+  </url>
+
+  <!-- Главная страница - Английский -->
+  <url>
+    <loc>https://www.su-college.com/en/</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/" />
+  </url>
+
+  <!-- Главная страница - Кыргызский -->
+  <url>
+    <loc>https://www.su-college.com/kg/</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/" />
+  </url>
+
+  <!-- О колледже - Русский -->
+  <url>
+    <loc>https://www.su-college.com/about</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/about" />
+  </url>
+
+  <!-- О колледже - Английский -->
+  <url>
+    <loc>https://www.su-college.com/en/about</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/about" />
+  </url>
+
+  <!-- О колледже - Кыргызский -->
+  <url>
+    <loc>https://www.su-college.com/kg/about</loc>
+    <lastmod>2025-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.su-college.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.su-college.com/about" />
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/about/salymbekov-university</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/about/international-college</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/about/director-letter</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/about/mission</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Новости -->
+  <url>
+    <loc>https://www.su-college.com/news</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/news" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/news" />
+  </url>
+
+  <!-- Программы обучения -->
+  <url>
+    <loc>https://www.su-college.com/programs/computer-science</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/multimedia</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/mobile</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/webdev</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/ai</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/digital-entrepreneurship</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/programs/business</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Абитуриенту -->
+  <url>
+    <loc>https://www.su-college.com/admissions/committee</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/specialties</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/rules</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/procedure</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/documents</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/schedule</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/admissions/tuition</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Партнеры -->
+  <url>
+    <loc>https://www.su-college.com/partners/lincoln</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/partners/inti</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Студенту -->
+  <url>
+    <loc>https://www.su-college.com/student/info-system</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/student/projects</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/student/schedules</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/student/timetable</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.su-college.com/student/council</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Документы -->
+  <url>
+    <loc>https://www.su-college.com/documents</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Контакты -->
+  <url>
+    <loc>https://www.su-college.com/contacts</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/contacts" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/contacts" />
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://www.su-college.com/faq</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/faq" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/faq" />
+  </url>
+
+  <!-- Вакансии -->
+  <url>
+    <loc>https://www.su-college.com/vacancies</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.su-college.com/en/vacancies" />
+    <xhtml:link rel="alternate" hreflang="kg" href="https://www.su-college.com/kg/vacancies" />
+  </url>
+
+</urlset>

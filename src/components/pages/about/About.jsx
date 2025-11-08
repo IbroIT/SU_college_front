@@ -1,12 +1,20 @@
 import React from 'react'
 import UltimateHero from './AboutCollege'
 import CollegeSection from './CollegeSection'
+import PageSEO from '../../seo/PageSEO'
+
 const About = () => {
   return (
-    <div>
-        <UltimateHero />
-        <CollegeSection />
-    </div>
+    <>
+      <PageSEO 
+        pageKey="about"
+        structuredDataType="EducationalOrganization"
+      />
+      <div>
+          <UltimateHero />
+          <CollegeSection />
+      </div>
+    </>
   )
 }
 

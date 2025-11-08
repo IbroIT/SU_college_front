@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import PageSEO from '../../seo/PageSEO';
 import './SpecialtiesPage.css';
 
 const SpecialtiesPage = () => {
   const { t } = useTranslation();
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -57,7 +59,9 @@ const SpecialtiesPage = () => {
   ];
 
   return (
-    <div className="specialties-page min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
+    <>
+      <PageSEO pageKey="admissions" />
+      <div className="specialties-page min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -155,7 +159,8 @@ const SpecialtiesPage = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

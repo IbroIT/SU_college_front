@@ -16,9 +16,11 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import PageSEO from '../seo/PageSEO';
 
 const FAQ = () => {
   const { t } = useTranslation();
+
   const [activeQuestion, setActiveQuestion] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -96,7 +98,12 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <>
+      <PageSEO 
+        pageKey="faq"
+        structuredDataType="FAQPage"
+      />
+      <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -340,7 +347,8 @@ const FAQ = () => {
           </motion.div>
         </motion.div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

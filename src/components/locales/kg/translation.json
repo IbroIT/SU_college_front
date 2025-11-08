@@ -10,8 +10,8 @@
     "admission_committee": "Кабыл алуу комиссиясы",
     "programs": "Программалар",
     "computer_science": "Компьютер илими",
-    "multimedia_programs": "Мультимедия программалары",
-    "mobile_applications": "Мобилдик колдонмолор",
+    "multimedia_programs": "Эларалык бизнес",
+    "mobile_applications": "Веб иштеп чыгуу",
     "webdev": "Веб иштеп чыгуу",
     "ai": "Жасалма интеллект",
     "digital_entrepreneurship": "Санариптик ишкерчилик",
@@ -677,8 +677,8 @@
     "programs": {
       "title": "Окуу багыттары",
       "softwareDevelopment": "Программалык камсыздоону иштеп чыгуу",
-      "mobileDevelopment": "Мобилдик тиркемелерди иштеп чыгуу",
-      "multimedia": "Мультимедиялык тиркемелерди иштеп чыгуу",
+      "mobileDevelopment": "Веб-иштеп чыгуу",
+      "multimedia": "Эларалык бизнес",
       "ai": "Жасалма интеллект",
       "webDevelopment": "Веб-иштеп чыгуу",
       "business": "Эларалык бизнес"

@@ -16,9 +16,11 @@ import {
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import emailjs from 'emailjs-com';
+import PageSEO from '../seo/PageSEO';
 
 const Contacts = () => {
   const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -191,7 +193,12 @@ const Contacts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <>
+      <PageSEO 
+        pageKey="contacts"
+        structuredDataType="ContactPage"
+      />
+      <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
@@ -580,7 +587,8 @@ const Contacts = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

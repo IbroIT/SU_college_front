@@ -1,0 +1,48 @@
+User-agent: *
+Allow: /
+
+# Основные страницы
+Allow: /
+Allow: /about
+Allow: /news
+Allow: /contacts
+Allow: /faq
+Allow: /vacancies
+
+# Разделы сайта
+Allow: /admissions/
+Allow: /programs/
+Allow: /student/
+Allow: /documents/
+
+# Языковые версии
+Allow: /en/
+Allow: /kg/
+
+# Статические ресурсы
+Allow: /images/
+Allow: /pdfs/
+Allow: /css/
+Allow: /js/
+
+# Запретить временные файлы и системные папки
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*?preview=
+Disallow: /*?debug=
+
+# Sitemap
+Sitemap: https://www.su-college.com/sitemap.xml
+
+# Дополнительные правила для поисковых ботов
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /

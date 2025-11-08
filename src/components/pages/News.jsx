@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
+import PageSEO from '../seo/PageSEO';
 import './NewsPage.css';
 
 const NewsPage = () => {
@@ -11,6 +12,7 @@ const NewsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+
 
   // Прокрутка в верх страницы при переходе
   useEffect(() => {
@@ -286,7 +288,9 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
   }
 
   return (
-    <div className="news-page min-h-screen bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
+    <>
+      <PageSEO pageKey="news" />
+      <div className="news-page min-h-screen bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
@@ -403,7 +407,8 @@ const NewsCard = ({ news, index, isFeatured = false }) => {
           background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23bfdbfe'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 };
 

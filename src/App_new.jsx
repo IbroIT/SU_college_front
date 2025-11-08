@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import SEODebugger from './components/seo/SEODebugger';
 import LanguageRouter from './components/routing/LanguageRouter';
 import MultiLanguageRoutes from './components/routing/MultiLanguageRoutes';
-import LanguageDetector from './components/routing/LanguageDetector';
 
 function App() {
   const languages = [
@@ -26,14 +25,13 @@ function App() {
             />
             
             <main>
-              <LanguageDetector />
               <MultiLanguageRoutes />
             </main>
             
             <Footer />
             
             {/* SEO Debugger - только в режиме разработки */}
-            {/* <SEODebugger enabled={import.meta.env.DEV} /> */}
+            <SEODebugger enabled={import.meta.env.DEV} />
           </div>
         </LanguageRouter>
       </Router>

@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "vite build"
+    "vercel-build": "vite build",
+    "seo:check": "node scripts/check-seo.js",
+    "seo:validate": "echo 'Для валидации SEO используйте: Google Search Console, Structured Data Testing Tool, Facebook Debugger'",
+    "seo:debug": "npm run dev"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
@@ -20,6 +23,7 @@
     "pdfjs-dist": "^5.4.296",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-helmet-async": "^2.0.5",
     "react-i18next": "^16.0.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.3",

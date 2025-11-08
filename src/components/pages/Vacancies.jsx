@@ -20,9 +20,11 @@ import {
   FaExclamationTriangle
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import PageSEO from '../seo/PageSEO';
 
 const Vacancies = () => {
   const { t, i18n } = useTranslation();
+
   const [activeVacancy, setActiveVacancy] = useState(0);
   const [vacanciesData, setVacanciesData] = useState({
     vacancies: [],
@@ -133,7 +135,12 @@ const Vacancies = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <>
+      <PageSEO 
+        pageKey="vacancies"
+        structuredDataType="JobPosting"
+      />
+      <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -464,7 +471,8 @@ const Vacancies = () => {
           </motion.div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
