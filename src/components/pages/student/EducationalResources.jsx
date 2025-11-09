@@ -357,17 +357,7 @@ const EducationalResources = () => {
                       </p>
                     </div>
                     
-                    {/* Детали ресурса */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500">{t('resources.details.access')}:</span>
-                        <span className="font-semibold text-gray-700">{resource.access_type}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500">{t('resources.details.available')}:</span>
-                        <span className="font-semibold text-gray-700">{resource.count}</span>
-                      </div>
-                    </div>
+
                     
                     {/* Кнопка доступа */}
                     <motion.button 
