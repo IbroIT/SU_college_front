@@ -2819,6 +2819,67 @@
       "cta": "Start Your Business",
       "subtitle": "Time to Act"
     }
+  },
+  "academicCalendar": {
+    "badge": "Academic Calendar 2025-26",
+    "title": "Academic Schedule",
+    "subtitle": "Schedule of modules, exams and holidays for all courses in 2025-26 academic year",
+    "course": "Course {{number}}",
+    "courseStats": "Course {{course}} - Statistics",
+    "noEvents": "No events for this date",
+    "upcomingEvents": "Upcoming Events",
+    "daysLeft": "in {{count}} d.",
+    "print": "Print",
+    "download": "Download",
+    "yearSchedule": "Academic Year Schedule - Course {{course}}",
+    "stats": {
+      "modules": "Modules",
+      "exams": "Exams",
+      "practices": "Practices",
+      "holidays": "Holidays"
+    },
+    "eventTypes": {
+      "exam": "Exam",
+      "module": "Module",
+      "holiday": "Holiday",
+      "practice": "Practice"
+    },
+    "weekDays": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat",
+      "sunday": "Sun"
+    },
+    "legend": {
+      "modules": "Modules",
+      "exams": "Exams",
+      "practices": "Practice",
+      "holidays": "Holidays",
+      "today": "Today"
+    },
+    "events": {
+      "module1": "First Module",
+      "module2": "Second Module",
+      "module3": "Third Module",
+      "module4": "Fourth Module",
+      "exam1": "First Exam",
+      "exam2": "Second Exam",
+      "winterHolidays": "Winter Holidays",
+      "summerHolidays": "Summer Holidays",
+      "practice1": "Practice",
+      "gia": "State Final Attestation",
+      "preparation": "Qualification Work Preparation"
+    },
+    "descriptions": {
+      "module": "Academic Module",
+      "exam": "Examination Session",
+      "holiday": "Holidays",
+      "practice": "Academic Practice",
+      "gia": "State Final Attestation",
+      "preparation": "Qualification Work Preparation"
+    }
   }
-
 }

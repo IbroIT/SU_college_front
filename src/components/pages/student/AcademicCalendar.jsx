@@ -14,299 +14,61 @@ import {
   FaGraduationCap,
   FaBriefcase
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const AcademicCalendar = () => {
+  const { t } = useTranslation();
   const [currentMonth, setCurrentMonth] = useState(new Date(2025, 8, 1)); // Сентябрь 2025 как начальный месяц
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedCourse, setSelectedCourse] = useState(1);
 
+  // Функция для создания события с переводами
+  const createEvent = (id, titleKey, type, startDate, endDate, color, icon, descriptionKey) => ({
+    id,
+    titleKey,
+    type,
+    startDate,
+    endDate,
+    color,
+    icon,
+    descriptionKey
+  });
+
   // Расписание по курсам на 2025-26 учебный год
   const courseSchedules = {
     1: [
-      {
-        id: 1,
-        title: "Первый модуль",
-        type: "module",
-        startDate: new Date(2025, 10, 3), // Ноябрь 2025
-        endDate: new Date(2025, 10, 7),
-        color: "from-blue-500 to-cyan-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 2,
-        title: "Второй модуль",
-        type: "module",
-        startDate: new Date(2026, 0, 12), // Январь 2026
-        endDate: new Date(2026, 0, 16),
-        color: "from-green-500 to-emerald-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 3,
-        title: "Первый экзамен",
-        type: "exam",
-        startDate: new Date(2026, 0, 19),
-        endDate: new Date(2026, 0, 23),
-        color: "from-orange-500 to-red-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 4,
-        title: "Каникулы",
-        type: "holiday",
-        startDate: new Date(2026, 0, 26),
-        endDate: new Date(2026, 1, 6), // Февраль 2026
-        color: "from-purple-500 to-pink-500",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Зимние каникулы"
-      },
-      {
-        id: 5,
-        title: "Третий модуль",
-        type: "module",
-        startDate: new Date(2026, 3, 13), // Апрель 2026
-        endDate: new Date(2026, 3, 17),
-        color: "from-indigo-500 to-blue-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 6,
-        title: "Четвертый модуль",
-        type: "module",
-        startDate: new Date(2026, 5, 22), // Июнь 2026
-        endDate: new Date(2026, 5, 26),
-        color: "from-teal-500 to-green-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 7,
-        title: "Второй экзамен",
-        type: "exam",
-        startDate: new Date(2026, 5, 29),
-        endDate: new Date(2026, 6, 3), // Июль 2026
-        color: "from-red-500 to-pink-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 8,
-        title: "Летние каникулы",
-        type: "holiday",
-        startDate: new Date(2026, 6, 6),
-        endDate: new Date(2026, 7, 31), // Август 2026
-        color: "from-yellow-500 to-orange-500",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Летние каникулы"
-      }
+      createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 10, 3), new Date(2025, 10, 7), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2026, 0, 12), new Date(2026, 0, 16), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2026, 0, 19), new Date(2026, 0, 23), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2026, 0, 26), new Date(2026, 1, 6), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 3, 13), new Date(2026, 3, 17), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 5, 22), new Date(2026, 5, 26), "from-teal-500 to-green-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 5, 29), new Date(2026, 6, 3), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(8, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 6, 6), new Date(2026, 7, 31), "from-yellow-500 to-orange-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
     ],
     2: [
-      {
-        id: 1,
-        title: "Первый модуль",
-        type: "module",
-        startDate: new Date(2025, 9, 27), // Октябрь 2025
-        endDate: new Date(2025, 9, 31),
-        color: "from-blue-500 to-cyan-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 2,
-        title: "Второй модуль",
-        type: "module",
-        startDate: new Date(2025, 11, 15), // Декабрь 2025
-        endDate: new Date(2025, 11, 19),
-        color: "from-green-500 to-emerald-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 3,
-        title: "Первый экзамен",
-        type: "exam",
-        startDate: new Date(2025, 11, 22),
-        endDate: new Date(2025, 11, 26),
-        color: "from-orange-500 to-red-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 4,
-        title: "Зимние каникулы",
-        type: "holiday",
-        startDate: new Date(2025, 11, 29),
-        endDate: new Date(2026, 0, 9), // Январь 2026
-        color: "from-purple-500 to-pink-500",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Зимние каникулы"
-      },
-      {
-        id: 5,
-        title: "Третий модуль",
-        type: "module",
-        startDate: new Date(2026, 2, 16), // Март 2026
-        endDate: new Date(2026, 2, 20),
-        color: "from-indigo-500 to-blue-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 6,
-        title: "Четвертый модуль",
-        type: "module",
-        startDate: new Date(2026, 3, 27), // Апрель 2026
-        endDate: new Date(2026, 3, 1),
-        color: "from-teal-500 to-green-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 7,
-        title: "Второй экзамен",
-        type: "exam",
-        startDate: new Date(2026, 4, 4), // Май 2026
-        endDate: new Date(2026, 4, 15),
-        color: "from-red-500 to-pink-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 8,
-        title: "ГИА",
-        type: "exam",
-        startDate: new Date(2026, 4, 18),
-        endDate: new Date(2026, 4, 22),
-        color: "from-red-600 to-orange-600",
-        icon: <FaGraduationCap className="text-white" />,
-        description: "Государственная итоговая аттестация"
-      },
-      {
-        id: 9,
-        title: "Практика",
-        type: "practice",
-        startDate: new Date(2026, 4, 25),
-        endDate: new Date(2026, 5, 5), // Июнь 2026
-        color: "from-purple-600 to-blue-600",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Учебная практика"
-      },
-      {
-        id: 10,
-        title: "Летние каникулы",
-        type: "holiday",
-        startDate: new Date(2026, 5, 29),
-        endDate: new Date(2026, 7, 31), // Август 2026
-        color: "from-yellow-500 to-orange-500",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Летние каникулы"
-      }
+      createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 9, 27), new Date(2025, 9, 31), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2025, 11, 22), new Date(2025, 11, 26), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 2, 16), new Date(2026, 2, 20), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 3, 27), new Date(2026, 4, 1), "from-teal-500 to-green-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 4, 4), new Date(2026, 4, 15), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(8, "academicCalendar.events.gia", "exam", new Date(2026, 4, 18), new Date(2026, 4, 22), "from-red-600 to-orange-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia"),
+      createEvent(9, "academicCalendar.events.practice1", "practice", new Date(2026, 4, 25), new Date(2026, 5, 5), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
+      createEvent(10, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 5, 29), new Date(2026, 7, 31), "from-yellow-500 to-orange-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
     ],
     3: [
-      {
-        id: 1,
-        title: "Первый модуль",
-        type: "module",
-        startDate: new Date(2025, 9, 27), // Октябрь 2025
-        endDate: new Date(2025, 9, 31),
-        color: "from-blue-500 to-cyan-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 2,
-        title: "Второй модуль",
-        type: "module",
-        startDate: new Date(2025, 11, 15), // Декабрь 2025
-        endDate: new Date(2025, 11, 19),
-        color: "from-green-500 to-emerald-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 3,
-        title: "Первый экзамен",
-        type: "exam",
-        startDate: new Date(2025, 11, 22),
-        endDate: new Date(2025, 11, 26),
-        color: "from-orange-500 to-red-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 4,
-        title: "Зимние каникулы",
-        type: "holiday",
-        startDate: new Date(2025, 11, 29),
-        endDate: new Date(2026, 0, 9), // Январь 2026
-        color: "from-purple-500 to-pink-500",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Зимние каникулы"
-      },
-      {
-        id: 5,
-        title: "Практика",
-        type: "practice",
-        startDate: new Date(2026, 0, 12),
-        endDate: new Date(2026, 1, 6), // Февраль 2026
-        color: "from-purple-600 to-blue-600",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Учебная практика"
-      },
-      {
-        id: 6,
-        title: "Третий модуль",
-        type: "module",
-        startDate: new Date(2026, 2, 9), // Март 2026
-        endDate: new Date(2026, 2, 13),
-        color: "from-indigo-500 to-blue-500",
-        icon: <FaBook className="text-white" />,
-        description: "Учебный модуль"
-      },
-      {
-        id: 7,
-        title: "Второй экзамен",
-        type: "exam",
-        startDate: new Date(2026, 3, 20), // Апрель 2026
-        endDate: new Date(2026, 3, 24),
-        color: "from-red-500 to-pink-500",
-        icon: <FaFileAlt className="text-white" />,
-        description: "Экзаменационная сессия"
-      },
-      {
-        id: 8,
-        title: "Практика",
-        type: "practice",
-        startDate: new Date(2026, 3, 27),
-        endDate: new Date(2026, 4, 22), // Май 2026
-        color: "from-purple-600 to-blue-600",
-        icon: <FaBriefcase className="text-white" />,
-        description: "Учебная практика"
-      },
-      {
-        id: 9,
-        title: "Подготовка к квалификационной работе",
-        type: "practice",
-        startDate: new Date(2026, 4, 25),
-        endDate: new Date(2026, 5, 5), // Июнь 2026
-        color: "from-indigo-600 to-purple-600",
-        icon: <FaGraduationCap className="text-white" />,
-        description: "Подготовка к квалификационной работе"
-      },
-      {
-        id: 10,
-        title: "ГИА",
-        type: "exam",
-        startDate: new Date(2026, 5, 8),
-        endDate: new Date(2026, 5, 12),
-        color: "from-red-600 to-orange-600",
-        icon: <FaGraduationCap className="text-white" />,
-        description: "Государственная итоговая аттестация"
-      }
+      createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 9, 27), new Date(2025, 9, 31), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2025, 11, 22), new Date(2025, 11, 26), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(5, "academicCalendar.events.practice1", "practice", new Date(2026, 0, 12), new Date(2026, 1, 6), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
+      createEvent(6, "academicCalendar.events.module3", "module", new Date(2026, 2, 9), new Date(2026, 2, 13), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 3, 20), new Date(2026, 3, 24), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(8, "academicCalendar.events.practice1", "practice", new Date(2026, 3, 27), new Date(2026, 4, 22), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
+      createEvent(9, "academicCalendar.events.preparation", "practice", new Date(2026, 4, 25), new Date(2026, 5, 5), "from-indigo-600 to-purple-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.preparation"),
+      createEvent(10, "academicCalendar.events.gia", "exam", new Date(2026, 5, 8), new Date(2026, 5, 12), "from-red-600 to-orange-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia")
     ]
   };
 
@@ -332,22 +94,22 @@ const AcademicCalendar = () => {
   const stats = [
     { 
       number: academicSchedule.filter(e => e.type === 'module').length, 
-      label: "Модули", 
+      label: t('academicCalendar.stats.modules'), 
       icon: <FaBook className="text-blue-500" /> 
     },
     { 
       number: academicSchedule.filter(e => e.type === 'exam').length, 
-      label: "Экзамены", 
+      label: t('academicCalendar.stats.exams'), 
       icon: <FaFileAlt className="text-red-500" /> 
     },
     { 
       number: academicSchedule.filter(e => e.type === 'practice').length, 
-      label: "Практики", 
+      label: t('academicCalendar.stats.practices'), 
       icon: <FaBriefcase className="text-green-500" /> 
     },
     { 
       number: academicSchedule.filter(e => e.type === 'holiday').length, 
-      label: "Каникулы", 
+      label: t('academicCalendar.stats.holidays'), 
       icon: <FaUniversity className="text-purple-500" /> 
     }
   ];
@@ -414,22 +176,29 @@ const AcademicCalendar = () => {
 
   // Получение перевода для типа события
   const getEventTypeLabel = (type) => {
-    switch (type) {
-      case 'exam':
-        return 'Экзамен';
-      case 'module':
-        return 'Модуль';
-      case 'holiday':
-        return 'Каникулы';
-      case 'practice':
-        return 'Практика';
-      default:
-        return type;
-    }
+    return t(`academicCalendar.eventTypes.${type}`, { defaultValue: type });
+  };
+
+  // Получение переводного заголовка события
+  const getEventTitle = (event) => {
+    return event.titleKey ? t(event.titleKey) : event.title;
+  };
+
+  // Получение переводного описания события  
+  const getEventDescription = (event) => {
+    return event.descriptionKey ? t(event.descriptionKey) : event.description;
   };
 
   // Дни недели
-  const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+  const weekDays = [
+    t('academicCalendar.weekDays.monday'),
+    t('academicCalendar.weekDays.tuesday'), 
+    t('academicCalendar.weekDays.wednesday'),
+    t('academicCalendar.weekDays.thursday'),
+    t('academicCalendar.weekDays.friday'),
+    t('academicCalendar.weekDays.saturday'),
+    t('academicCalendar.weekDays.sunday')
+  ];
 
   // Функция для получения стилей дня с анимацией
   const getDayStyles = (date, event, isToday, isSelected) => {
@@ -489,14 +258,14 @@ const AcademicCalendar = () => {
             className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full mb-6"
           >
             <FaCalendarAlt className="text-xl" />
-            <span className="font-semibold">Академический календарь 2025-26</span>
+            <span className="font-semibold">{t('academicCalendar.badge')}</span>
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
-            Учебный график
+            {t('academicCalendar.title')}
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Расписание модулей, экзаменов и каникул для всех курсов на 2025-26 учебный год
+            {t('academicCalendar.subtitle')}
           </p>
 
           {/* Выбор курса */}
@@ -518,7 +287,7 @@ const AcademicCalendar = () => {
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                {course} курс
+{t('academicCalendar.course', { number: course })}
               </motion.button>
             ))}
           </div>
@@ -617,23 +386,23 @@ const AcademicCalendar = () => {
               <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-gray-200">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded"></div>
-                  <span className="text-sm text-gray-600">Модули</span>
+                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.modules')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-gradient-to-br from-orange-500 to-red-500 rounded"></div>
-                  <span className="text-sm text-gray-600">Экзамены</span>
+                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.exams')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-gradient-to-br from-purple-600 to-blue-600 rounded"></div>
-                  <span className="text-sm text-gray-600">Практика</span>
+                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.practices')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-gradient-to-br from-yellow-500 to-orange-500 rounded"></div>
-                  <span className="text-sm text-gray-600">Каникулы</span>
+                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.holidays')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-blue-500 bg-blue-50 rounded"></div>
-                  <span className="text-sm text-gray-600">Сегодня</span>
+                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.today')}</span>
                 </div>
               </div>
             </div>
@@ -650,7 +419,7 @@ const AcademicCalendar = () => {
             {/* Статистика */}
             <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
-                {selectedCourse} курс - Статистика
+                {t('academicCalendar.courseStats', { course: selectedCourse })}
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {stats.map((stat, index) => (
@@ -689,9 +458,9 @@ const AcademicCalendar = () => {
                       >
                         <div className="flex items-center gap-3 mb-2">
                           {event.icon}
-                          <span className="font-semibold">{event.title}</span>
+                          <span className="font-semibold">{getEventTitle(event)}</span>
                         </div>
-                        <p className="text-white/90 text-sm">{event.description}</p>
+                        <p className="text-white/90 text-sm">{getEventDescription(event)}</p>
                         <div className="text-xs text-white/70 mt-2">
                           {event.startDate.toLocaleDateString('ru-RU')} - {event.endDate.toLocaleDateString('ru-RU')}
                         </div>
@@ -700,7 +469,7 @@ const AcademicCalendar = () => {
                 </div>
               ) : (
                 <p className="text-gray-500 text-center py-4">
-                  Нет событий на эту дату
+                  {t('academicCalendar.noEvents')}
                 </p>
               )}
             </div>
@@ -709,7 +478,7 @@ const AcademicCalendar = () => {
             <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                 <FaBell className="text-blue-500" />
-                Ближайшие события
+                {t('academicCalendar.upcomingEvents')}
               </h3>
               <div className="space-y-3">
                 {upcomingEvents.map((event) => (
@@ -719,7 +488,7 @@ const AcademicCalendar = () => {
                     className="p-3 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors border-l-4 border-blue-500"
                   >
                     <div className="flex justify-between items-start mb-1">
-                      <span className="font-semibold text-gray-800">{event.title}</span>
+                      <span className="font-semibold text-gray-800">{getEventTitle(academicSchedule.find(e => e.id === event.id))}</span>
                       <span className="text-sm text-gray-500">
                         {event.date.toLocaleDateString('ru-RU')}
                       </span>
@@ -734,7 +503,7 @@ const AcademicCalendar = () => {
                         {getEventTypeLabel(event.type)}
                       </span>
                       <span className="text-sm text-gray-500">
-                        через {event.daysLeft} {event.daysLeft === 1 ? 'день' : event.daysLeft < 5 ? 'дня' : 'дней'}
+                        {t('academicCalendar.daysLeft', { count: event.daysLeft })}
                       </span>
                     </div>
                   </motion.div>
@@ -751,7 +520,7 @@ const AcademicCalendar = () => {
                 className="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
               >
                 <FaPrint />
-                <span>Печать</span>
+                <span>{t('academicCalendar.print')}</span>
               </motion.button>
               <motion.button
                 onClick={handleDownload}
@@ -760,7 +529,7 @@ const AcademicCalendar = () => {
                 className="flex-1 bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
               >
                 <FaDownload />
-                <span>Скачать</span>
+                <span>{t('academicCalendar.download')}</span>
               </motion.button>
             </div>
           </motion.div>
@@ -775,7 +544,7 @@ const AcademicCalendar = () => {
           className="mb-20"
         >
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-            График учебного года - {selectedCourse} курс
+            {t('academicCalendar.yearSchedule', { course: selectedCourse })}
           </h2>
           <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
             <div className="space-y-4">
@@ -791,8 +560,8 @@ const AcademicCalendar = () => {
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-800">{item.title}</h4>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
+                    <h4 className="font-bold text-gray-800">{getEventTitle(item)}</h4>
+                    <p className="text-gray-600 text-sm">{getEventDescription(item)}</p>
                   </div>
                   <div className="text-right">
                     <div className="font-semibold text-gray-800">
