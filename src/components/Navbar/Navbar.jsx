@@ -163,7 +163,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             { title: t('nav.creative_groups', 'Творческие коллективы и кружки'), link: '/student/creative' },
           ]
         },
-        { title: t('nav.report_2024', 'Отчет с диаграммами 2024'), link: '/student/report-2024' },
+        // { title: t('nav.report_2024', 'Отчет с диаграммами 2024'), link: '/student/report-2024' },
         { 
           title: t('nav.electronic_resources', 'Электронные ресурсы'), 
           hasNested: true,
