@@ -34,7 +34,7 @@ const CollegeSchedule = () => {
   const [error, setError] = useState(null);
   
   // API base URL
-  const API_BASE_URL = 'http://localhost:8000/api';
+  const API_BASE_URL = 'https://su-college-back-0fa585fe0710.herokuapp.com/api';
 
   // Load data from API
   useEffect(() => {
