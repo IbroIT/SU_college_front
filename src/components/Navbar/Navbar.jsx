@@ -199,7 +199,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           ]
         },
         { title: t('nav.license', 'Лицензия'), link: '/documents/license' },
-        { title: t('nav.international_accreditation', 'Международная институциональная аккредитация'), link: '/documents/accreditation' },
+        // { title: t('nav.international_accreditation', 'Международная институциональная аккредитация'), link: '/documents/accreditation' },
         { title: t('nav.program_accreditation', 'Программная аккредитация'), link: '/documents/program-accreditation' },
       ]
     },
