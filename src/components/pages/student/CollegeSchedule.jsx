@@ -443,29 +443,6 @@ const CollegeSchedule = () => {
                 {t('schedule.subtitle')}
               </p>
             </motion.div>
-
-        {/* Статистика */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
-        >
-          {scheduleStats.map((stat, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Основное расписание */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
