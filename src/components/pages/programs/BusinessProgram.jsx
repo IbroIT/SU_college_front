@@ -401,16 +401,6 @@ const BusinessPrograms = () => {
             </div>
           </div>
         </section>
-
-        {/* Floating Action Buttons */}
-        <div className="fixed bottom-8 right-8 space-y-4">
-          <button className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 animate-bounce">
-            <span className="text-xl">💼</span>
-          </button>
-          <button className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300">
-            <span className="text-xl">📊</span>
-          </button>
-        </div>
       </div>
     </div>
   );
