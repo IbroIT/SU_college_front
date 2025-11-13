@@ -328,16 +328,17 @@ const FAQ = () => {
             
             <div className="space-y-3">
               {[
-                { label: t('faq.links.admission'), color: "from-blue-500 to-cyan-500" },
-                { label: t('faq.links.programs'), color: "from-green-500 to-emerald-500" },
-                { label: t('faq.links.scholarships'), color: "from-purple-500 to-indigo-500" },
-                { label: t('faq.links.contact'), color: "from-orange-500 to-amber-500" }
+                { label: t('faq.links.admission'), color: "from-blue-500 to-cyan-500", url: "/admissions/rules" },
+                { label: t('faq.links.programs'), color: "from-green-500 to-emerald-500", url: "/programs/computer-science" },
+                { label: t('faq.links.scholarships'), color: "from-purple-500 to-indigo-500", url: "/admissions/tuition" },
+                { label: t('faq.links.contact'), color: "from-orange-500 to-amber-500", url: "/contacts" }
               ].map((link, index) => (
                 <motion.button
                   key={index}
                   whileHover={{ scale: 1.02, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                   className={`w-full bg-gradient-to-r ${link.color} text-white py-4 px-6 rounded-2xl font-semibold text-left flex items-center justify-between group hover:shadow-lg transition-all duration-300`}
+                  onClick={() => window.open(link.url, '_blank', 'noopener,noreferrer')}
                 >
                   <span>{link.label}</span>
                   <FaChevronDown className="text-sm transform -rotate-90 group-hover:translate-x-1 transition-transform" />

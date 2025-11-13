@@ -463,10 +463,6 @@ const Contacts = () => {
                     </>
                   )}
                 </motion.button>
-
-                <p className="text-xs text-gray-500 text-center">
-                  * {t('contacts.form.required') || 'Обязательные поля'}
-                </p>
               </form>
             </div>
           </motion.div>

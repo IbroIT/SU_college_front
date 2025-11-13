@@ -85,9 +85,16 @@ const EducationalResources = () => {
 
   // Обработчики кликов
   const handleAccessClick = (url) => {
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+    if (!url || typeof url !== 'string') {
+      alert('Нет URL для доступа к ресурсу');
+      return;
     }
+    const trimmedUrl = url.trim();
+    if (!/^https?:\/\//i.test(trimmedUrl)) {
+      alert('Некорректная ссылка: ' + trimmedUrl);
+      return;
+    }
+    window.open(trimmedUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleDownloadClick = (url) => {
@@ -361,13 +368,13 @@ const EducationalResources = () => {
                     
                     {/* Кнопка доступа */}
                     <motion.button 
-                      onClick={() => handleAccessClick(resource.access_url)}
-                      className={`w-full bg-gradient-to-r ${resource.category.color} text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg ${
-                        !resource.access_url ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
-                      }`}
+                      onClick={() => {
+                        handleAccessClick(resource.access_url);
+                      }}
+                      className={`w-full bg-gradient-to-r ${resource.category.color} text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg hover:scale-105`}
                       whileHover={resource.access_url ? { scale: 1.02 } : {}}
                       whileTap={resource.access_url ? { scale: 0.98 } : {}}
-                      disabled={!resource.access_url}
+                      style={{zIndex: 50, position: 'relative'}} 
                     >
                       <span>{t('resources.accessButton')}</span>
                       <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />

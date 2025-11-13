@@ -176,7 +176,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           title: t('nav.schedules', 'Графики и расписания'), 
           hasNested: true,
           nestedItems: [
-            { title: t('nav.modules_exams', 'Графики модулей и экзаменов'), link: '/student/modules' },
+            // { title: t('nav.modules_exams', 'Графики модулей и экзаменов'), link: '/student/modules' },
             { title: t('nav.college_schedule', 'Расписание колледжа'), link: '/student/timetable' },
             { title: t('nav.academic_calendar', 'График учебного процесса'), link: '/student/calendar' },
           ]

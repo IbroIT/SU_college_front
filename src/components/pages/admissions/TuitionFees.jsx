@@ -685,14 +685,6 @@ const TuitionFees = () => {
               <p className="text-white/90 text-sm mb-4">
                 {contactInfo.basis}
               </p>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full bg-white text-blue-600 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors duration-300"
-              >
-                {t('tuition.contact.consultation')}
-              </motion.button>
             </motion.div>
           </div>
         </motion.div>

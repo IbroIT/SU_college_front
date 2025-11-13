@@ -273,28 +273,6 @@ const AdmissionDocuments = () => {
           </p>
         </motion.div>
 
-        {/* Статистика */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
-        >
-          {documentStats.map((stat, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Особенности */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -527,29 +505,7 @@ const AdmissionDocuments = () => {
                 </div>
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex items-center gap-3 p-4 bg-white/10 rounded-xl backdrop-blur-sm"
-              >
-                <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                  <FaFileAlt className="text-white text-sm" />
-                </div>
-                <div>
-                  <p className="text-white/80 text-sm">{t('documents.contact.address')}</p>
-                  <p className="font-semibold">{contactInfo.address}</p>
-                </div>
-              </motion.div>
             </div>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full bg-white text-blue-600 py-3 rounded-xl font-bold mt-6 hover:bg-gray-100 transition-colors duration-300"
-            >
-              {t('documents.contact.consultation')}
-            </motion.button>
           </motion.div>
         </motion.div>
       </div>

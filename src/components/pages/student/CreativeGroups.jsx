@@ -289,19 +289,7 @@ const CreativeClubs = () => {
                     }}
                   />
                   
-                  {/* Уровень сложности */}
-                  <motion.div 
-                    className="absolute bottom-4 left-4"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-                  >
-                    <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 py-1">
-                      <p className="text-white text-sm font-medium">
-                        {club.level}
-                      </p>
-                    </div>
-                  </motion.div>
+                  {/* ...удалено: уровень сложности... */}
                 </div>
 
                 {/* Информация о кружке */}
@@ -328,27 +316,15 @@ const CreativeClubs = () => {
                     </p>
                   </div>
                   
-                  {/* Детали кружка */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500">{t('clubs.details.members')}:</span>
-                      <span className="font-semibold text-gray-700">{club.members}+</span>
-                    </div>
+                  {/* Детали кружка: только расписание */}
+                  <div className="mb-6">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-gray-500">{t('clubs.details.schedule')}:</span>
                       <span className="font-semibold text-gray-700">{club.schedule}</span>
                     </div>
                   </div>
                   
-                  {/* Кнопка присоединения */}
-                  <motion.button 
-                    className={`w-full bg-gradient-to-r ${club.color} text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span>{t('clubs.joinButton')}</span>
-                    <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                  {/* ...удалено: кнопка присоединиться... */}
                 </div>
 
                 {/* Анимированный бордер */}
