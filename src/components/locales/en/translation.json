@@ -208,11 +208,11 @@
   },
   "footer": {
     "collegeName": "International College of IT and Business",
-    "mission": "Salymbekov College aims for quality education",
+    "mission": "College aims for quality education",
     "contactUs": "Contact Us",
     "about": {
       "title": "About Us",
-      "description": "Salymbekov College aims for quality education. We prepare world-class specialists in IT and business."
+      "description": "College aims for quality education. We prepare world-class specialists in IT and business."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -228,7 +228,7 @@
         }
       ]
     },
-    "copyright": "© 2025 Salymbekov College. All rights reserved."
+    "copyright": "© 2025 Salymbekov University. All rights reserved."
   },
   "applicantBanner": {
     "title": "Applicant-2025!",
@@ -1939,7 +1939,7 @@
     "questions": [
       {
         "question": "1. What specialties does college offer?",
-        "answer": "College offers three main IT specialist training directions: software development, mobile application development (iOS, Android, Flutter), multimedia application development (VFX design, Adobe Premiere Pro, etc.)."
+        "answer": "College offers main specialist training directions: software development, mobile application development (iOS, Android, Flutter), multimedia application development (VFX design, Adobe Premiere Pro, etc.)."
       },
       {
         "question": "2. How to complete registration process?",

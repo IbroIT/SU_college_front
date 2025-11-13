@@ -84,7 +84,7 @@ const Admissions = () => {
   ];
 
   const stats = [
-    { number: "2021", label: t('admissions.stats.founded'), icon: <FaCalendarAlt className="text-blue-500" /> },
+    { number: "2022", label: t('admissions.stats.founded'), icon: <FaCalendarAlt className="text-blue-500" /> },
     { number: "100+", label: t('admissions.stats.students'), icon: <FaUserGraduate className="text-green-500" /> },
     { number: "25+", label: t('admissions.stats.teachers'), icon: <FaUsers className="text-purple-500" /> },
     { number: "4+", label: t('admissions.stats.programs'), icon: <FaAward className="text-orange-500" /> }

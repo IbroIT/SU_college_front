@@ -124,9 +124,9 @@ const MultiLanguageRoutes = () => {
       <Route path="/curriculum/computer-science" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_КН_20224.PDF" />} />
       <Route path="/curriculum/multimedia-computing" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_МВ_20224.PDF" />} />
       <Route path="/curriculum/multimedia-programs" element={<DocumentViewer documentUrl="/pdfs/УП_СПО_МП_20224.PDF" />} />
-      <Route path="/curriculum/diploma-multimedia" element={<DocumentViewer documentUrl="/pdfs/CURRICULUM_Diploma in Multimedia Applications Area2_LINCOLN UNIVERSITY COLLEGE.pdf" />} />
+      {/* <Route path="/curriculum/diploma-multimedia" element={<DocumentViewer documentUrl="/pdfs/CURRICULUM_Diploma in Multimedia Applications Area2_LINCOLN UNIVERSITY COLLEGE.pdf" />} />
       <Route path="/curriculum/diploma-mobile" element={<DocumentViewer documentUrl="/pdfs/LAST Diploma in Mobile Computing PA 4733.pdf" />} />
-      <Route path="/curriculum/diploma-cs" element={<DocumentViewer documentUrl="/pdfs/LAST Diploma in COMPUTER SCIENCE Area2_LUK.pdf" />} />
+      <Route path="/curriculum/diploma-cs" element={<DocumentViewer documentUrl="/pdfs/LAST Diploma in COMPUTER SCIENCE Area2_LUK.pdf" />} /> */}
       
       {/* Контакты и др. */}
       <Route path="/contacts" element={<Contacts />} />

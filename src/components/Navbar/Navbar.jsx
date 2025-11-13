@@ -97,7 +97,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
     about: {
       title: t('nav.about_college', 'О колледже'),
       submenu: [
-        { title: t('nav.salymbekov_university', 'Салымбеков Университет'), link: 'https://salymbekov.com/en/' },
+        // { title: t('nav.salymbekov_university', 'Салымбеков Университет'), link: 'https://salymbekov.com/en/' },
         { title: t('nav.about_college', 'О колледже'), link: '/about' },
         { title: t('nav.director_letter', 'Письмо Директора'), link: '/about/director-letter' },
         // { title: t('nav.teachers', 'Преподаватели'), link: '/about/teachers' },
@@ -186,6 +186,9 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
     documents: {
       title: t('nav.documents', 'Документы'),
       submenu: [
+        { title: t('nav.license', 'Лицензия'), link: '/documents/license' },
+        // { title: t('nav.international_accreditation', 'Международная институциональная аккредитация'), link: '/documents/accreditation' },
+        { title: t('nav.program_accreditation', 'Программная аккредитация'), link: '/documents/program-accreditation' },
         { 
           title: t('nav.curriculum', 'Учебные планы'), 
           hasNested: true,
@@ -193,14 +196,12 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             { title: t('nav.computer_science', 'Компьютерная наука'), link: '/curriculum/computer-science' },
             { title: t('nav.multimedia_computing', 'Мультимедийные Вычисления'), link: '/curriculum/multimedia-computing' },
             { title: t('nav.multimedia_programs', 'Мультимедийные программы'), link: '/curriculum/multimedia-programs' },
-            { title: 'Diploma Multimedia Programs', link: '/curriculum/diploma-multimedia' },
-            { title: 'Diploma Mobile Computing', link: '/curriculum/diploma-mobile' },
-            { title: 'Diploma Computer Science', link: '/curriculum/diploma-cs' },
+            // { title: 'Diploma Multimedia Programs', link: '/curriculum/diploma-multimedia' },
+            // { title: 'Diploma Mobile Computing', link: '/curriculum/diploma-mobile' },
+            // { title: 'Diploma Computer Science', link: '/curriculum/diploma-cs' },
           ]
         },
-        { title: t('nav.license', 'Лицензия'), link: '/documents/license' },
-        // { title: t('nav.international_accreditation', 'Международная институциональная аккредитация'), link: '/documents/accreditation' },
-        { title: t('nav.program_accreditation', 'Программная аккредитация'), link: '/documents/program-accreditation' },
+        
       ]
     },
     contacts: {

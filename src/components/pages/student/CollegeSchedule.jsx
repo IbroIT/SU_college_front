@@ -38,25 +38,37 @@ const CollegeSchedule = () => {
 
   // Load data from API
   useEffect(() => {
+    // Функция для загрузки всех страниц групп
+    const fetchAllGroups = async (url, acc = []) => {
+      const res = await axios.get(url);
+      const results = res.data.results || res.data || [];
+      const all = [...acc, ...results];
+      if (res.data.next) {
+        return fetchAllGroups(res.data.next, all);
+      }
+      return all;
+    };
+
     const fetchData = async () => {
       try {
         setLoading(true);
-        
-        // Fetch all required data
-        const [groupsRes, timeSlotsRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/schedule/api/groups/`),
-          axios.get(`${API_BASE_URL}/schedule/api/timeslots/`)
-        ]);
-        
-        setStudyGroups([
+
+        // Fetch all groups (pagination)
+        const allGroups = await fetchAllGroups(`${API_BASE_URL}/schedule/api/groups/`);
+        // Fetch time slots
+        const timeSlotsRes = await axios.get(`${API_BASE_URL}/schedule/api/timeslots/`);
+
+        const groups = [
           { id: "all", name: t('schedule.groups.all') },
-          ...(groupsRes.data.results || groupsRes.data || [])
-        ]);
+          ...allGroups
+        ];
+        setStudyGroups(groups);
+        console.log('Группы для фильтра:', groups);
         setTimeSlots(timeSlotsRes.data.results || timeSlotsRes.data || []);
-        
+
         // Fetch default schedule for all groups
         await fetchScheduleForGroup("all");
-        
+
       } catch (err) {
         console.error('Error fetching schedule data:', err);
         setError(err.message);
