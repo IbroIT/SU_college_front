@@ -48,7 +48,20 @@ const EducationalResources = () => {
         const data = await response.json();
         console.log("✅ Received resources data:", data);
         
-        setResourcesData(data);
+        // Сортировка: pinned сначала, затем по дате (если есть)
+        const sortedResources = [...(data.resources || [])].sort((a, b) => {
+          const aPinned = a.pinned === true || a.pinned === "true";
+          const bPinned = b.pinned === true || b.pinned === "true";
+          if (aPinned === bPinned) {
+            // Если есть поле date, сортируем по нему, иначе не сортируем
+            if (a.date && b.date) {
+              return new Date(b.date) - new Date(a.date);
+            }
+            return 0;
+          }
+          return aPinned ? -1 : 1;
+        });
+        setResourcesData({ ...data, resources: sortedResources });
         
       } catch (err) {
         console.error('❌ Error fetching resources data:', err);
