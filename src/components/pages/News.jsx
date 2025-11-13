@@ -50,8 +50,18 @@ const NewsPage = () => {
             readingTime: `${readingTimeMinutes} мин`
           };
         });
-        
-        setNews(newsWithReadingTime);
+
+        // Сортировка: сначала is_featured, потом по дате
+        const sortedNews = [...newsWithReadingTime].sort((a, b) => {
+          const aFeatured = a.is_featured === true || a.is_featured === "true";
+          const bFeatured = b.is_featured === true || b.is_featured === "true";
+          if (aFeatured === bFeatured) {
+            return new Date(b.date) - new Date(a.date);
+          }
+          return aFeatured ? -1 : 1;
+        });
+  console.log(sortedNews.map(n => ({id: n.id, is_featured: n.is_featured, date: n.date})));
+  setNews(sortedNews);
         
       } catch (err) {
         console.error('Error fetching news:', err);
