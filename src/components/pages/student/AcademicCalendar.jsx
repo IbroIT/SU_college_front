@@ -38,37 +38,37 @@ const AcademicCalendar = () => {
   const courseSchedules = {
     1: [
       createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 10, 3), new Date(2025, 10, 7), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(2, "academicCalendar.events.module2", "module", new Date(2026, 0, 12), new Date(2026, 0, 16), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2026, 0, 12), new Date(2026, 0, 16), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
       createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2026, 0, 19), new Date(2026, 0, 23), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
-      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2026, 0, 26), new Date(2026, 1, 6), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
-      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 3, 13), new Date(2026, 3, 17), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 5, 22), new Date(2026, 5, 26), "from-teal-500 to-green-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 5, 29), new Date(2026, 6, 3), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
-      createEvent(8, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 6, 6), new Date(2026, 7, 31), "from-yellow-500 to-orange-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2026, 0, 26), new Date(2026, 1, 6), "from-green-500 to-emerald-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 3, 13), new Date(2026, 3, 17), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 5, 22), new Date(2026, 5, 26), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 5, 29), new Date(2026, 6, 3), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(8, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 6, 6), new Date(2026, 7, 31), "from-green-500 to-emerald-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
     ],
     2: [
       createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 9, 27), new Date(2025, 9, 31), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
       createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2025, 11, 22), new Date(2025, 11, 26), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
-      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
-      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 2, 16), new Date(2026, 2, 20), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 3, 27), new Date(2026, 4, 1), "from-teal-500 to-green-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 4, 4), new Date(2026, 4, 15), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
-      createEvent(8, "academicCalendar.events.gia", "exam", new Date(2026, 4, 18), new Date(2026, 4, 22), "from-red-600 to-orange-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia"),
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-green-500 to-emerald-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(5, "academicCalendar.events.module3", "module", new Date(2026, 2, 16), new Date(2026, 2, 20), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(6, "academicCalendar.events.module4", "module", new Date(2026, 3, 27), new Date(2026, 4, 1), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 4, 4), new Date(2026, 4, 15), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(8, "academicCalendar.events.gia", "exam", new Date(2026, 4, 18), new Date(2026, 4, 22), "from-orange-500 to-red-500", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia"),
       createEvent(9, "academicCalendar.events.practice1", "practice", new Date(2026, 4, 25), new Date(2026, 5, 5), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
-      createEvent(10, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 5, 29), new Date(2026, 7, 31), "from-yellow-500 to-orange-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
+      createEvent(10, "academicCalendar.events.summerHolidays", "holiday", new Date(2026, 5, 29), new Date(2026, 7, 31), "from-green-500 to-emerald-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday")
     ],
     3: [
       createEvent(1, "academicCalendar.events.module1", "module", new Date(2025, 9, 27), new Date(2025, 9, 31), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-green-500 to-emerald-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(2, "academicCalendar.events.module2", "module", new Date(2025, 11, 15), new Date(2025, 11, 19), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
       createEvent(3, "academicCalendar.events.exam1", "exam", new Date(2025, 11, 22), new Date(2025, 11, 26), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
-      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-purple-500 to-pink-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
+      createEvent(4, "academicCalendar.events.winterHolidays", "holiday", new Date(2025, 11, 29), new Date(2026, 0, 9), "from-green-500 to-emerald-500", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.holiday"),
       createEvent(5, "academicCalendar.events.practice1", "practice", new Date(2026, 0, 12), new Date(2026, 1, 6), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
-      createEvent(6, "academicCalendar.events.module3", "module", new Date(2026, 2, 9), new Date(2026, 2, 13), "from-indigo-500 to-blue-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
-      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 3, 20), new Date(2026, 3, 24), "from-red-500 to-pink-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
+      createEvent(6, "academicCalendar.events.module3", "module", new Date(2026, 2, 9), new Date(2026, 2, 13), "from-blue-500 to-cyan-500", <FaBook className="text-white" />, "academicCalendar.descriptions.module"),
+      createEvent(7, "academicCalendar.events.exam2", "exam", new Date(2026, 3, 20), new Date(2026, 3, 24), "from-orange-500 to-red-500", <FaFileAlt className="text-white" />, "academicCalendar.descriptions.exam"),
       createEvent(8, "academicCalendar.events.practice1", "practice", new Date(2026, 3, 27), new Date(2026, 4, 22), "from-purple-600 to-blue-600", <FaBriefcase className="text-white" />, "academicCalendar.descriptions.practice"),
       createEvent(9, "academicCalendar.events.preparation", "practice", new Date(2026, 4, 25), new Date(2026, 5, 5), "from-indigo-600 to-purple-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.preparation"),
-      createEvent(10, "academicCalendar.events.gia", "exam", new Date(2026, 5, 8), new Date(2026, 5, 12), "from-red-600 to-orange-600", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia")
+      createEvent(10, "academicCalendar.events.gia", "exam", new Date(2026, 5, 8), new Date(2026, 5, 12), "from-orange-500 to-red-500", <FaGraduationCap className="text-white" />, "academicCalendar.descriptions.gia")
     ]
   };
 
@@ -397,7 +397,7 @@ const AcademicCalendar = () => {
                   <span className="text-sm text-gray-600">{t('academicCalendar.legend.practices')}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gradient-to-br from-yellow-500 to-orange-500 rounded"></div>
+                  <div className="w-4 h-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded"></div>
                   <span className="text-sm text-gray-600">{t('academicCalendar.legend.holidays')}</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -498,7 +498,7 @@ const AcademicCalendar = () => {
                         event.type === 'exam' ? 'bg-red-100 text-red-600' :
                         event.type === 'module' ? 'bg-blue-100 text-blue-600' :
                         event.type === 'practice' ? 'bg-purple-100 text-purple-600' :
-                        'bg-yellow-100 text-yellow-600'
+                        'bg-green-100 text-green-600'
                       }`}>
                         {getEventTypeLabel(event.type)}
                       </span>
@@ -570,7 +570,7 @@ const AcademicCalendar = () => {
                     <div className={`text-sm font-medium ${
                       item.type === 'exam' ? 'text-red-600' : 
                       item.type === 'module' ? 'text-blue-600' :
-                      item.type === 'practice' ? 'text-purple-600' : 'text-yellow-600'
+                      item.type === 'practice' ? 'text-purple-600' : 'text-green-600'
                     }`}>
                       {getEventTypeLabel(item.type)}
                     </div>
