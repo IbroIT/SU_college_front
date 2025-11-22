@@ -35,15 +35,15 @@ const UltimateHero = () => {
 
   const floatingItems = [
     { 
-      icon: <FaCode className="text-purple-400" size={36} />, 
+      icon: <FaCode className="text-purple-400" size={24} />, 
       name: t('hero.floatingItems.it') 
     },
     { 
-      icon: <FaShieldAlt className="text-emerald-400" size={36} />, 
+      icon: <FaShieldAlt className="text-emerald-400" size={24} />, 
       name: t('hero.floatingItems.security') 
     },
     { 
-      icon: <FaRocket className="text-amber-400" size={36} />, 
+      icon: <FaRocket className="text-amber-400" size={24} />, 
       name: t('hero.floatingItems.innovation') 
     }
   ];
@@ -100,7 +100,7 @@ const UltimateHero = () => {
   }, [universityName, stats.length]);
 
   return (
-    <div className="relative h-screen bg-black overflow-hidden">
+    <div className="relative h-96 md:h-screen bg-black overflow-hidden">
       <motion.div 
         className="absolute inset-0"
         animate={{
@@ -126,7 +126,7 @@ const UltimateHero = () => {
             top: `${Math.random() * 100}%`
           }}
           animate={{
-            y: [0, window.innerHeight + 100],
+            y: [0, Math.min(window.innerHeight + 100, 1000)],
             opacity: [0, 1, 0]
           }}
           transition={{
@@ -144,8 +144,8 @@ const UltimateHero = () => {
           key={i}
           className="absolute flex flex-col items-center"
           style={{
-            left: `${20 + i * 30}%`,
-            top: `${30 + Math.random() * 40}%`
+            left: `${15 + i * 25}%`,
+            top: `${20 + Math.random() * 30}%`
           }}
           animate={{
             y: [0, -40, 0],
@@ -159,7 +159,7 @@ const UltimateHero = () => {
           }}
         >
           {item.icon}
-          <motion.span className="text-white/80 mt-2 text-sm">
+          <motion.span className="text-white/80 mt-2 text-xs md:text-sm">
             {item.name}
           </motion.span>
         </motion.div>
@@ -171,7 +171,7 @@ const UltimateHero = () => {
       >
         <motion.div className="relative">
           <motion.h1
-            className="text-5xl md:text-8xl font-extrabold text-center mb-8"
+            className="text-3xl md:text-6xl lg:text-8xl font-extrabold text-center mb-6 md:mb-8"
             animate={glitch ? {
               x: [0, 10, -10, 0],
               y: [0, -5, 5, 0],
@@ -189,7 +189,7 @@ const UltimateHero = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
               {displayedTitle}
               <motion.span 
-                className="ml-2 inline-block w-3 h-16 bg-white"
+                className="ml-2 inline-block w-2 md:w-3 h-12 md:h-16 bg-white"
                 animate={{ opacity: [0, 1] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
               />
@@ -211,12 +211,12 @@ const UltimateHero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="text-xl md:text-3xl text-blue-300 mb-12 max-w-2xl text-center"
+          className="text-lg md:text-2xl lg:text-3xl text-blue-300 mb-8 md:mb-12 max-w-2xl text-center"
         >
           {t('hero.subtitle')}
         </motion.p>
 
-        <div className="relative h-24 w-full max-w-lg mb-12">
+        <div className="relative h-20 md:h-24 w-full max-w-lg mb-8 md:mb-12">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStat}
@@ -226,15 +226,15 @@ const UltimateHero = () => {
               transition={{ duration: 0.5 }}
               className="absolute inset-0 flex items-center justify-center gap-4"
             >
-              <div className="text-4xl">
+              <div className="text-3xl md:text-4xl">
                 {stats[activeStat].icon}
               </div>
               <div>
-                <div className="text-4xl font-bold text-white">
+                <div className="text-3xl md:text-4xl font-bold text-white">
                   {stats[activeStat].value}
                   <span className="text-yellow-400">{stats[activeStat].suffix}</span>
                 </div>
-                <div className="text-lg text-blue-300">{stats[activeStat].label}</div>
+                <div className="text-base md:text-lg text-blue-300">{stats[activeStat].label}</div>
               </div>
             </motion.div>
           </AnimatePresence>

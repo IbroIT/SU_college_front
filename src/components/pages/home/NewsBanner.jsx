@@ -94,7 +94,7 @@ const ProgramsHomepage = () => {
         }}></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      <div className="relative z-10 container mx-auto px-4 py-8 md:py-16">
         {/* Hero Section */}
         <section className={`text-center mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -105,7 +105,7 @@ const ProgramsHomepage = () => {
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent">
             {t('programs.hero.title')}
           </h1>
           

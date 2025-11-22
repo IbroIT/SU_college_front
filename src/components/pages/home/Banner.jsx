@@ -46,7 +46,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-96 md:h-screen overflow-hidden">
       {/* Слайды */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -68,7 +68,7 @@ const Banner = () => {
       {/* Кнопки навигации */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
         aria-label="Предыдущий слайд"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ const Banner = () => {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
         aria-label="Следующий слайд"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ const Banner = () => {
       </div>
 
       {/* Номер текущего слайда */}
-      <div className="absolute bottom-6 right-6 bg-blue-600/80 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
+      <div className="absolute bottom-6 right-2 md:right-6 bg-blue-600/80 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
         {currentSlide + 1} / {slides.length}
       </div>
     </div>

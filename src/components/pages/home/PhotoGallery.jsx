@@ -177,7 +177,7 @@ const PhotoGallery = () => {
   }, [currentIndex, isFullscreen]);
 
   return (
-    <div className="bg-white py-20">
+    <div className="bg-white py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Main Gallery */}
@@ -189,7 +189,7 @@ const PhotoGallery = () => {
           onTouchEnd={handleTouchEnd}
         >
           {/* Main Image */}
-          <div className="relative aspect-video bg-gray-800">
+          <div className="relative aspect-square md:aspect-video bg-gray-800">
             <img
               src={photos[currentIndex].src}
               alt={photos[currentIndex].alt}
@@ -251,7 +251,7 @@ const PhotoGallery = () => {
               <button
                 key={photo.id}
                 onClick={() => goToSlide(index)}
-                className={`relative aspect-video rounded-lg overflow-hidden border-2 transition-all duration-300 group ${
+                className={`relative aspect-square md:aspect-video rounded-lg overflow-hidden border-2 transition-all duration-300 group ${
                   index === currentIndex 
                     ? 'border-blue-600 ring-2 ring-blue-200' 
                     : 'border-gray-300 hover:border-blue-400'

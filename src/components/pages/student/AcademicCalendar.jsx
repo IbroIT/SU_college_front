@@ -8,8 +8,6 @@ import {
   FaUniversity,
   FaArrowRight,
   FaArrowLeft,
-  FaPrint,
-  FaDownload,
   FaBell,
   FaGraduationCap,
   FaBriefcase
@@ -202,7 +200,7 @@ const AcademicCalendar = () => {
 
   // Функция для получения стилей дня с анимацией
   const getDayStyles = (date, event, isToday, isSelected) => {
-    const baseStyles = `h-16 rounded-xl border-2 transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden
+    const baseStyles = `h-12 md:h-16 rounded-xl border-2 transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden
       ${isToday ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}
       ${isSelected ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`;
 
@@ -241,35 +239,25 @@ const AcademicCalendar = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-20">
         {/* Герой секция */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full mb-6"
-          >
-            <FaCalendarAlt className="text-xl" />
-            <span className="font-semibold">{t('academicCalendar.badge')}</span>
-          </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
             {t('academicCalendar.title')}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             {t('academicCalendar.subtitle')}
           </p>
 
           {/* Выбор курса */}
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-8">
             {[1, 2, 3].map((course) => (
               <motion.button
                 key={course}
@@ -281,7 +269,7 @@ const AcademicCalendar = () => {
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-2xl font-semibold transition-all ${
+                className={`px-4 md:px-6 py-3 md:py-3 rounded-2xl font-semibold transition-all text-sm md:text-base ${
                   selectedCourse === course
                     ? 'bg-blue-500 text-white shadow-lg'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -293,28 +281,27 @@ const AcademicCalendar = () => {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {/* Календарь */}
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 order-2 lg:order-1"
           >
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-4 md:p-6">
               {/* Заголовок календаря */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
                 <motion.button
                   onClick={() => navigateMonth(-1)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 md:w-10 md:h-10 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-200 transition-colors"
                 >
-                  <FaArrowLeft className="text-gray-600" />
+                  <FaArrowLeft className="text-gray-600 text-sm md:text-base" />
                 </motion.button>
 
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                   {currentMonth.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })}
                 </h2>
 
@@ -322,9 +309,9 @@ const AcademicCalendar = () => {
                   onClick={() => navigateMonth(1)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="w-10 h-10 md:w-10 md:h-10 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-200 transition-colors"
                 >
-                  <FaArrowRight className="text-gray-600" />
+                  <FaArrowRight className="text-gray-600 text-sm md:text-base" />
                 </motion.button>
               </div>
 
@@ -367,7 +354,7 @@ const AcademicCalendar = () => {
                         repeatType: "reverse"
                       }}
                     >
-                      <span className={`text-sm font-semibold ${event ? 'text-white' : 'text-gray-700'}`}>
+                      <span className={`text-xs md:text-sm font-semibold ${event ? 'text-white' : 'text-gray-700'}`}>
                         {date.getDate()}
                       </span>
                       {event && (
@@ -383,26 +370,26 @@ const AcademicCalendar = () => {
               </div>
 
               {/* Легенда */}
-              <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-gray-200">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded"></div>
-                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.modules')}</span>
+              <div className="flex flex-wrap gap-2 md:gap-4 mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-200">
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded"></div>
+                  <span className="text-xs md:text-sm text-gray-600">{t('academicCalendar.legend.modules')}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gradient-to-br from-orange-500 to-red-500 rounded"></div>
-                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.exams')}</span>
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-orange-500 to-red-500 rounded"></div>
+                  <span className="text-xs md:text-sm text-gray-600">{t('academicCalendar.legend.exams')}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gradient-to-br from-purple-600 to-blue-600 rounded"></div>
-                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.practices')}</span>
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-purple-600 to-blue-600 rounded"></div>
+                  <span className="text-xs md:text-sm text-gray-600">{t('academicCalendar.legend.practices')}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded"></div>
-                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.holidays')}</span>
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded"></div>
+                  <span className="text-xs md:text-sm text-gray-600">{t('academicCalendar.legend.holidays')}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-blue-500 bg-blue-50 rounded"></div>
-                  <span className="text-sm text-gray-600">{t('academicCalendar.legend.today')}</span>
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-3 h-3 md:w-4 md:h-4 border-2 border-blue-500 bg-blue-50 rounded"></div>
+                  <span className="text-xs md:text-sm text-gray-600">{t('academicCalendar.legend.today')}</span>
                 </div>
               </div>
             </div>
@@ -414,39 +401,39 @@ const AcademicCalendar = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6 order-1 lg:order-2"
           >
             {/* Статистика */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3 md:mb-4">
                 {t('academicCalendar.courseStats', { course: selectedCourse })}
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
-                    className="text-center p-3 bg-gray-50 rounded-xl"
+                    className="text-center p-2 md:p-3 bg-gray-50 rounded-xl"
                   >
-                    <div className="flex justify-center mb-2">
+                    <div className="flex justify-center mb-1 md:mb-2">
                       {stat.icon}
                     </div>
-                    <div className="text-2xl font-bold text-gray-800">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-800">{stat.number}</div>
+                    <div className="text-xs md:text-sm text-gray-600">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
             </div>
 
             {/* Выбранная дата */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3 md:mb-4">
                 {formatDate(selectedDate)}
               </h3>
               {getEventForDate(selectedDate) ? (
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   {academicSchedule
                     .filter(event => isDateInRange(selectedDate, event.startDate, event.endDate))
                     .map((event) => (
@@ -454,47 +441,47 @@ const AcademicCalendar = () => {
                         key={event.id}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className={`p-4 rounded-2xl bg-gradient-to-r ${event.color} text-white shadow-lg`}
+                        className={`p-3 md:p-4 rounded-2xl bg-gradient-to-r ${event.color} text-white shadow-lg`}
                       >
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
                           {event.icon}
-                          <span className="font-semibold">{getEventTitle(event)}</span>
+                          <span className="font-semibold text-sm md:text-base">{getEventTitle(event)}</span>
                         </div>
-                        <p className="text-white/90 text-sm">{getEventDescription(event)}</p>
-                        <div className="text-xs text-white/70 mt-2">
+                        <p className="text-white/90 text-xs md:text-sm">{getEventDescription(event)}</p>
+                        <div className="text-xs text-white/70 mt-1 md:mt-2">
                           {event.startDate.toLocaleDateString('ru-RU')} - {event.endDate.toLocaleDateString('ru-RU')}
                         </div>
                       </motion.div>
                     ))}
                 </div>
               ) : (
-                <p className="text-gray-500 text-center py-4">
+                <p className="text-gray-500 text-center py-3 md:py-4 text-sm md:text-base">
                   {t('academicCalendar.noEvents')}
                 </p>
               )}
             </div>
 
             {/* Ближайшие события */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                <FaBell className="text-blue-500" />
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3 md:mb-4 flex items-center gap-2">
+                <FaBell className="text-blue-500 text-sm md:text-base" />
                 {t('academicCalendar.upcomingEvents')}
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 {upcomingEvents.map((event) => (
                   <motion.div
                     key={event.id}
                     whileHover={{ scale: 1.02 }}
-                    className="p-3 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors border-l-4 border-blue-500"
+                    className="p-2 md:p-3 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors border-l-4 border-blue-500"
                   >
-                    <div className="flex justify-between items-start mb-1">
-                      <span className="font-semibold text-gray-800">{getEventTitle(academicSchedule.find(e => e.id === event.id))}</span>
-                      <span className="text-sm text-gray-500">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1">
+                      <span className="font-semibold text-gray-800 text-sm md:text-base">{getEventTitle(academicSchedule.find(e => e.id === event.id))}</span>
+                      <span className="text-xs md:text-sm text-gray-500 sm:text-right">
                         {event.date.toLocaleDateString('ru-RU')}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className={`text-xs px-2 py-1 rounded-full ${
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                      <span className={`text-xs px-2 py-1 rounded-full w-fit ${
                         event.type === 'exam' ? 'bg-red-100 text-red-600' :
                         event.type === 'module' ? 'bg-blue-100 text-blue-600' :
                         event.type === 'practice' ? 'bg-purple-100 text-purple-600' :
@@ -502,35 +489,13 @@ const AcademicCalendar = () => {
                       }`}>
                         {getEventTypeLabel(event.type)}
                       </span>
-                      <span className="text-sm text-gray-500">
+                      <span className="text-xs md:text-sm text-gray-500">
                         {t('academicCalendar.daysLeft', { count: event.daysLeft })}
                       </span>
                     </div>
                   </motion.div>
                 ))}
               </div>
-            </div>
-
-            {/* Кнопки действий */}
-            <div className="flex gap-3">
-              <motion.button
-                onClick={handlePrint}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex-1 bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
-              >
-                <FaPrint />
-                <span>{t('academicCalendar.print')}</span>
-              </motion.button>
-              <motion.button
-                onClick={handleDownload}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex-1 bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
-              >
-                <FaDownload />
-                <span>{t('academicCalendar.download')}</span>
-              </motion.button>
             </div>
           </motion.div>
         </div>
@@ -541,33 +506,33 @@ const AcademicCalendar = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-20"
+          className="mb-12 md:mb-20"
         >
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
             {t('academicCalendar.yearSchedule', { course: selectedCourse })}
           </h2>
-          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6">
-            <div className="space-y-4">
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-4 md:p-6">
+            <div className="space-y-3 md:space-y-4">
               {academicSchedule.map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors group border-l-4 border-blue-500"
+                  className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors group border-l-4 border-blue-500"
                 >
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
                     {item.icon}
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-bold text-gray-800">{getEventTitle(item)}</h4>
-                    <p className="text-gray-600 text-sm">{getEventDescription(item)}</p>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-bold text-gray-800 text-sm md:text-base">{getEventTitle(item)}</h4>
+                    <p className="text-gray-600 text-xs md:text-sm">{getEventDescription(item)}</p>
                   </div>
-                  <div className="text-right">
-                    <div className="font-semibold text-gray-800">
+                  <div className="text-right sm:text-left">
+                    <div className="font-semibold text-gray-800 text-xs md:text-sm">
                       {item.startDate.toLocaleDateString('ru-RU')} - {item.endDate.toLocaleDateString('ru-RU')}
                     </div>
-                    <div className={`text-sm font-medium ${
+                    <div className={`text-xs md:text-sm font-medium ${
                       item.type === 'exam' ? 'text-red-600' : 
                       item.type === 'module' ? 'text-blue-600' :
                       item.type === 'practice' ? 'text-purple-600' : 'text-green-600'

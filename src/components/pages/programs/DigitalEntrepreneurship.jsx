@@ -300,9 +300,9 @@ const DigitalEntrepreneurship = () => {
             <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent animate-gradient">
+          <h2 className="text-2xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent animate-gradient">
             {t('digitalEntrepreneurship.title', 'Цифровое предпринимательство')}
-          </h1>
+          </h2>
           
           <p className="text-xl md:text-2xl text-indigo-200 max-w-4xl mx-auto leading-relaxed font-light">
             {t('digitalEntrepreneurship.shortDescription', 'Создавайте успешные цифровые бизнесы и монетизируйте инновационные идеи')}

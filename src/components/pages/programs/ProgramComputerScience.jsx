@@ -105,9 +105,9 @@ const ComputerScience = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
         {/* Hero Section */}
-        <section className={`text-center mb-20 transition-all duration-1000 ${
+        <section className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-flex items-center space-x-4 mb-6">
@@ -116,16 +116,16 @@ const ComputerScience = () => {
             <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
             {t('computerScience.title')}
           </h1>
           
-          <p className="text-xl md:text-2xl text-blue-200 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl lg:text-2xl text-blue-200 max-w-4xl mx-auto leading-relaxed font-light">
             {t('computerScience.shortDescription')}
           </p>
 
           {/* Animated Code Preview */}
-          <div className="max-w-2xl mx-auto mt-12 bg-black bg-opacity-50 rounded-2xl p-6 border border-blue-500 border-opacity-30 backdrop-blur-sm">
+          <div className="max-w-2xl mx-auto mt-12 bg-black bg-opacity-50 rounded-2xl p-4 md:p-6 border border-blue-500 border-opacity-30 backdrop-blur-sm">
             <div className="flex space-x-2 mb-4">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -150,13 +150,13 @@ while(true) {
         </section>
 
         {/* About Program */}
-        <section className={`mb-20 transition-all duration-1000 delay-300 ${
+        <section className={`mb-16 md:mb-20 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-black bg-opacity-40 rounded-3xl p-8 border border-cyan-500 border-opacity-20 backdrop-blur-sm">
+          <div className="bg-black bg-opacity-40 rounded-3xl p-6 md:p-8 border border-cyan-500 border-opacity-20 backdrop-blur-sm">
             <div className="flex items-center mb-8">
               <div className="w-2 h-8 bg-cyan-400 rounded-full mr-4 animate-pulse"></div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 {t('computerScience.about.title')}
               </h2>
             </div>
@@ -179,11 +179,11 @@ while(true) {
         </section>
 
         {/* Courses Section */}
-        <section className={`mb-20 transition-all duration-1000 delay-500 ${
+        <section className={`mb-16 md:mb-20 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               {t('computerScience.courses.title')}
             </h2>
             <p className="text-blue-200">{t('computerScience.courses.choose')}</p>
@@ -195,7 +195,7 @@ while(true) {
               {courses.map((course, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
+                  className={`p-4 md:p-6 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
                     activeCourse === index
                       ? 'bg-blue-900 bg-opacity-30 border-cyan-400 shadow-2xl shadow-cyan-500/20'
                       : 'bg-black bg-opacity-20 border-gray-700 hover:border-cyan-600'
@@ -206,7 +206,7 @@ while(true) {
                   <div className="flex items-center space-x-4">
                     <div className="text-3xl">{course.icon}</div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-lg md:text-xl font-bold text-white mb-2">
                         {course.title}
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -229,11 +229,11 @@ while(true) {
             </div>
 
             {/* Course Details */}
-            <div className="bg-black bg-opacity-40 rounded-2xl p-8 border border-purple-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
-              <div className="text-6xl mb-4 text-center">
+            <div className="bg-black bg-opacity-40 rounded-2xl p-6 md:p-8 border border-purple-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
+              <div className="text-4xl md:text-6xl mb-4 text-center">
                 {courses[activeCourse].icon}
               </div>
-              <h3 className="text-2xl font-bold text-center mb-4 text-purple-300">
+              <h3 className="text-xl md:text-2xl font-bold text-center mb-4 text-purple-300">
                 {courses[activeCourse].title}
               </h3>
               <p className="text-gray-300 leading-relaxed text-center mb-6">
@@ -254,7 +254,7 @@ while(true) {
                 </div>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-6 rounded-xl font-bold hover:from-cyan-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300">
+              <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 md:py-3 px-4 md:px-6 rounded-xl font-bold hover:from-cyan-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300">
                 {t('computerScience.courses.startLearning')} →
               </button>
             </div>
@@ -265,10 +265,10 @@ while(true) {
         <section className={`transition-all duration-1000 delay-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-gradient-to-r from-cyan-900 to-blue-900 rounded-3xl p-8 border border-cyan-400 border-opacity-30 backdrop-blur-sm">
+          <div className="bg-gradient-to-r from-cyan-900 to-blue-900 rounded-3xl p-6 md:p-8 border border-cyan-400 border-opacity-30 backdrop-blur-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-4xl font-bold mb-4 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                   {t('computerScience.admission.title')}
                 </h2>
                 <p className="text-cyan-100 text-lg leading-relaxed mb-6">
@@ -287,9 +287,9 @@ while(true) {
               </div>
               
               <div className="text-center">
-                <div className="inline-block p-8 bg-black bg-opacity-30 rounded-2xl border border-cyan-500 border-opacity-20">
-                  <div className="text-6xl mb-4">🚀</div>
-                  <button className="bg-white text-gray-900 py-4 px-8 rounded-xl font-bold text-lg hover:bg-cyan-100 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                <div className="inline-block p-6 md:p-8 bg-black bg-opacity-30 rounded-2xl border border-cyan-500 border-opacity-20">
+                  <div className="text-4xl md:text-6xl mb-4">🚀</div>
+                  <button className="bg-white text-gray-900 py-3 md:py-4 px-6 md:px-8 rounded-xl font-bold text-base md:text-lg hover:bg-cyan-100 transform hover:scale-105 transition-all duration-300 shadow-2xl">
                     {t('computerScience.admission.cta')}
                   </button>
                   <p className="text-cyan-200 mt-4 text-sm">

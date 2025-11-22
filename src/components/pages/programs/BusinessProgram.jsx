@@ -175,9 +175,9 @@ const BusinessPrograms = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
         {/* Hero Section */}
-        <section className={`text-center mb-20 transition-all duration-1000 ${
+        <section className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-flex items-center space-x-4 mb-6 bg-black bg-opacity-30 rounded-full px-6 py-3 border border-blue-400 border-opacity-20">
@@ -186,22 +186,22 @@ const BusinessPrograms = () => {
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient-x">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent animate-gradient-x">
             {t('business.title')}
           </h1>
           
-          <p className="text-xl md:text-2xl text-blue-200 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl lg:text-2xl text-blue-200 max-w-4xl mx-auto leading-relaxed font-light">
             {t('business.shortDescription')}
           </p>
 
           {/* Business Tools */}
-          <div className="max-w-2xl mx-auto mt-12 bg-black bg-opacity-40 rounded-2xl p-6 border border-emerald-500 border-opacity-30 backdrop-blur-sm">
+          <div className="max-w-2xl mx-auto mt-12 bg-black bg-opacity-40 rounded-2xl p-4 md:p-6 border border-emerald-500 border-opacity-30 backdrop-blur-sm">
             <div className="flex space-x-2 mb-4">
               <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
               <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
               <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
               {businessTools.map((tool, index) => (
                 <div key={tool} className="p-3 bg-blue-900 bg-opacity-30 rounded-lg border border-blue-500 border-opacity-20 hover:border-emerald-400 transition-all duration-300">
                   <div className="text-2xl mb-2">
@@ -215,16 +215,16 @@ const BusinessPrograms = () => {
         </section>
 
         {/* About Program */}
-        <section className={`mb-20 transition-all duration-1000 delay-300 ${
+        <section className={`mb-16 md:mb-20 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-black bg-opacity-40 rounded-3xl p-8 border border-emerald-500 border-opacity-20 backdrop-blur-sm relative overflow-hidden">
+          <div className="bg-black bg-opacity-40 rounded-3xl p-6 md:p-8 border border-emerald-500 border-opacity-20 backdrop-blur-sm relative overflow-hidden">
             {/* Animated Border */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-blue-500 to-indigo-500 animate-pulse"></div>
             
             <div className="flex items-center mb-8">
               <div className="w-2 h-8 bg-emerald-400 rounded-full mr-4 animate-pulse"></div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
                 {t('business.about.title')}
               </h2>
             </div>
@@ -241,7 +241,7 @@ const BusinessPrograms = () => {
               
               <div className="bg-gradient-to-br from-emerald-900 to-blue-900 rounded-2xl p-6 border border-emerald-400 border-opacity-30">
                 <h4 className="text-lg font-bold text-white mb-4">{t('business.coreCompetencies')}</h4>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {competencies.map((competency, index) => (
                     <div key={competency} className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
@@ -255,11 +255,11 @@ const BusinessPrograms = () => {
         </section>
 
         {/* Programs Section */}
-        <section className={`mb-20 transition-all duration-1000 delay-500 ${
+        <section className={`mb-16 md:mb-20 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               {t('business.programs.title')}
             </h2>
             <p className="text-blue-200">{t('business.programs.subtitle')}</p>
@@ -267,11 +267,11 @@ const BusinessPrograms = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Program Details */}
-            <div className="bg-black bg-opacity-40 rounded-2xl p-8 border border-blue-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
-              <div className="text-6xl mb-4 text-center animate-bounce">
+            <div className="bg-black bg-opacity-40 rounded-2xl p-6 md:p-8 border border-blue-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
+              <div className="text-4xl md:text-6xl mb-4 text-center animate-bounce">
                 {programs[activeProgram].icon}
               </div>
-              <h3 className="text-2xl font-bold text-center mb-4 text-blue-300">
+              <h3 className="text-xl md:text-2xl font-bold text-center mb-4 text-blue-300">
                 {programs[activeProgram].title}
               </h3>
               <p className="text-gray-300 leading-relaxed text-center mb-6">
@@ -293,7 +293,7 @@ const BusinessPrograms = () => {
                 </div>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white py-3 px-6 rounded-xl font-bold hover:from-emerald-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-emerald-500/25">
+              <button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white py-2 md:py-3 px-4 md:px-6 rounded-xl font-bold hover:from-emerald-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-emerald-500/25">
                 {t('business.startBusinessPath')}
               </button>
             </div>
@@ -303,7 +303,7 @@ const BusinessPrograms = () => {
               {programs.map((program, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
+                  className={`p-4 md:p-6 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
                     activeProgram === index
                       ? `bg-gradient-to-r ${program.color} bg-opacity-20 border-blue-400 shadow-2xl shadow-blue-500/20`
                       : 'bg-black bg-opacity-20 border-blue-700 hover:border-emerald-400'
@@ -312,11 +312,11 @@ const BusinessPrograms = () => {
                   onMouseEnter={() => setActiveProgram(index)}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className={`text-3xl ${activeProgram === index ? 'animate-pulse' : ''}`}>
+                    <div className={`text-2xl md:text-3xl ${activeProgram === index ? 'animate-pulse' : ''}`}>
                       {program.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-lg md:text-xl font-bold text-white mb-2">
                         {program.title}
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -349,7 +349,7 @@ const BusinessPrograms = () => {
         <section className={`transition-all duration-1000 delay-900 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl p-8 border border-emerald-400 border-opacity-30 backdrop-blur-sm relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-3xl p-6 md:p-8 border border-emerald-400 border-opacity-30 backdrop-blur-sm relative overflow-hidden">
             {/* Animated Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               {[...Array(30)].map((_, i) => (
@@ -369,7 +369,7 @@ const BusinessPrograms = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
               <div>
-                <h2 className="text-4xl font-bold mb-4 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                   {t('business.admission.title')}
                 </h2>
                 <p className="text-emerald-100 text-lg leading-relaxed mb-6">
@@ -388,9 +388,9 @@ const BusinessPrograms = () => {
               </div>
               
               <div className="text-center">
-                <div className="inline-block p-8 bg-black bg-opacity-30 rounded-2xl border border-emerald-500 border-opacity-20">
-                  <div className="text-6xl mb-4 animate-bounce">💼</div>
-                  <button className="bg-gradient-to-r from-emerald-500 to-blue-500 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-emerald-500/25">
+                <div className="inline-block p-6 md:p-8 bg-black bg-opacity-30 rounded-2xl border border-emerald-500 border-opacity-20">
+                  <div className="text-4xl md:text-6xl mb-4 animate-bounce">💼</div>
+                  <button className="bg-gradient-to-r from-emerald-500 to-blue-500 text-white py-3 md:py-4 px-6 md:px-8 rounded-xl font-bold text-base md:text-lg hover:from-emerald-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-emerald-500/25">
                     {t('business.admission.cta')}
                   </button>
                   <p className="text-blue-200 mt-4 text-sm">

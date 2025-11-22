@@ -259,7 +259,7 @@ clf.fit(X_train, y_train)`
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute text-cyan-400 text-2xl opacity-20 animate-float-slow"
+            className="absolute text-cyan-400 text-lg md:text-2xl opacity-20 animate-float-slow"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -272,50 +272,56 @@ clf.fit(X_train, y_train)`
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
         {/* Hero Section */}
-        <section className={`text-center mb-20 transition-all duration-1000 ${
+        <section className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-flex items-center space-x-4 mb-6">
             <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-            <span className="text-cyan-400 font-mono text-sm">
+            <span className="text-cyan-400 font-mono text-xs md:text-sm">
               {t('ai.hero.status', 'AI_INITIALIZED')}
             </span>
             <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
-            {t('ai.title', 'Искусственный интеллект')}
-          </h1>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+    {t('ai.title', 'Искусственный интеллект')}
+</h2>
+
+
+
+
+
+
           
-          <p className="text-xl md:text-2xl text-purple-200 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-base md:text-lg lg:text-xl text-purple-200 max-w-4xl mx-auto leading-relaxed font-light">
             {t('ai.shortDescription', 'Создавайте интеллектуальные системы, которые учатся, адаптируются и решают сложные задачи')}
           </p>
 
           {/* AI Brain Visualization */}
-          <div className="max-w-3xl mx-auto mt-12 relative">
-            <div className="bg-black bg-opacity-40 rounded-3xl p-8 border border-purple-500 border-opacity-30 backdrop-blur-sm">
-              <div className="text-8xl mb-4 animate-pulse">🧠</div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="max-w-3xl mx-auto mt-6 md:mt-10 relative">
+            <div className="bg-black bg-opacity-40 rounded-3xl p-3 md:p-5 lg:p-7 border border-purple-500 border-opacity-30 backdrop-blur-sm">
+              <div className="text-3xl md:text-5xl lg:text-7xl mb-4 animate-pulse">🧠</div>
+              <h3 className="text-base md:text-lg lg:text-xl font-bold text-white mb-4">
                 {t('ai.hero.brainTitle', 'Нейронная сеть в действии')}
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 lg:gap-4 text-xs md:text-sm">
                 <div className="text-center">
-                  <div className="text-cyan-400 font-mono text-lg">1.2M</div>
-                  <div className="text-gray-400">{t('ai.hero.parameters', 'Параметры')}</div>
+                  <div className="text-cyan-400 font-mono text-xs md:text-base">1.2M</div>
+                  <div className="text-gray-400 text-xs md:text-sm">{t('ai.hero.parameters', 'Параметры')}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-green-400 font-mono text-lg">95.7%</div>
-                  <div className="text-gray-400">{t('ai.hero.accuracy', 'Точность')}</div>
+                  <div className="text-green-400 font-mono text-xs md:text-base">95.7%</div>
+                  <div className="text-gray-400 text-xs md:text-sm">{t('ai.hero.accuracy', 'Точность')}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-yellow-400 font-mono text-lg">0.03s</div>
-                  <div className="text-gray-400">{t('ai.hero.inference', 'Вывод')}</div>
+                  <div className="text-yellow-400 font-mono text-xs md:text-base">0.03s</div>
+                  <div className="text-gray-400 text-xs md:text-sm">{t('ai.hero.inference', 'Вывод')}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-purple-400 font-mono text-lg">∞</div>
-                  <div className="text-gray-400">{t('ai.hero.potential', 'Потенциал')}</div>
+                  <div className="text-purple-400 font-mono text-xs md:text-base">∞</div>
+                  <div className="text-gray-400 text-xs md:text-sm">{t('ai.hero.potential', 'Потенциал')}</div>
                 </div>
               </div>
             </div>
@@ -323,11 +329,11 @@ clf.fit(X_train, y_train)`
         </section>
 
         {/* AI Areas */}
-        <section className={`mb-20 transition-all duration-1000 delay-300 ${
+        <section className={`mb-12 md:mb-16 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
               {t('ai.areas.title', 'Области изучения')}
             </h2>
             <p className="text-purple-200">
@@ -335,13 +341,13 @@ clf.fit(X_train, y_train)`
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {/* Areas List */}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {aiAreas.map((area, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
+                  className={`p-3 md:p-5 rounded-2xl border-2 backdrop-blur-sm cursor-pointer transform transition-all duration-500 hover:scale-105 ${
                     activeArea === index
                       ? `bg-gradient-to-r ${area.color} bg-opacity-20 border-opacity-100 shadow-2xl`
                       : 'bg-black bg-opacity-20 border-gray-700 hover:border-opacity-100'
@@ -350,9 +356,9 @@ clf.fit(X_train, y_train)`
                   onMouseEnter={() => setActiveArea(index)}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="text-4xl">{area.icon}</div>
+                    <div className="text-3xl md:text-4xl">{area.icon}</div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-base md:text-lg font-bold text-white mb-2">
                         {area.name}
                       </h3>
                       <p className="text-gray-300 text-sm mb-4">
@@ -362,7 +368,7 @@ clf.fit(X_train, y_train)`
                         {area.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs text-gray-300 font-mono"
+                            className="px-2 md:px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs text-gray-300 font-mono"
                           >
                             {tech}
                           </span>
@@ -378,13 +384,13 @@ clf.fit(X_train, y_train)`
             </div>
 
             {/* Code Preview */}
-            <div className="bg-black bg-opacity-60 rounded-2xl p-6 border border-cyan-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
+            <div className="bg-black bg-opacity-60 rounded-2xl p-3 md:p-5 border border-cyan-500 border-opacity-30 backdrop-blur-sm h-fit sticky top-8">
               <div className="flex space-x-2 mb-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 h-80 overflow-auto">
+              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 h-64 md:h-80 overflow-auto">
                 <pre>
                   <code>{codeExamples[activeArea]}</code>
                 </pre>
@@ -402,26 +408,26 @@ clf.fit(X_train, y_train)`
         </section>
 
         {/* Applications */}
-        <section className={`mb-20 transition-all duration-1000 delay-500 ${
+        <section className={`mb-12 md:mb-16 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="bg-black bg-opacity-40 rounded-3xl p-8 border border-cyan-500 border-opacity-20 backdrop-blur-sm">
-            <div className="flex items-center mb-8">
+          <div className="bg-black bg-opacity-40 rounded-3xl p-4 md:p-6 border border-cyan-500 border-opacity-20 backdrop-blur-sm">
+            <div className="flex items-center mb-6">
               <div className="w-2 h-8 bg-cyan-400 rounded-full mr-4 animate-pulse"></div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 {t('ai.applications.title', 'Применения ИИ')}
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {applications.map((app, index) => (
-                <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-all duration-300 group">
+                <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 md:p-5 border border-gray-700 hover:border-cyan-500 transition-all duration-300 group">
                   <div className="flex items-start space-x-4">
-                    <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300">
                       {app.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-base md:text-lg font-bold text-white mb-2">
                         {app.title}
                       </h3>
                       <p className="text-gray-400 text-sm mb-3">
@@ -431,7 +437,7 @@ clf.fit(X_train, y_train)`
                         {app.examples.map((example, exampleIndex) => (
                           <span
                             key={exampleIndex}
-                            className="px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-300 rounded text-xs"
+                            className="px-1.5 md:px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-300 rounded text-xs"
                           >
                             {example}
                           </span>

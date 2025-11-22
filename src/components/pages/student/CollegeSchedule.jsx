@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 const CollegeSchedule = () => {
   const { t, i18n } = useTranslation();
   const [activeDay, setActiveDay] = useState(1); // 1 = Monday (backend format)
-  const [selectedGroup, setSelectedGroup] = useState("all");
+  const [selectedGroup, setSelectedGroup] = useState(null); // Start with no group selected
   const [currentWeek, setCurrentWeek] = useState(0);
   
   // State for API data
@@ -66,8 +66,7 @@ const CollegeSchedule = () => {
         console.log('Группы для фильтра:', groups);
         setTimeSlots(timeSlotsRes.data.results || timeSlotsRes.data || []);
 
-        // Fetch default schedule for all groups
-        await fetchScheduleForGroup("all");
+        // Don't fetch schedule automatically - wait for user to select a group
 
       } catch (err) {
         console.error('Error fetching schedule data:', err);
@@ -140,7 +139,7 @@ const CollegeSchedule = () => {
 
   // Refetch schedules when group changes
   useEffect(() => {
-    if (selectedGroup && !loading) {
+    if (selectedGroup && selectedGroup !== "all" && !loading) {
       fetchScheduleForGroup(selectedGroup);
     }
   }, [selectedGroup]);
@@ -397,7 +396,7 @@ const CollegeSchedule = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-16 lg:py-20">
         {/* Error Display */}
         {error && (
           <motion.div
@@ -435,7 +434,7 @@ const CollegeSchedule = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-20"
+              className="text-center mb-12 md:mb-16 lg:mb-20"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -448,27 +447,56 @@ const CollegeSchedule = () => {
                 <span className="font-semibold">{t('schedule.badge')}</span>
               </motion.div>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                 {t('schedule.title')}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 {t('schedule.subtitle')}
               </p>
             </motion.div>
-        {/* Основное расписание */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-20"
-        >
+
+            {/* Выбор группы */}
+            {(!selectedGroup || selectedGroup === "all") && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center mb-12 md:mb-16 lg:mb-20"
+              >
+                <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6 md:p-8 lg:p-12 max-w-2xl mx-auto">
+                  <FaUserGraduate className="text-6xl text-blue-500 mx-auto mb-6" />
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                    Выберите группу
+                  </h2>
+                  <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
+                    Для просмотра расписания выберите вашу учебную группу из списка ниже
+                  </p>
+                  <div className="relative max-w-md mx-auto">
+                    <select
+                      value={selectedGroup || ""}
+                      onChange={(e) => setSelectedGroup(e.target.value)}
+                      className="w-full appearance-none bg-white border border-gray-300 rounded-2xl px-6 py-4 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="" disabled>Выберите группу...</option>
+                      {studyGroups.filter(group => group.id !== "all").map(group => (
+                        <option key={group.id} value={group.id}>
+                          {group.name}
+                        </option>
+                      ))}
+                    </select>
+                    <FaFilter className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl" />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Основное расписание - показываем только когда выбрана конкретная группа */}
+            {selectedGroup && selectedGroup !== "all" && (
           <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
             {/* Заголовок и управление */}
-            <div className="p-8 border-b border-gray-200">
+            <div className="p-6 md:p-8 border-b border-gray-200">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                     {t('schedule.currentSchedule')}
                   </h2>
                   <p className="text-gray-600">
@@ -497,44 +525,57 @@ const CollegeSchedule = () => {
             </div>
 
             {/* Дни недели */}
-            <div className="p-6 border-b border-gray-200">
-              <div className="flex overflow-x-auto pb-2 gap-2">
+            <div className="p-4 md:p-6 border-b border-gray-200">
+              <div className="flex overflow-x-auto pb-2 gap-2 scrollbar-hide">
                 {daysOfWeek.map(day => {
                   const hasSchedule = schedules[day.id] && schedules[day.id].length > 0;
                   return (
                     <motion.button
                       key={day.id}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => setActiveDay(day.id)}
-                      className={`flex-1 min-w-[120px] px-6 py-4 rounded-2xl font-semibold transition-all duration-300 relative ${
+                      className={`flex-1 min-w-[110px] md:min-w-[120px] px-3 md:px-6 py-4 md:py-4 rounded-2xl font-semibold transition-all duration-300 relative ${
                         activeDay === day.id
-                          ? 'bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg'
+                          ? 'bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg transform scale-105'
                           : hasSchedule 
-                            ? 'bg-gray-100 text-gray-600 hover:bg-gray-200' 
+                            ? 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:shadow-md' 
                             : 'bg-gray-50 text-gray-400 opacity-50'
                       }`}
                     >
                       <div className="text-center">
-                        <div className="text-sm font-medium">{day.short}</div>
-                        <div className="text-lg font-bold">{day.name}</div>
+                        <div className="text-sm md:text-sm font-medium mb-1">{day.short}</div>
+                        <div className="text-sm md:text-lg font-bold leading-tight">{day.name}</div>
                         {hasSchedule && (
-                          <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full"></div>
+                          <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                         )}
                       </div>
                     </motion.button>
                   );
                 })}
               </div>
+              {/* Индикатор скролла для мобильных */}
+              <div className="flex justify-center mt-3 md:hidden">
+                <div className="flex gap-1">
+                  {daysOfWeek.map(day => (
+                    <div
+                      key={day.id}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        activeDay === day.id ? 'bg-blue-500 w-6' : 'bg-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Расписание на выбранный день */}
-            <div className="p-8">
+            <div className="p-6 md:p-8">
               <motion.h3 
                 key={activeDay}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-2xl font-bold text-gray-800 mb-8 text-center"
+                className="text-xl md:text-2xl font-bold text-gray-800 mb-6 md:mb-8 text-center"
               >
                 {daysOfWeek.find(day => day.id === activeDay)?.name} - {selectedGroup === "all" ? t('schedule.groups.all') : studyGroups.find(g => g.id == selectedGroup)?.name}
               </motion.h3>
@@ -571,7 +612,7 @@ const CollegeSchedule = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: (slotNumber || 1) * 0.1 }}
-                        className={`bg-white rounded-2xl p-6 border-2 transition-all duration-300 ${
+                        className={`bg-white rounded-2xl p-4 md:p-6 border-2 transition-all duration-300 ${
                           filteredLessons[slotNumber] 
                             ? 'border-blue-200 shadow-lg hover:shadow-xl' 
                             : 'border-gray-100 opacity-50'
@@ -579,15 +620,15 @@ const CollegeSchedule = () => {
                       >
                         <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                           {/* Время */}
-                          <div className="flex items-center gap-4 min-w-[180px]">
-                            <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
-                              <FaClock className="text-blue-600 text-lg" />
+                          <div className="flex items-center gap-3 md:gap-4 min-w-[160px] md:min-w-[180px]">
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
+                              <FaClock className="text-blue-600 text-base md:text-lg" />
                             </div>
                             <div>
-                              <div className="text-lg font-bold text-gray-800">
+                              <div className="text-base md:text-lg font-bold text-gray-800">
                                 {formatTimeRange(slot)}
                               </div>
-                              <div className="text-sm text-gray-500">
+                              <div className="text-xs md:text-sm text-gray-500">
                                 {t('schedule.lesson')} {slotNumber}
                               </div>
                             </div>
@@ -599,14 +640,14 @@ const CollegeSchedule = () => {
                               <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.02 }}
-                                className={`bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-xl p-4 shadow-lg`}
+                                className={`bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-xl p-3 md:p-4 shadow-lg`}
                               >
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                                   <div className="flex-1">
-                                    <h4 className="font-bold text-lg mb-1">
+                                    <h4 className="font-bold text-base md:text-lg mb-1">
                                       {lesson.subject}
                                     </h4>
-                                    <div className="flex flex-wrap gap-4 text-white/90 text-sm">
+                                    <div className="flex flex-wrap gap-3 md:gap-4 text-white/90 text-xs md:text-sm">
                                       <span className="flex items-center gap-1">
                                         <FaChalkboardTeacher className="text-sm" />
                                         {lesson.teacher}
@@ -617,7 +658,7 @@ const CollegeSchedule = () => {
                                       </span>
                                     </div>
                                   </div>
-                                  <div className="bg-white/20 px-3 py-1 rounded-lg text-sm font-semibold">
+                                  <div className="bg-white/20 px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-semibold">
                                     {lesson.group}
                                   </div>
                                 </div>
@@ -632,8 +673,9 @@ const CollegeSchedule = () => {
               )}
             </div>
           </div>
-        </motion.div>
-        </>
+            )}
+
+            </>
         )}
       </div>
     </div>

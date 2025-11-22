@@ -242,7 +242,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
 
           {/* Центральное меню - скрыто на мобильных */}
           <div className="flex items-center space-x-6">
-            <div className="hidden min-[1000px]:flex flex-1 justify-center">
+            <div className="hidden lg:flex flex-1 justify-center">
               {Object.entries(menuData).map(([key, item]) => (
                 <div
                   key={key}
@@ -379,7 +379,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
             </div>
 
             {/* Кнопка мобильного меню */}
-            <div className="block min-[1000px]:hidden">
+            <div className="block lg:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`inline-flex items-center justify-center p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
@@ -407,7 +407,7 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
 
       {/* Мобильное меню с анимацией */}
       {isMenuOpen && (
-        <div className="block min-[1000px]:hidden bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md shadow-xl border-t border-blue-100 transform transition-all duration-300 ease-out animate-in slide-in-from-top-2 fade-in">
+        <div className="block lg:hidden bg-gradient-to-b from-white to-blue-50/80 backdrop-blur-md shadow-xl border-t border-blue-100 transform transition-all duration-300 ease-out animate-in slide-in-from-top-2 fade-in">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {Object.entries(menuData).map(([key, item]) => (
               <div key={key} className="relative">

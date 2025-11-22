@@ -110,9 +110,9 @@ const LatestNewsSection = () => {
   // Скелетон загрузки
   if (loading) {
     return (
-        <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
-        {/* Исчезающий эффект внизу */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+        <section className="py-12 md:py-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
+      {/* Исчезающий эффект внизу */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"></div>
         
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
@@ -154,7 +154,7 @@ const LatestNewsSection = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
@@ -172,10 +172,10 @@ const LatestNewsSection = () => {
               {t('home.newsSection', 'Latest Updates')}
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-cyan-600 bg-clip-text text-transparent mb-6">
             {t('home.latestNews', 'Latest News')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-sm">
+          <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white/20 shadow-sm">
             {t('home.latestNewsSubtitle', 'Stay updated with our latest company news and announcements')}
           </p>
         </div>

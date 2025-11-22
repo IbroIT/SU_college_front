@@ -169,12 +169,12 @@ const CollegeSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
               {t('college.title')}
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-blue-300 max-w-4xl mx-auto leading-relaxed">
             {t('college.subtitle')}
           </p>
         </motion.div>
@@ -187,9 +187,9 @@ const CollegeSection = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-white mb-6">{t('college.about.title')}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t('college.about.title')}</h2>
             
-            <div className="space-y-4 text-blue-100 text-lg leading-relaxed">
+            <div className="space-y-4 text-blue-100 text-base md:text-lg leading-relaxed">
               <p>{t('college.about.description1')}</p>
               <p>{t('college.about.description2')}</p>
               <p>{t('college.about.description3')}</p>
@@ -211,7 +211,7 @@ const CollegeSection = () => {
             className="relative"
           >
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <FaCertificate className="text-yellow-400" />
                 {t('college.features.title')}
               </h3>
@@ -252,7 +252,7 @@ const CollegeSection = () => {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-white text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-12">
             {t('college.programs.title')}
           </h2>
           
@@ -267,7 +267,7 @@ const CollegeSection = () => {
                   <div className="inline-block p-4 rounded-full bg-black/50 mb-4 group-hover:bg-cyan-900/30 transition-colors">
                     {program.icon}
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">
+                  <h3 className="text-white font-bold text-base md:text-lg mb-2">
                     {program.name}
                   </h3>
                   <p className="text-blue-300 text-sm">{program.duration}</p>
@@ -284,7 +284,7 @@ const CollegeSection = () => {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-white text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-12">
             {t('college.pricing.title')}
           </h2>
           
@@ -297,11 +297,11 @@ const CollegeSection = () => {
                   className="flex justify-between items-center p-4 rounded-lg bg-black/30 hover:bg-blue-600/20 transition-all duration-300"
                 >
                   <div>
-                    <h4 className="text-white font-semibold text-lg">{item.program}</h4>
+                    <h4 className="text-white font-semibold text-base md:text-lg">{item.program}</h4>
                     <p className="text-blue-300 text-sm">{item.usd}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-cyan-400 font-bold text-xl">{item.price}</div>
+                    <div className="text-cyan-400 font-bold text-lg md:text-xl">{item.price}</div>
                     <div className="text-green-400 text-sm">{t('college.pricing.perYear')}</div>
                   </div>
                 </motion.div>
@@ -326,7 +326,7 @@ const CollegeSection = () => {
           transition={{ delay: 1.1, duration: 0.8 }}
           className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/30"
         >
-          <h2 className="text-3xl font-bold text-white text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">
             {t('college.contacts.title')}
           </h2>
           
