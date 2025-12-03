@@ -1897,9 +1897,18 @@
     },
     "loading": "Loading schedule...",
     "apiError": "Failed to load data from server",
-    "usingDemoData": "Using demo data"
-  }
-,
+    "usingDemoData": "Using demo data",
+    "selectGroup": {
+      "title": "Select Group",
+      "description": "To view the schedule, please select your study group from the list below",
+      "placeholder": "Select group..."
+    },
+    "loadingStates": {
+      "searchingSchedule": "Searching for schedule...",
+      "autoSelectingGroup": "Automatically selecting a group with available schedule...",
+      "selectSpecificGroup": "To view the schedule, please select a specific group"
+    }
+  },
   "faq": {
     "badge": "FAQ",
     "title": "Frequently Asked Questions",

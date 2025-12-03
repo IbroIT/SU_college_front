@@ -465,10 +465,10 @@ const CollegeSchedule = () => {
                 <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6 md:p-8 lg:p-12 max-w-2xl mx-auto">
                   <FaUserGraduate className="text-6xl text-blue-500 mx-auto mb-6" />
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                    Выберите группу
+                    {t('schedule.selectGroup.title')}
                   </h2>
                   <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
-                    Для просмотра расписания выберите вашу учебную группу из списка ниже
+                    {t('schedule.selectGroup.description')}
                   </p>
                   <div className="relative max-w-md mx-auto">
                     <select
@@ -476,7 +476,7 @@ const CollegeSchedule = () => {
                       onChange={(e) => setSelectedGroup(e.target.value)}
                       className="w-full appearance-none bg-white border border-gray-300 rounded-2xl px-6 py-4 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
-                      <option value="" disabled>Выберите группу...</option>
+                      <option value="" disabled>{t('schedule.selectGroup.placeholder')}</option>
                       {studyGroups.filter(group => group.id !== "all").map(group => (
                         <option key={group.id} value={group.id}>
                           {group.name}
@@ -588,13 +588,13 @@ const CollegeSchedule = () => {
                 >
                   <FaCalendarAlt className="text-gray-300 text-6xl mx-auto mb-4" />
                   <h4 className="text-xl font-semibold text-gray-500 mb-2">
-                    {loading ? "Поиск расписания..." : t('schedule.noLessons')}
+                    {loading ? t('schedule.loadingStates.searchingSchedule') : t('schedule.noLessons')}
                   </h4>
                   <p className="text-gray-400">
                     {loading 
-                      ? "Автоматически выбираем группу с доступным расписанием..." 
+                      ? t('schedule.loadingStates.autoSelectingGroup') 
                       : (selectedGroup === "all" 
-                        ? "Для просмотра расписания выберите конкретную группу" 
+                        ? t('schedule.loadingStates.selectSpecificGroup') 
                         : t('schedule.noLessonsDescription')
                       )
                     }

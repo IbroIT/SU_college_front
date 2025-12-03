@@ -138,17 +138,14 @@ const MultiLanguageRoutes = () => {
 
   return (
     <Routes>
-      {/* Маршруты для русского языка (без префикса) */}
       {createRoutes()}
       
-      {/* Маршруты для английского языка */}
       <Route path="/en/*" element={
         <Routes>
           {createRoutes()}
         </Routes>
       } />
       
-      {/* Маршруты для кыргызского языка */}
       <Route path="/kg/*" element={
         <Routes>
           {createRoutes()}
