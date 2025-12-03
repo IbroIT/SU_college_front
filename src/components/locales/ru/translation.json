@@ -2913,5 +2913,21 @@
       "gia": "Государственная итоговая аттестация",
       "preparation": "Подготовка к квалификационной работе"
     }
-  }
+  },
+  "partners": {
+  "malaysia": "Малайзия",
+  "russia": "Россия",
+  "south_korea": "Южная Корея",
+  "lincoln_university_college": "Lincoln University College",
+  "inti_international_university": "INTI International University",
+  "saint_petersburg_polytechnic_university": "Санкт-Петербургский политехнический университет Петра Великого",
+  "pai_chai_university": "Pai Chai University",
+  "chung_ang_university": "Chung-Ang University",
+  "vision_college_of_jeonju": "Vision College of Jeonju",
+  "kyungdong_university": "Kyungdong University"
+},
+"info_system": {
+  "ebilim": "Ebilim",
+  "lincoln": "Lincoln"
+}
 }

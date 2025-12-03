@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { 
   FaMapMarkerAlt,
   FaPhone,
@@ -9,34 +8,13 @@ import {
   FaInstagram,
   FaTelegram,
   FaWhatsapp,
-  FaPaperPlane,
-  FaUniversity,
-  FaCheck,
-  FaExclamationTriangle
+  FaUniversity
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import emailjs from 'emailjs-com';
 import PageSEO from '../seo/PageSEO';
 
 const Contacts = () => {
   const { t } = useTranslation();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
-
-  // Конфигурация EmailJS
-  const EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_bmhla5h',
-    TEMPLATE_ID: 'template_4d59uop',
-    USER_ID: '_B-R_iemQHDFnvQ1W'
-  };
 
   const contactInfo = [
     {
@@ -127,71 +105,6 @@ const Contacts = () => {
     window.open("https://www.google.com/maps/place/%D0%A1%D0%B0%D0%BB%D1%8B%D0%BC%D0%B1%D0%B5%D0%BA%D0%BE%D0%B2+%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82/@42.8441282,74.6001724,17z/data=!3m1!4b1!4m6!3m5!1s0x389ec987f324329b:0x2cd99bcd0df5fc1f!8m2!3d42.8441282!4d74.6001724!16s%2Fg%2F11lh2dfxc_?entry=ttu", "_blank");
   };
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    if (submitStatus.type) {
-      setSubmitStatus({ type: '', message: '' });
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: '', message: '' });
-
-    try {
-      // Валидация формы
-      if (!formData.name || !formData.email || !formData.message) {
-        throw new Error('Пожалуйста, заполните обязательные поля');
-      }
-
-      // Отправка через EmailJS
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        from_phone: formData.phone || 'Не указан',
-        subject: formData.subject || 'Сообщение с сайта',
-        message: formData.message,
-        to_email: 'salymbekov.kg@gmail.com',
-        reply_to: formData.email,
-        time: new Date().toLocaleString('ru-RU')
-      };
-
-      await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
-        templateParams,
-        EMAILJS_CONFIG.USER_ID
-      );
-
-      setSubmitStatus({
-        type: 'success',
-        message: t('contacts.form.success') || 'Сообщение успешно отправлено!'
-      });
-
-      // Сброс формы
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
-
-    } catch (error) {
-      console.error('Ошибка отправки:', error);
-      setSubmitStatus({
-        type: 'error',
-        message: error.message || t('contacts.form.error') || 'Произошла ошибка при отправке'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <>
       <PageSEO 
@@ -253,7 +166,7 @@ const Contacts = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+        <div className="max-w-4xl mx-auto mb-20">
           {/* Контактная информация */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -324,147 +237,6 @@ const Contacts = () => {
                 ))}
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Форма обратной связи */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                {t('contacts.form.title')}
-              </h2>
-              <p className="text-gray-600 mb-8">
-                {t('contacts.form.description')}
-              </p>
-
-              {/* Статус отправки */}
-              {submitStatus.type && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`mb-6 p-4 rounded-2xl ${
-                    submitStatus.type === 'success' 
-                      ? 'bg-green-50 border border-green-200 text-green-800' 
-                      : 'bg-red-50 border border-red-200 text-red-800'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    {submitStatus.type === 'success' ? (
-                      <FaCheck className="text-green-500 text-xl" />
-                    ) : (
-                      <FaExclamationTriangle className="text-red-500 text-xl" />
-                    )}
-                    <span className="font-medium">{submitStatus.message}</span>
-                  </div>
-                </motion.div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      {t('contacts.form.name')} *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder={t('contacts.form.namePlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      {t('contacts.form.email')} *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder={t('contacts.form.emailPlaceholder')}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      {t('contacts.form.phone')}
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder={t('contacts.form.phonePlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      {t('contacts.form.subject')}
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder={t('contacts.form.subjectPlaceholder')}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    {t('contacts.form.message')} *
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows="5"
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                    placeholder={t('contacts.form.messagePlaceholder')}
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>{t('contacts.form.sending') || 'Отправка...'}</span>
-                    </>
-                  ) : (
-                    <>
-                      <FaPaperPlane className="text-sm" />
-                      <span>{t('contacts.form.button')}</span>
-                    </>
-                  )}
-                </motion.button>
-              </form>
-            </div>
           </motion.div>
         </div>
 

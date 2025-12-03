@@ -18,11 +18,9 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <LanguageRouter>
+        {/* <LanguageRouter> */}
           <div className="min-h-screen bg-gray-50">
-            <Navbar 
-              languages={languages}
-            />
+            <Navbar />
             
             <main>
               <MultiLanguageRoutes />
@@ -31,9 +29,9 @@ function App() {
             <Footer />
             
             {/* SEO Debugger - только в режиме разработки */}
-            <SEODebugger enabled={import.meta.env.DEV} />
+            {/* <SEODebugger enabled={import.meta.env.DEV} /> */}
           </div>
-        </LanguageRouter>
+        {/* </LanguageRouter> */}
       </Router>
     </HelmetProvider>
   );

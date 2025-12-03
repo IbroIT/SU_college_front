@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LanguageManager } from '../seo/LanguageManager';
@@ -7,12 +7,16 @@ const LanguageDetector = () => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const hasInitialized = useRef(false);
 
   useEffect(() => {
+    // Запускать только один раз при инициализации приложения
+    if (hasInitialized.current) return;
+    
     // Получить язык из URL
     const urlLanguage = LanguageManager.getLanguageFromUrl(location.pathname);
     
-    // Если это первый визит и язык не установлен в URL
+    // Если это первый визит (главная страница без языкового префикса)
     if (urlLanguage === 'ru' && location.pathname === '/') {
       // Определить предпочитаемый язык браузера
       const browserLanguage = navigator.language || navigator.languages?.[0];
@@ -40,7 +44,9 @@ const LanguageDetector = () => {
         i18n.changeLanguage(preferredLang);
       }
     }
-  }, [location.pathname, navigate, i18n]);
+    
+    hasInitialized.current = true;
+  }, []); // Пустой массив зависимостей - запускается только один раз
 
   return null; // Этот компонент ничего не рендерит
 };

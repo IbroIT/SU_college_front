@@ -2636,6 +2636,10 @@
       "title": "Mobile Development",
       "description": "Create innovative mobile applications for iOS and Android platforms. Learn native and cross-platform development with industry-standard tools."
     },
+    "web": {
+      "title": "Web Development",
+      "description": "Create modern web applications using advanced technologies and frameworks. Master frontend and backend for full-stack development."
+    },
     "multimedia": {
       "title": "Multimedia & Design",
       "description": "Bring ideas to life with stunning visual experiences. Master cutting-edge design tools and create immersive digital content that captivates audiences."
@@ -2881,5 +2885,21 @@
       "gia": "State Final Attestation",
       "preparation": "Qualification Work Preparation"
     }
-  }
+  },
+  "partners": {
+  "malaysia": "Malaysia",
+  "russia": "Russia",
+  "south_korea": "South Korea",
+  "lincoln_university_college": "Lincoln University College",
+  "inti_international_university": "INTI International University",
+  "saint_petersburg_polytechnic_university": "Saint Petersburg Polytechnic University",
+  "pai_chai_university": "Pai Chai University",
+  "chung_ang_university": "Chung-Ang University",
+  "vision_college_of_jeonju": "Vision College of Jeonju",
+  "kyungdong_university": "Kyungdong University"
+},
+"info_system": {
+  "ebilim": "Ebilim",
+  "lincoln": "Lincoln"
+}
 }

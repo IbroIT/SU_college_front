@@ -106,16 +106,16 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           title: t('nav.our_partners', 'Наши партнеры'), 
           hasNested: true,
           nestedItems: [
-            { title: 'Малайзия', isHeader: true, flag: 'my' },
-            { title: 'Lincoln University College', link: 'https://www.lincoln.edu.my' },
-            { title: 'INTI International University', link: 'https://newinti.edu.my' },
-            { title: 'Россия', isHeader: true, flag: 'ru' },
-            { title: 'Санкт-Петербургский политехнический университет Петра Великого', link: 'https://www.spbstu.ru' },
-            { title: 'Южная Корея', isHeader: true, flag: 'kr' },
-            { title: 'Pai Chai University', link: 'https://dept.pcu.ac.kr/dept/eckfl/_eng/index/index.jsp' },
-            { title: 'Chung-Ang University', link: 'https://neweng.cau.ac.kr/index.do' },
-            { title: 'Vision College of Jeonju', link: 'https://en.jvision.ac.kr/main/' },
-            { title: 'Kyungdong University', link: 'https://global.kduniv.ac.kr/global/index.php' },
+            { title: t('partners.malaysia', 'Malaysia'), isHeader: true, flag: 'my' },
+            { title: t('partners.lincoln_university_college', 'Lincoln University College'), link: 'https://www.lincoln.edu.my' },
+            { title: t('partners.inti_international_university', 'INTI International University'), link: 'https://newinti.edu.my' },
+            { title: t('partners.russia', 'Russia'), isHeader: true, flag: 'ru' },
+            { title: t('partners.saint_petersburg_polytechnic_university', 'Saint Petersburg Polytechnic University'), link: 'https://www.spbstu.ru' },
+            { title: t('partners.south_korea', 'South Korea'), isHeader: true, flag: 'kr' },
+            { title: t('partners.pai_chai_university', 'Pai Chai University'), link: 'https://dept.pcu.ac.kr/dept/eckfl/_eng/index/index.jsp' },
+            { title: t('partners.chung_ang_university', 'Chung-Ang University'), link: 'https://neweng.cau.ac.kr/index.do' },
+            { title: t('partners.vision_college_of_jeonju', 'Vision College of Jeonju'), link: 'https://en.jvision.ac.kr/main/' },
+            { title: t('partners.kyungdong_university', 'Kyungdong University'), link: 'https://global.kduniv.ac.kr/global/index.php' },
           ]
         },
       ]
@@ -150,8 +150,8 @@ const Navbar = ({ currentLanguage, languages = [], changeLanguage }) => {
           {title: t('nav.info_system', 'Информационная система'), 
             hasNested: true,
             nestedItems: [
-              { title: 'Ebilim', link: 'https://ebilim.salymbekov.com/Account/Login?ReturnUrl=%2F' },
-              { title: 'Lincoln', link: 'https://online.collaborative.lincoln.edu.my' },
+              { title: t('info_system.ebilim', 'Ebilim'), link: 'https://ebilim.salymbekov.com/Account/Login?ReturnUrl=%2F' },
+              { title: t('info_system.lincoln', 'Lincoln'), link: 'https://online.collaborative.lincoln.edu.my' },
     ]
   },
         { 

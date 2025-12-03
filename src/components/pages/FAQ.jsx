@@ -220,12 +220,8 @@ const FAQ = () => {
 
             <div className="divide-y divide-gray-100">
               {filteredQuestions.map((item, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="border-b border-gray-100 last:border-b-0"
                 >
                   <button
@@ -261,7 +257,7 @@ const FAQ = () => {
                   </button>
 
                   {/* Раскрытый ответ */}
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
