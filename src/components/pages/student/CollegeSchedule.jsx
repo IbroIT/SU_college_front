@@ -307,15 +307,21 @@ const CollegeSchedule = () => {
   if (Array.isArray(dayScheduleData)) {
     console.log('Processing', dayScheduleData.length, 'schedule items for day', activeDay);
     dayScheduleData.forEach(scheduleItem => {
-      console.log('Processing schedule item:', scheduleItem);
-      
-      // Extract time slot number - now it comes directly as a number
+      // Extract time slot number
       const timeSlot = scheduleItem.time_slot || '1';
-      console.log('Extracted time slot:', timeSlot);
       
-      // Create lesson object from schedule item
+      // Get subject name based on current language
+      let subjectName = 'Unknown Subject';
+      if (i18n.language === 'ru' || i18n.language === 'ru-RU') {
+        subjectName = scheduleItem.subject_name_ru || scheduleItem.subject_name || 'Unknown Subject';
+      } else if (i18n.language === 'ky' || i18n.language === 'ky-KG') {
+        subjectName = scheduleItem.subject_name_ky || scheduleItem.subject_name || 'Unknown Subject';
+      } else {
+        subjectName = scheduleItem.subject_name_en || scheduleItem.subject_name || 'Unknown Subject';
+      }
+      
       const lesson = {
-        subject: scheduleItem.subject_name || scheduleItem.subject?.name_ru || 'Unknown Subject',
+        subject: subjectName,
         teacher: scheduleItem.teacher_name || scheduleItem.teacher?.short_name || 'Unknown Teacher',
         room: scheduleItem.room_name || scheduleItem.room?.full_name || 'Unknown Room',
         type: scheduleItem.lesson_type || 'lecture',
