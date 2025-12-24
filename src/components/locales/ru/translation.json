@@ -675,6 +675,7 @@
     },
     "programs": {
       "title": "Направления обучения",
+      "duration": "2-3 года",
       "softwareDevelopment": "Разработка программного обеспечения",
       "mobileDevelopment": "Веб-разработка",
       "multimedia": "Международный бизнес",
@@ -2010,7 +2011,7 @@
       },
       "email": {
         "title": "Электронная почта",
-        "content": "salymbekov.kg@gmail.com"
+        "content": "info@salymbekov.com"
       },
       "hours": {
         "title": "Часы работы",

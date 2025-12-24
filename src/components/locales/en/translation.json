@@ -677,6 +677,7 @@
     },
     "programs": {
       "title": "Study Directions",
+      "duration": "2-3 years",
       "softwareDevelopment": "Software Development",
       "mobileDevelopment": "Web Development",
       "multimedia": "International Business",
@@ -2012,7 +2013,7 @@
       },
       "email": {
         "title": "Email",
-        "content": "salymbekov.kg@gmail.com"
+        "content": "info@salymbekov.com"
       },
       "hours": {
         "title": "Working Hours",

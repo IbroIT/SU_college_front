@@ -10,12 +10,12 @@
     "admission_committee": "Кабыл алуу комиссиясы",
     "programs": "Программалар",
     "computer_science": "Компьютер илими",
-    "multimedia_programs": "Эларалык бизнес",
+    "multimedia_programs": "Эл аралык бизнес",
     "mobile_applications": "Веб иштеп чыгуу",
     "webdev": "Веб иштеп чыгуу",
     "ai": "Жасалма интеллект",
     "digital_entrepreneurship": "Санариптик ишкерчилик",
-    "business": "Эларалык бизнес",
+    "business": "Эл аралык бизнес",
     "admission_rules": "Кабыл алуу эрежелери жана планы",
     "required_documents": "Керектүү документтер",
     "selection_schedule": "Тандоо графиги",
@@ -676,12 +676,13 @@
     },
     "programs": {
       "title": "Окуу багыттары",
+      "duration": "2-3 жыл",
       "softwareDevelopment": "Программалык камсыздоону иштеп чыгуу",
       "mobileDevelopment": "Веб-иштеп чыгуу",
-      "multimedia": "Эларалык бизнес",
+      "multimedia": "Эл аралык бизнес",
       "ai": "Жасалма интеллект",
       "webDevelopment": "Веб-иштеп чыгуу",
-      "business": "Эларалык бизнес"
+      "business": "Эл аралык бизнес"
     },
     "pricing": {
       "title": "Окуу баасы",
@@ -703,7 +704,7 @@
         "usd": "≈ 3 000 USD"
       },
       "business": {
-        "program": "Эларалык бизнес",
+        "program": "Эл аралык бизнес",
         "price": "220 000 сом",
         "usd": "≈ 2 500 USD"
       }
@@ -2003,7 +2004,7 @@
       "title": "Байланыш маалыматы",
       "address": {
         "title": "Дарек",
-        "content": "Бишкек ш., Малдыбаева көч. 24б"
+        "content": "Бишкек ш., Малдыбаев көч. 24б"
       },
       "phone": {
         "title": "Телефон",
@@ -2011,7 +2012,7 @@
       },
       "email": {
         "title": "Электрондук почта",
-        "content": "salymbekov.kg@gmail.com"
+        "content": "info@salymbekov.com"
       },
       "hours": {
         "title": "Иш сааттары",
@@ -2058,7 +2059,7 @@
     },
     "map": {
       "title": "Биздин даректибиз",
-      "address": "Бишкек ш., Малдыбаева көч. 24б",
+      "address": "Бишкек ш., Малдыбаев көч. 24б",
       "button": "Картада ачуу"
     }
   },

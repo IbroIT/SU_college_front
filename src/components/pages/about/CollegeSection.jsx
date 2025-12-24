@@ -56,22 +56,22 @@ const CollegeSection = () => {
     {
       icon: <FaLaptopCode className="text-cyan-400" size={28} />,
       name: t('college.programs.softwareDevelopment'),
-      duration: "2-3 года"
+      duration: t('college.programs.duration')
     },
     {
       icon: <FaMobileAlt className="text-emerald-400" size={28} />,
       name: t('college.programs.mobileDevelopment'),
-      duration: "2-3 года"
+      duration: t('college.programs.duration')
     },
     {
       icon: <FaPalette className="text-pink-400" size={28} />,
       name: t('college.programs.multimedia'),
-      duration: "2-3 года"
+      duration: t('college.programs.duration')
     },
     {
       icon: <FaBrain className="text-amber-400" size={28} />,
       name: t('college.programs.ai'),
-      duration: "2-3 года"
+      duration: t('college.programs.duration')
     }
   ];
 

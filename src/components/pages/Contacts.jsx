@@ -35,7 +35,7 @@ const Contacts = () => {
       icon: <FaEnvelope className="text-purple-500" size={24} />,
       title: t('contacts.info.email.title'),
       content: t('contacts.info.email.content'),
-      link: "mailto:salymbekov.kg@gmail.com",
+      link: "mailto:info@salymbekov.com",
       color: "from-purple-500 to-pink-500"
     },
     {
@@ -77,25 +77,25 @@ const Contacts = () => {
     {
       name: t('contacts.departments.admission.title'),
       phone: "+996 706 99 88 89",
-      email: "admission@salymbekov.kg",
+      email: "info@salymbekov.com",
       description: t('contacts.departments.admission.description')
     },
     {
       name: t('contacts.departments.registrar.title'),
       phone: "+996 706 99 88 90",
-      email: "registrar@salymbekov.kg",
+      email: "info@salymbekov.com",
       description: t('contacts.departments.registrar.description')
     },
     {
       name: t('contacts.departments.finance.title'),
       phone: "+996 706 99 88 91",
-      email: "finance@salymbekov.kg",
+      email: "info@salymbekov.com",
       description: t('contacts.departments.finance.description')
     },
     {
       name: t('contacts.departments.international.title'),
       phone: "+996 706 99 88 92",
-      email: "international@salymbekov.kg",
+      email: "info@salymbekov.com",
       description: t('contacts.departments.international.description')
     }
   ];
