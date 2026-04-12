@@ -272,38 +272,6 @@ const Admissions = () => {
 
           </motion.div>
         </div>
-
-        {/* Призыв к действию */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-gray-800 to-blue-700 rounded-3xl p-8 md:p-12 text-white">
-            <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-6">
-              <FaUniversity className="text-xl" />
-              <span className="font-semibold">{t('admissions.cta.badge')}</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              {t('admissions.cta.title')}
-            </h3>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              {t('admissions.cta.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-colors duration-300 inline-flex items-center gap-3"
-              >
-                <FaPhone className="text-sm" />
-                <span>{t('admissions.cta.contactButton')}</span>
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

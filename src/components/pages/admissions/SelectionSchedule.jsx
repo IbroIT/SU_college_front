@@ -108,8 +108,7 @@ const SelectionSchedule = () => {
   const stats = [
     { number: "4", label: t('selectionSchedule.stats.tours'), icon: <FaListAlt className="text-blue-500" /> },
     { number: "17.07", label: t('selectionSchedule.stats.start'), icon: <FaCalendarAlt className="text-green-500" /> },
-    { number: "28.08", label: t('selectionSchedule.stats.end'), icon: <FaClock className="text-purple-500" /> },
-    { number: "100", label: t('selectionSchedule.stats.places'), icon: <FaUserCheck className="text-orange-500" /> }
+    { number: "28.08", label: t('selectionSchedule.stats.end'), icon: <FaClock className="text-purple-500" /> }
   ];
 
   const handleDownloadSchedule = () => {
@@ -216,7 +215,7 @@ const SelectionSchedule = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div

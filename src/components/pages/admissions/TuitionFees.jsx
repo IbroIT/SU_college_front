@@ -446,17 +446,9 @@ const TuitionFees = () => {
                       <span className="text-gray-600">{t('tuition.installmentPlan')}</span>
                       <span className="font-semibold text-gray-800">{t('tuition.available')}</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                    <div className="flex justify-between items-center py-2">
                       <span className="text-gray-600">{t('tuition.paymentParts')}</span>
                       <span className="font-semibold text-gray-800">2-4 {t('tuition.parts')}</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                      <span className="text-gray-600">{t('tuition.discounts')}</span>
-                      <span className="font-semibold text-green-600">{t('tuition.available')}</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="text-gray-600">{t('tuition.scholarships')}</span>
-                      <span className="font-semibold text-green-600">{t('tuition.available')}</span>
                     </div>
                   </div>
 
